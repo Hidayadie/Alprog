@@ -25,7 +25,7 @@ cout << "\t| a |   \\ c       |   1. sisi a (sisi tinggi)           |" << endl;
 cout << "\t|   |    \\        |   2. sisi b (sisi alas)             |" << endl;
 cout << "\t|   |     \\       |   3. sisi c (sisi panjang)          |" << endl;
 cout << "\t|   |______\\      |                                     |" << endl;
-cout << "\t|       b         |                                     |" <<endl;
+cout << "\t|       b         |note: pastikan nilai c lebih besar   |" <<endl;
 cout << "\t+=================+=====================================+" <<endl;
 cout << "\nmasukkan pilihan anda (contoh: 3): ";
 cin >> pilihan;
@@ -38,8 +38,10 @@ switch (pilihan) {
         cout << "\nAnda akan mencari panjang sisi a (sisi tinggi)."<< endl;
         cout << "masukkan nilai sisi c: "; cin >> c;
         cout << "masukkan nilai sisi b: "; cin >> b;
+        if (sqrt(pow(c,2) - pow(b, 2)) >= 0) {
         hasil = sqrt(pow(c,2) - pow(b, 2));
-        cout << "panjang sisi a yang didapat adalah: " << hasil << endl;
+        cout << "panjang sisi a yang didapat adalah: " << hasil << endl;}
+        else {cout << "hasil tidak bisa didapat karena nilai yang anda \nberikan tidak bisa dihitung (akar negatif)"<<endl;}
         cout << "\napakah Anda ingin menghitung sisi yang lain (kembali?) [Y/n]: "; cin >> balik;
         balik = tolower(balik);
         if (balik == 'y') {
@@ -53,8 +55,10 @@ switch (pilihan) {
         cout << "\nAnda akan mencari panjang sisi b (sisi alas)."<< endl;
         cout << "masukkan nilai sisi c: "; cin >> c;
         cout << "masukkan nilai sisi a: "; cin >> a;
+        if (sqrt(pow(c,2) - pow(a, 2)) >= 0) {
         hasil = sqrt(pow(c,2) - pow(a, 2));
-        cout << "panjang sisi b yang didapat adalah: " << hasil << endl;
+        cout << "panjang sisi b yang didapat adalah: " << hasil << endl;}
+        else {cout << "hasil tidak bisa didapat karena nilai yang anda \nberikan tidak bisa dihitung (akar negatif)"<<endl;}
         cout << "\napakah Anda ingin menghitung sisi yang lain (kembali?) [Y/n]: "; cin >> balik;
         balik = tolower(balik);
         if (balik == 'y') {
