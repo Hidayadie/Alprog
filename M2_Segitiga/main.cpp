@@ -1,3 +1,10 @@
+
+/*
+hilangkan komen (//) dibawah ini agar kode bekerja dengan lebih rapi.
+Jika menggunakan windows maka hilangkan // pada cls
+Jika menggunakan unix/linux hilangkan // pada clear
+*/
+
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
@@ -35,7 +42,10 @@ switch (pilihan) {
         cout << "panjang sisi a yang didapat adalah: " << hasil << endl;
         cout << "\napakah Anda ingin menghitung sisi yang lain (kembali?) [Y/n]: "; cin >> balik;
         balik = tolower(balik);
-        if (balik == 'y') {system("clear"); ngitung = true;}
+        if (balik == 'y') {
+        //system("clear");
+        //system("cls");
+        ngitung = true;}
         else {return 0;}
     break;
     case 2:
@@ -47,7 +57,10 @@ switch (pilihan) {
         cout << "panjang sisi b yang didapat adalah: " << hasil << endl;
         cout << "\napakah Anda ingin menghitung sisi yang lain (kembali?) [Y/n]: "; cin >> balik;
         balik = tolower(balik);
-        if (balik == 'y') {system("clear"); ngitung = true;}
+        if (balik == 'y') {
+        //system("clear");
+        //system("cls");
+        ngitung = true;}
         else {return 0;}
     break;
     case 3:
@@ -59,20 +72,17 @@ switch (pilihan) {
         cout << "panjang sisi c yang didapat adalah: " << hasil << endl;
         cout << "\napakah Anda ingin menghitung sisi yang lain (kembali?) [Y/n]: "; cin >> balik;
         balik = tolower(balik);
-        if (balik == 'y') {system("clear"); ngitung = true;}
+        if (balik == 'y') {
+        //system("clear");
+        //system("cls");
+        ngitung = true;}
         else {return 0;}
     break;
     default:
-    /*
-    hilangkan komen (//) dibawah ini agar kode bekerja dengan lebih rapi.
-    Jika menggunakan windows maka hilangkan // pada cls
-    Jika menggunakan unix/linux hilangkan // pada clear
-    */
         //system("clear");
         //system("cls");
         cout << "\t\033[31m Pilihan tidak valid, tolong pilih ulang dengan benar...\033[0m"<< endl;
-        break;
+    break;
 }}
-
 }
 
