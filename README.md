@@ -5,5 +5,6 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau
 minggu pertemuannya.
 
 ## Kumpulan link tugas
-[M2 - tugas lab : Sisi miring segitiga](M2_Segitiga/main.cpp)
-[M3 - tugas kelas : Notasi Algoritma](M3_Notasi/README.md)
+Semester 1
+- [M2 - tugas lab : Sisi miring segitiga](M2_Segitiga/main.cpp)
+- [M3 - tugas kelas : Notasi Algoritma](M3_Notasi/README.md)
