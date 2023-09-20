@@ -4,23 +4,6 @@
 using namespace std;
 void kasirTes(), cumaTes();
 int main() {
-    cout << "+----+-------------------------+------+" <<endl;
-    cout << "|" << setw(3)<<"No"<< " |" << setw(24)<<"Item" << " |" << setw(5) << "Qty"<< " |"<<endl;
-    cout << "+----+-------------------------+------+" <<endl;
-    cout << "|" << setw(3)<<"01"<< " |" << setw(24)<<"Buku cerita" << " |" << setw(5) << "1"<< " |"<<endl;
-    cout << "|" << setw(3)<<"02"<< " |" << setw(24)<<"Pulpen" << " |" << setw(5) << "2"<< " |"<<endl;
-    cout << "|" << setw(3)<<"03"<< " |" << setw(24)<<"Peraut pensil" << " |" << setw(5) << "1"<< " |"<<endl;
-    cout << "|" << setw(3)<<"04"<< " |" << setw(24)<<"Kertas manila" << " |" << setw(5) << "4"<< " |"<<endl;
-    cout << "|" << setw(3)<<"05"<< " |" << setw(24)<<"Penghapus" << " |" << setw(5) << "1"<< " |"<<endl;
-    cout << "+----+-------------------------+------+" <<endl;
-    cout << "|" << setw(3)<<""<< " |" << setw(24)<<"Total" << " |" << setw(5) << "9"<< " |"<<endl;
-    cout << "+----+-------------------------+------+" <<endl;
-}
-
-
-// ABAIKAN KODE DIBAWAH
-
-void cumaTes() {
     char pilihan;
     cout << "\t+===================================================+" << endl;
     cout << "\t|                                                   |" << endl;
