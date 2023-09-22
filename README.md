@@ -4,7 +4,7 @@ Github ini digunakan sebagai gudang atau tempat untuk tugas kampus. Setiap
 tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau 
 minggu pertemuannya.
 
-## Perangkat
+## Catatan
 ```py
 Kode kebanyakan ditulis menggunakan versi unix (Linux)
 OS: Ubuntu 22.04.3 LTS 42.9 Wayland
