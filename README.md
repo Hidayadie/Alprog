@@ -4,13 +4,10 @@ Github ini digunakan sebagai gudang atau tempat untuk tugas kampus. Setiap
 tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau 
 minggu pertemuannya.
 
-## Perangkat
-```js
-Lenovo ideapad 100-14IBD
-HDD500 / 4GB
-Intel® Core™ i3-5005U CPU @ 2.00GHz × 4
-NV118 / Mesa Intel® HD Graphics 5500 (BDW GT2)
-Ubuntu 22.04.3 LTS & Windows 10
+## Catatan
+```py
+Kode kebanyakan ditulis menggunakan versi unix (Linux)
+OS: Ubuntu 22.04.3 LTS 42.9 Wayland
 ```
 ## Kumpulan link tugas
 Semester 1
