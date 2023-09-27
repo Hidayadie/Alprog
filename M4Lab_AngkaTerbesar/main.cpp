@@ -15,7 +15,6 @@ cout << "Masukkan nilai ketiga  : "; cin >> c;
 cout << "Masukkan nilai keempat : "; cin >> d;
 cout << endl;
 
-
 if      (a == b || a == c || a == d || b == c || b == d || c == d) {
     cout << "Peringatan!, terdapat angka yang sama...\n" << endl;}
 
