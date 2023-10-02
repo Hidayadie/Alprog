@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 int bilangan;
-bool prima;
+bool prima = true;
 cout << "\t\t+===========================+\n"
      << "\t\t|      Selamat datang       |\n"
      << "\t\t| Disini anda akan mengecek |\n"
@@ -23,7 +23,7 @@ else {
     for (int i = 2; i <= bilangan / 2; i++) {
         if (bilangan % i == 0) {
             prima = false;
-    }else {prima = true;}
+    }
 }
 }
 if (prima == true) {
