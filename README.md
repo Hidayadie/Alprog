@@ -11,6 +11,8 @@ OS: Ubuntu 22.04.3 LTS 42.9 Wayland
 ```
 ## Kumpulan link tugas
 Semester 1
-- [M2 - tugas lab : Sisi miring segitiga](M2Lab_Segitiga/main.cpp)
+- [M2 - tugas lab   : Sisi miring segitiga](M2Lab_Segitiga/main.cpp)
 - [M3 - tugas kelas : Notasi Algoritma](M3Kelas_Notasi/README.md)
-- [M3 - tugas lab : tabel menggunakan setw()](M3Lab_Tabel/main.cpp)
+- [M3 - tugas lab   : tabel menggunakan setw()](M3Lab_Tabel/main.cpp)
+- [M4 - tugas kelas : Percabangan](M4Kelas_Percabangan)
+- [M4 - tugas lab   : Angka Terbesar](M4Lab_AngkaTerbesar)
