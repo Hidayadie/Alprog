@@ -5,6 +5,7 @@ using namespace std;
 int main() {
 int bilangan;
 bool prima = true;
+
 cout << "\t\t+===========================+\n"
      << "\t\t|      Selamat datang       |\n"
      << "\t\t| Disini anda akan mengecek |\n"
