@@ -1,9 +1,7 @@
-name: tes work
+name: test
 
 on:
   workflow_dispatch:
-    paths:
-      - 'M*/**'
 
 jobs:
   test:
@@ -13,14 +11,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Build Code
-        run: make -C ${{ matrix.directory }}
+      - name: Build and Test
+        run: |
+          cd M2Lab_Segitiga
+          make
+          make test
 
-      - name: Run Tests
-        run: make test -C ${{ matrix.directory }}
-
-    strategy:
-      matrix:
-        directory:
-          - 'M2Lab_Segitiga'
 
