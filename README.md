@@ -9,7 +9,10 @@ minggu pertemuannya.
 OS: Ubuntu 22.04.3 LTS 42.9 Wayland (primary)
     Windows 10
 
-Text_Editor: Codeblocks, MS V-Studio, MS V-Code
+Text_Editor: Codeblocks
+             MS V-Studio
+             MS V-Code
+             Nano // akwoakw
 ```
 ## Kumpulan link tugas
 Semester 1
