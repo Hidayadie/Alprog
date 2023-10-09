@@ -22,3 +22,4 @@ Semester 1
 - [M4 - tugas kelas : Percabangan](M4Kelas_Percabangan)
 - [M4 - tugas lab   : Angka terbesar](M4Lab_AngkaTerbesar)
 - [M5 - tugas kelas : Angka prima](M5Kelas_BilanganPrima)
+- [M5 - tugas lab   : Faktorial](M5Lab_Faktorial)
