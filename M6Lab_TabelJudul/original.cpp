@@ -1,3 +1,9 @@
+/*
+    ********************************************
+    * KODE INI MASIH DALAM BENTUK UNIX (LINUX) *
+    * UNTUK KODE VERSI WINDOWS LIAT MAIN.CPP   *
+    ********************************************
+*/
 #include <iostream>
 #include <unistd.h>
 #include <string>
@@ -76,18 +82,28 @@ void bertema() {
     cout << "┌────────┐\t╒════════╕\t╔════════╗\n"
          << "│ Tema 1 │\t│ Tema 2 │\t║ Tema 3 ║\n"
          << "└────────┘\t╘════════╛\t╚════════╝\n"
-         << "┏━━━━━━━━┓\t╓────────╖\t◆◆◆◆◆◆◆◆◆◆\n"
-         << "┃ Tema 4 ┃\t║ Tema 5 ║\t◆ Tema 6 ◆\n"
-         << "┗━━━━━━━━┛\t╙────────╜\t◆◆◆◆◆◆◆◆◆◆\n"
-         << "☆☆☆☆☆☆☆☆☆☆\n"
-         << "☆ Tema 7 ☆\n"
-         << "☆☆☆☆☆☆☆☆☆☆\n";
-    cout << "pilihan anda: ";
+         << "┏━━━━━━━━┓\t╓────────╖\t┌--------┐\n"
+         << "┃ Tema 4 ┃\t║ Tema 5 ║\t¦ Tema 6 ¦\n"
+         << "┗━━━━━━━━┛\t╙────────╜\t└--------┘\n"
+         << "☆☆☆☆☆☆☆☆☆☆\t◆◆◆◆◆◆◆◆◆◆\t■■■■■■■■■■\n"
+         << "☆ Tema 7 ☆\t◆ Tema 8 ◆\t█ Tema 9 █\n"
+         << "☆☆☆☆☆☆☆☆☆☆\t◆◆◆◆◆◆◆◆◆◆\t■■■■■■■■■■\n\n";
+    cout << "\t[Q] Keluar\t[B] Kembali\n\n";
+    cout << "pilihan anda: "; cin>>pilihan;
+    switch (pilihan) {
+        case '1':
+            ataskiri = 195; ataskanan = 191;
+            hori = 196; verti = 179;
+            bawahkiri = 192; bawahkanan = 217;
+        break;
+    }
+    cout << ataskiri << ataskanan << hori << verti << bawahkiri << bawahkanan;
 }
 
 
 void rahasia() {
-    for (int i = 0; i < 256; i++) {
+
+    for (int i = 127; i < 256; i++) {
     cout <<"ke - "<<i<<" "<< char(i)<<endl;
     }
 
