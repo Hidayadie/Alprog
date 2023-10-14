@@ -1,11 +1,10 @@
 ﻿/*
     ********************************************
-    * KODE INI MASIH DALAM BENTUK UNIX (LINUX) *
-    * UNTUK KODE VERSI WINDOWS LIAT MAIN.CPP   *
+    *   Versi Windows, meski tidak selengkap   *
+    * versi linux, tetapi yang penting bisa :v *
     ********************************************
 */
 #include <iostream>
-#include <Windows.h>
 #include <string>
 
 using namespace std;
@@ -17,9 +16,7 @@ int main() {
     cout << "\t\t+=-=-=-=-=-=-=-=-+\n"
         << "\t\t| Selamat Datang |\n"
         << "\t\t+=-=-=-=-=-=-=-=-+\n";
-    //sleep(1000);
     cout << "\ndisini anda dapat membuat kotak \njudul(box) dengan kalimat anda sendiri" << endl;
-    //sleep(1.5);
     cout << "\nApakah Anda ingin memilih tema atau langsung ingin membuatnya?"
         << "\n [Yes]\tMenggunakan Tema memerlukan \"DOS Latin-US\" (CP-437)"
         << "\n [No]\tTanpa tema hanya menggunakan UTF-8"
@@ -41,7 +38,7 @@ int main() {
     }
 }
 void biasa() {
-    //system("clear");
+    system("cls");
     cout << "Anda memilih tanpa tema" << endl;
     string judul; char balik;
     cout << "\nmasukkan judul anda: ";  cin.ignore(); getline(cin, judul);
