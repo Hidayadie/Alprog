@@ -23,3 +23,4 @@ Semester 1
 - [M4 - tugas lab   : Angka terbesar](M4Lab_AngkaTerbesar)
 - [M5 - tugas kelas : Angka prima](M5Kelas_BilanganPrima)
 - [M5 - tugas lab   : Faktorial](M5Lab_Faktorial)
+- [M6 - tugas lab   : Judul](M6Lab_TabelJudul)
