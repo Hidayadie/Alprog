@@ -1,10 +1,11 @@
-# ALGORITMA DAN PEMROGRAMAN
-
+<h1> ALGORITMA DAN PEMROGRAMAN </h1>
+<h2>Kelas</h2>
 <b>Kelas: 23 IF 07</b> <br>
-Github ini digunakan sebagai gudang atau tempat untuk tugas kampus. Setiap
-tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau 
-minggu pertemuannya.
-## Catatan
+<p style="text-align: justify">Github ini digunakan sebagai gudang atau tempat untuk tugas kampus. Setiap
+tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau minggu pertemuannya.</p>
+
+<h2>Workstation</h2>
+
 ```js
 OS: Ubuntu 22.04.3 LTS 42.9 Wayland (primary)
     Windows 10
@@ -24,3 +25,4 @@ Semester 1
 - [M5 - tugas kelas : Angka prima](M5Kelas_BilanganPrima)
 - [M5 - tugas lab   : Faktorial](M5Lab_Faktorial)
 - [M6 - tugas lab   : Judul](M6Lab_TabelJudul)
+- [M8 - tugas lab   : Palindronme](M8Lab_Palindrome)
