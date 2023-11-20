@@ -10,10 +10,9 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau m
 OS: Ubuntu 22.04.3 LTS 42.9 Wayland (primary)
     Windows 10
 
-Text_Editor: Codeblocks
-             MS V-Studio
-             MS V-Code
-             Nano // akwoakw
+Text_Editor & IDE: Codeblocks
+                   MS V-Studio
+                   MS VS-Code
 ```
 ## Kumpulan link tugas
 Semester 1
@@ -25,4 +24,5 @@ Semester 1
 - [M5 - tugas kelas : Angka prima](M5Kelas_BilanganPrima)
 - [M5 - tugas lab   : Faktorial](M5Lab_Faktorial)
 - [M6 - tugas lab   : Judul](M6Lab_TabelJudul)
-- [M8 - tugas lab   : Palindronme](M8Lab_Palindrome)
+- [M8 - tugas lab   : Palindrome](M8Lab_Palindrome)
+- [M9 - tugas lab   : Putar Kalimat](M9Lab_PutarKalimat)
