@@ -55,7 +55,6 @@ int background(int kode) {
     }
     return kode + 7;
 }
-
 void tabel(int pilihan) {
     int tinggi = header + pilihan+2 + footer;
     for (int i = 0; i < tinggi; i++) {
@@ -87,6 +86,7 @@ void tabel(int pilihan) {
     }
     refresh();
 }
+
 int menuAdmin() {
     curs_set(0);
     clear();
@@ -143,10 +143,9 @@ int menuAdmin() {
         }
     }
     refresh();
-    getch();
+    //getch();
     return 0;
 }
-
 int choose(int menu) {
     if (menu == 1) {
         int milih = 0;
@@ -287,12 +286,10 @@ int choose(int menu) {
         attroff(COLOR_PAIR(warna(1)));
     }
 
-    getch();
+    //getch();
     }
     return 0;
 }
-
-
 
 int main() {
     initscr();
@@ -310,7 +307,8 @@ int main() {
         attroff(COLOR_PAIR(warna(1)));
 
     }
-    getch();
+
+    //getch();
 
 }
 
