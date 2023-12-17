@@ -1,0 +1,70 @@
+P001,Matematika Dasar,John Doe,200
+P002,Fisika Modern,Jane Smith,300
+P003,Kimia Organik,Alan Johnson,250
+P004,Bahasa Inggris Akademis,Maria Garcia,180
+P005,Sejarah Indonesia,Iwan Setiawan,320
+P006,The Lost Symbol,Dan Brown,510
+P007,Divergent,Veronica Roth,487
+P008,The Kite Runner,Khaled Hosseini,372
+P009,The Girl with the Dragon Tattoo,Stieg Larsson,465
+P010,The Martian,Andy Weir,369
+P011,Sapiens: A Brief History of Humankind,Yuval Noah Harari,443
+P012,The Power of Habit,Charles Duhigg,371
+P013,Astrophysics for Young People,Neil deGrasse Tyson,224
+P014,Becoming,Michelle Obama,426
+P015,The Art of Thinking Clearly,Rolf Dobelli,384
+P016,Oxford English Dictionary,Oxford University Press,2196
+P017,Encyclopedia of Science,David Smith,1200
+P018,World Atlas,National Geographic,256
+P019,The Elements of Style,William Strunk Jr.,105
+P020,The Complete Works of William Shakespeare,William Shakespeare,1200
+Q001,The Joy of Cooking,Irma S. Rombauer,1152
+Q002,The Complete Book of Home Preserving,Judi Kingry,448
+Q003,The Joy of Gardening,Dick Raymond,416
+Q004,The Total Outdoorsman,T. Edward Nickens,320
+Q005,The Art of Electronics,Paul Horowitz,1220
+Q006,Rich Dad Poor Dad,Robert T. Kiyosaki,336
+Q007,Good to Great,Jim Collins,320
+Q008,The Lean Six Sigma Pocket Toolbook,Michael L. George,288
+Q009,Freakonomics,Steven D. Levitt,320
+Q010,How to Win Friends and Influence People,Dale Carnegie,288
+Q011,The Prince,Niccolò Machiavelli,140
+Q012,The Federalist Papers,Alexander Hamilton,528
+Q013,The Communist Manifesto,Karl Marx,48
+Q014,Democracy in America,Alexis de Tocqueville,928
+Q015,The Road to Serfdom,Friedrich Hayek,275
+Q016,The Wellness Encyclopedia,University Health News,704
+Q017,The China Study,T. Colin Campbell,417
+Q018,The Omnivore's Dilemma,Michael Pollan,464
+Q019,How Not to Die,Michael Greger,576
+Q020,The 4-Hour Body,Timothy Ferriss,576
+R001,The Innovators,Walter Isaacson,542
+R002,Steve Jobs,Walter Isaacson,630
+R003,Zero to One,Peter Thiel,210
+R004,The Lean Startup,Eric Ries,336
+R005,Sapiens: A Graphic History,Yuval Noah Harari,248
+R006,Thinking & Fast and Slow, Daniel Kahneman,499
+R007,Man's Search for Meaning,Viktor E. Frankl,184
+R008,Influence: The Psychology of Persuasion,Robert B. Cialdini,336
+R009,Quiet: The Power of Introverts,Susan Cain,352
+R010,The Interpretation of Dreams,Sigmund Freud,624
+R011,The Art Book,Phaidon Press,592
+R012,The Story of Art,E.H. Gombrich,688
+R013,Ways of Seeing,John Berger,176
+R014,The Elements of Typographic Style,Robert Bringhurst,382
+R015,The Complete Works of Vincent van Gogh,Vincent van Gogh,960
+R016,Romeo and Juliet,William Shakespeare,320
+R017,One Hundred Years of Solitude,Gabriel Garcia Marquez,417
+R018,The Canterbury Tales,Geoffrey Chaucer,544
+R019,War and Peace,Leo Tolstoy,1392
+R020,The Divine Comedy,Dante Alighieri,798
+S001,A People's History of the United States,Howard Zinn,729
+S002,Guns. Germs and Steel,Jared Diamond,496
+S003,The Wright Brothers,David McCullough,336
+S004,The Silk Roads,Peter Frankopan,645
+S005,The History of the Peloponnesian War,Thucydides,512
+S006,The Code Book,Simon Singh,432
+S007,The Selfish Gene,Richard Dawkins,384
+S008,The Complete Works of Edgar Allan Poe,Edgar Allan Poe,1056
+S009,The Holy Bible,Various Authors,1200
+S010,Quran,Abdullah Yusuf Ali,604
