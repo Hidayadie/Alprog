@@ -1,174 +1,14 @@
-#include <iostream>
-#include <windows.h>
-#include <iomanip>
-#include <fstream>
-
+#include "header.h"
 using namespace std;
-void masukkanBuku(), editBuku(), admin(), masuk(), member();
-
-struct Buku {
-    string kode;
-    string judul;
-    string pengarang;
-    int halaman;
-};
+void masukkanBuku(), edit(), admin(), masuk(), member(), cari();
+bool Start_Pertama_Kali = true;
+vector<Buku> buku;
 void move(int x, int y) {
     COORD coord;
     coord.X = x;
     coord.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
-void tampilkanDataBuku() {
-    ifstream file("databuku.txt");
-    if (file.is_open()) {
-        for (int i = 0; i < 10; i++) {
-            if (i == 0) {
-                cout << "+------+-----------------------------------------------+------------------------+-----------+\n"
-                     << "| kode |        Judul                                  |       Pengarang        |   jum hal |\n"
-                     << "+------+-----------------------------------------------+------------------------+-----------+\n";
-            }
-            else if (i == 9) {
-                cout << "+------+-----------------------------------------------+------------------------+-----------+\n";
-            }
-            else {
-                string kode[1000], judul[1000], pengarang[1000], halaman[1000];
-                int i = 0;
-                while (getline(file, kode[i], ',')) {
-                    getline(file, judul[i], ',');
-                    getline(file, pengarang[i], ',');
-                    getline(file, halaman[i]);
-                    cout << "| " << left
-                    << setw(5)  << kode[i]  <<"|"
-                    << setw(47) << judul[i] <<"|"
-                    << setw(24) << pengarang[i] << "|"
-                    << setw(11)  << halaman[i] << "|\n";
-                i++;
-                }
-            }
-
-        }
-        file.close();
-    } else {
-        cout << "Gagal membuka file." << endl;
-    }
-}
-void cari() {
-    system("cls");
-    string input;
-    ifstream file("databuku.txt");
-    if (file.is_open()) {
-    string kode[1000], judul[1000], pengarang[1000], halaman[1000];
-    cout << "+-------------------------------------------------------------------------------------------+\n"
-         << "|       Masukkan Kata Kunci:                                                                |\n"
-         << "+------+-----------------------------------------------+------------------------+-----------+\n"
-         << "| kode |        Judul                                  |       Pengarang        |   jum hal |\n"
-         << "+------+-----------------------------------------------+------------------------+-----------+";
-    move(28,1);
-    cin.ignore();
-    getline(cin, input);
-    move(0,5);
-    int k = 0;
-    while (getline(file, kode[k], ',')) {
-        getline(file, judul[k], ',');
-        getline(file, pengarang[k], ',');
-        getline(file, halaman[k]);
-        size_t found = judul[k].find(input);
-        if (found != string::npos) {
-            cout << "| " << left
-                 << setw(5) << kode[k] << "|"
-                 << setw(47) << judul[k] << "|"
-                 << setw(24) << pengarang[k] << "|"
-                 << setw(11) << halaman[k] << "|\n";
-        }
-    }
-    cout << "+------+-----------------------------------------------+------------------------+-----------+\n";
-    file.close();
-    }
-    else {
-        cout << "Gagal membuka file." << endl;
-    }
-}
-    string login =
-        "============================================\n"
-        "|   PROGRAM PEMINJAMAN BUKU PERPUSTAKAAN   |\n"
-        "============================================\n"
-        "|                                          |\n"
-        "| 1. Login sebagai Admin                   |\n"
-        "| 2. Login sebagai Member                  |\n"
-        "| 0. Keluar                                |\n"
-        "============================================\n"
-        "| Masukan pilihan Anda        :            |\n"
-        "============================================";
-    string loginAdmin =
-        "====================================\n"
-        "|           LOGIN ADMIN            |\n"
-        "====================================\n"
-        "|                                  |\n"
-        "| Username        :                |\n"
-        "| Password        :                |\n"
-        "|                                  |\n"
-        "====================================";
-    string loginMember =
-        "====================================\n"
-        "|           LOGIN MEMBER           |\n"
-        "====================================\n"
-        "|                                  |\n"
-        "| Username        :                |\n"
-        "| Password        :                |\n"
-        "|                                  |\n"
-        "====================================";
-    string dashboardAdmin =
-        "====================================\n"
-        "|         DASHBOARD ADMIN          |\n"
-        "====================================\n"
-        "|                                  |\n"
-        "| 1. Input Buku                    |\n"
-        "| 2. Edit Buku                     |\n"
-        "| 3. Data Buku                     |\n"
-        "| 4. Log Out                       |\n"
-        "|                                  |\n"
-        "====================================\n"
-        "| Masukan pilihan anda      :      |\n"
-        "====================================";
-    string inputBuku =
-        "====================================\n"
-        "|           INPUT BUKU             |\n"
-        "====================================\n"
-        "|                                  |\n"
-        "| Masukan judul buku      :        |\n"
-        "| Masukan kode buku       :        |\n"
-        "| Masukan nama penggarang :        |\n"
-        "| Masukan jumlah halaman  :        |\n"
-        "|                                  |\n"
-        "====================================";
-    string dataBuku =
-        "===========================================\n"
-        "|                DATA BUKU                |\n"
-        "===========================================\n"
-        "| kode |   Judul    |  Penggarang  |  hal |\n"
-        "===========================================\n"
-        "| xxxx |   Buku 1   |  Mr. X       |  xx  |\n"
-        "| xxxx |   Buku 2   |  Mr. Y       |  xxx |\n"
-        "| xxxx |   Buku 3   |  Mr. Z       |  xx  |\n"
-        "| xxxx |   Buku 4   |  Mr. X       |  xx  |\n"
-        "| xxxx |   Buku 5   |  Mr. Y       |  xxx |\n"
-        "| xxxx |   Buku 6   |  Mr. Z       |  xx  |\n"
-        "| xxxx |   Buku 7   |  Mr. X       |  xx  |\n"
-        "| xxxx |   Buku 8   |  Mr. Y       |  xxx |\n"
-        "===========================================";
-string dashboardMember =
-        "====================================\n"
-        "|         DASHBOARD MEMBER         |\n"
-        "====================================\n"
-        "|                                  |\n"
-        "| 1. Cari Buku                     |\n"
-        "| 2. Peminjaman Buku               |\n"
-        "| 3. Exit                          |\n"
-        "|                                  |\n"
-        "====================================\n"
-        "| Masukan pilihan anda      :      |\n"
-        "====================================";
-
 void masuk (int user) {
     string nama,pw;
     system("cls");
@@ -194,10 +34,37 @@ void masuk (int user) {
         }
     }
 }
-
-
-
 int main() {
+    system("cls");
+    ifstream file("databuku.txt");
+    if (file.is_open()) {
+        if (Start_Pertama_Kali) {
+            string kode, judul, pengarang, jumHalaman;
+            int index = 1;
+
+            while (getline(file, kode, ',')) {
+                getline(file, judul, ',');
+                getline(file, pengarang, ',');
+                getline(file, jumHalaman);
+
+                // Membuat objek Buku baru
+                Buku buku_baru;
+                buku_baru.kode = kode;
+                buku_baru.judul = judul;
+                buku_baru.pengarang = pengarang;
+                buku_baru.jumHalaman = jumHalaman;
+                buku_baru.index = index;
+                // Menambahkan objek Buku ke dalam vektor daftarBuku
+                buku.push_back(buku_baru);
+                index++;
+                Start_Pertama_Kali = false;
+            }
+        }
+
+        file.close();
+    } else {
+        cout << "Gagal membuka file." << endl;
+    }
     int input;
     system("cls");
     cout << login;
@@ -213,16 +80,161 @@ int main() {
 
     return 0;
 }
+void read() {
+    system("cls");
+    ifstream file("databuku.txt");
+    if (file.is_open()) {
+        cout << "+------+------+-----------------------------------------------+------------------------+-----------+\n"
+             << "|  no  | kode |        Judul                                  |       Pengarang        |   jum hal |\n"
+             << "+------+------+-----------------------------------------------+------------------------+-----------+\n";
+        for (size_t i = 0; i < buku.size(); i++) {
+                cout << "| " << left
+                     << setw(5)  << buku[i].index <<"|"
+                     << setw(6)  << buku[i].kode  <<"|"
+                     << setw(47) << buku[i].judul <<"|"
+                     << setw(24) << buku[i].pengarang << "|"
+                     << setw(11) << buku[i].jumHalaman << "|\n";
+        }
+        cout << "+------+------+-----------------------------------------------+------------------------+-----------+\n";
+        file.close();
+    }
+     else {
+        cout << "Gagal membuka file." << endl;
+    }
+    char balik;
+    cout << "balik? (y/n): "; cin >> balik;
+    switch (balik) {
+        case 'y':
+            admin();
+        break;
+    }
+}
+void tambah () {
+    system("cls");
+    ofstream file("databuku.txt", ios::app);
+    if (file.is_open()) {
+        //string kode, judul, pengarang, jumHalaman;
+        Buku buku_baru;
+        int index = 1 + buku.size();
+        cin.ignore();
+        cout << inputBuku;
+        move(27, 4); getline(cin, buku_baru.kode);
+        move(27, 5); getline(cin, buku_baru.judul);
+        move(27, 6); getline(cin, buku_baru.pengarang);
+        move(27, 7); getline(cin, buku_baru.jumHalaman);
+        char save;
+        move(40, 8); cout << "save? (y/n): "; cin >> save;
+        switch (save) {
+            case 'y':
+                file << buku_baru.kode << ',' << buku_baru.judul << ',' << buku_baru.pengarang << ',' << buku_baru.jumHalaman << "\n";
+                buku_baru.index = index;
+                buku.push_back(buku_baru);
+            break;
+        }
+        file.close();
+    }
+    else {
+        cout << "error ngab";
+    }
 
-void masukkanBuku() {
-    system("cls");
-    cout << inputBuku;
+     char balik;
+    cout << "balik? (y/n): "; cin >> balik;
+    switch (balik) {
+        case 'y':
+            admin();
+        break;
+    }
 }
-void editBuku() {
-}
-void data() {
+void edit() {
     system("cls");
-    tampilkanDataBuku();
+    string kode, judul, pengarang, jumHalaman;
+    int index; char ngedit, save;
+    cout << "pilih nomor index buku yang mau di edit\n(cek di data buku)\nindex: ";cin >> index;
+    for (int i = 0; i < buku.size(); i++) {
+        if (index == buku[i].index) {
+            cout << "Apakah buku dengan judul \""<<buku[i].judul <<"\" ?\n(y/n): "; cin >> ngedit;
+            if (ngedit == 'Y' || ngedit == 'y') {
+                cin.ignore();
+                cout << "kode\t\t" << buku[i].kode<< " diubah ke = "; getline(cin, kode);
+                cout << "judul\t\t" << buku[i].judul<< " diubah ke = "; getline(cin, judul);
+                cout << "pengarang\t" << buku[i].pengarang<< " diubah ke = "; getline(cin, pengarang);
+                cout << "jumlah hal\t" << buku[i].jumHalaman<< " diubah ke = "; getline(cin, jumHalaman);
+                cout << "kode buku " << kode
+                     << " Buku \"" << judul
+                     << "\" yang ditulis oleh \"" << pengarang
+                     << "\" berjumlah " <<jumHalaman <<" halaman\n";
+                cout << "save? (y/n): "; cin >> save;
+                 switch (save) {
+                    case 'y':
+                        buku[i].kode = kode;
+                        buku[i].judul = judul;
+                        buku[i].pengarang = pengarang;
+                        buku[i].jumHalaman = jumHalaman;
+                        ofstream file("databuku.txt");
+                        if (file.is_open()) {
+                            for (size_t o = 0; o < buku.size(); o++) {
+                            file << buku[o].kode << ',' << buku[o].judul << ',' << buku[o].pengarang << ',' << buku[o].jumHalaman << "\n";
+                            }
+                        file.close();
+                        }
+                        else {
+                            cout << "error ngab";
+                        }
+                }
+            }
+        }
+    }
+     char balik;
+    cout << "balik? (y/n): "; cin >> balik;
+    switch (balik) {
+        case 'y':
+            admin();
+        break;
+    }
+}
+void cari() {
+    system("cls");
+
+    vector<Buku> buku_yang_ketemu;
+    Buku buku_yang_dicari;
+    string input;
+    ifstream file("databuku.txt");
+
+    if (file.is_open()) {
+        cout << "+-------------------------------------------------------------------------------------------+\n"
+             << "|       Masukkan Kata Kunci:                                                                |\n"
+             << "+------+-----------------------------------------------+------------------------+-----------+\n"
+             << "| kode |        Judul                                  |       Pengarang        |   jum hal |\n"
+             << "+------+-----------------------------------------------+------------------------+-----------+";
+
+        move(28, 1);
+        cin.ignore();
+        getline(cin, input);
+        move(0, 5);
+        while (getline(file, buku_yang_dicari.kode, ',')) {
+            getline(file, buku_yang_dicari.judul, ',');
+            getline(file, buku_yang_dicari.pengarang, ',');
+            getline(file, buku_yang_dicari.jumHalaman);
+
+            buku_yang_ketemu.push_back(buku_yang_dicari);
+        }
+
+        for (size_t i = 0; i < buku_yang_ketemu.size(); i++) {
+            size_t found = buku_yang_ketemu[i].judul.find(input);
+            if (found != string::npos) {
+                cout << "| " << left
+                     << setw(5) << buku_yang_ketemu[i].kode << "|"
+                     << setw(47) << buku_yang_ketemu[i].judul << "|"
+                     << setw(24) << buku_yang_ketemu[i].pengarang << "|"
+                     << setw(11) << buku_yang_ketemu[i].jumHalaman << "|\n";
+            }
+        }
+
+        cout << "+------+-----------------------------------------------+------------------------+-----------+\n";
+        file.close();
+    } else {
+        cout << "Gagal membuka file." << endl;
+    }
 }
 void admin() {
     int input;
@@ -232,13 +244,13 @@ void admin() {
     cin >> input;
     switch (input) {
         case 1:
-            masukkanBuku();
+            tambah();
         break;
         case 2:
-            cari();
+            edit();
         break;
         case 3:
-            data();
+            read();
         break;
         case 4:
             main();
