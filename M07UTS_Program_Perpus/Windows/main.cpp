@@ -3,49 +3,81 @@ using namespace std;
 void masukkanBuku(), edit(), admin(), masuk(), member(), cari();
 bool Start_Pertama_Kali = true;
 vector<Buku> buku;
+vector<User> user;
+int user_sekarang = 0;
+void rewrite() {
+    ofstream file("databuku.txt");
+    if (file.is_open()) {
+        for (size_t o = 0; o < buku.size(); o++) {
+            file << buku[o].kode << ',' << buku[o].judul << ',' << buku[o].pengarang << ',' << buku[o].jumHalaman << ','<<buku[o].tersedia << "\n";
+        }
+        file.close();
+    }
+    else {
+        cout << "error ngab";
+    }
+    ofstream data("datauser.txt");
+    if (data.is_open()) {
+        for (size_t o = 0; o < user.size(); o++) {
+            data << user[o].akses << ',' << user[o].nama << ',' << user[o].password << ',' << user[o].meminjam << ',' << user[o].judul << "\n";
+        }
+        data.close();
+    }
+    else {
+        cout << "errorrr";
+    }
+}
 void move(int x, int y) {
     COORD coord;
     coord.X = x;
     coord.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
-void masuk (int user) {
+void masuk (int input) {
     string nama,pw;
     system("cls");
-    if (user == 1) {
+
+    if (input == 1) {
         cout << loginAdmin;
         move(19, 4);
         cin >> nama;
         move(19, 5);
         cin >> pw;
-        if ((nama == "admin") &&(pw == "123")) {
-            admin();
+        for (size_t i = 0; i < user.size(); i++){
+            if (((user[i].akses == "admin"|| user[i].akses == "host")) && (user[i].nama == nama) && (user[i].password == pw)) {
+                user_sekarang = i;
+                admin();
+            }
         }
     }
 
-    else if (user == 2) {
+    else if (input == 2) {
         cout << loginMember;
         move(19, 4);
         cin >> nama;
         move(19, 5);
         cin >> pw;
-        if ((nama == "member") &&(pw == "123")) {
-            member();
+        for (size_t i = 0; i < user.size(); i++) {
+            if (((user[i].akses == "member" || user[i].akses == "host")) && (user[i].nama == nama) && (user[i].password == pw)) {
+                user_sekarang = i;
+                member();
+            }
         }
     }
 }
 int main() {
     system("cls");
-    ifstream file("databuku.txt");
-    if (file.is_open()) {
-        if (Start_Pertama_Kali) {
-            string kode, judul, pengarang, jumHalaman;
+    if (Start_Pertama_Kali) {
+        ifstream file("databuku.txt");
+        if (file.is_open()) {
+            string kode, judul, pengarang, jumHalaman, tersedia;
             int index = 1;
 
             while (getline(file, kode, ',')) {
                 getline(file, judul, ',');
                 getline(file, pengarang, ',');
-                getline(file, jumHalaman);
+                getline(file, jumHalaman, ',');
+                getline(file, tersedia);
 
                 // Membuat objek Buku baru
                 Buku buku_baru;
@@ -53,17 +85,46 @@ int main() {
                 buku_baru.judul = judul;
                 buku_baru.pengarang = pengarang;
                 buku_baru.jumHalaman = jumHalaman;
+                buku_baru.tersedia = tersedia;
                 buku_baru.index = index;
                 // Menambahkan objek Buku ke dalam vektor daftarBuku
                 buku.push_back(buku_baru);
                 index++;
-                Start_Pertama_Kali = false;
             }
+        file.close();
+        }
+        else {
+            cout << "Gagal membuka file Buku" << endl;
         }
 
-        file.close();
-    } else {
-        cout << "Gagal membuka file." << endl;
+        ifstream data("datauser.txt");
+        if (data.is_open()) {
+            int index = 1;
+            string akses, nama, password, meminjam, judul;
+            while (getline(data, akses, ',')) {
+                getline(data, nama, ',');
+                getline(data, password, ',');
+                getline(data, meminjam, ',');
+                getline(data, judul);
+
+                User user_iterasi;
+                user_iterasi.index = index;
+                user_iterasi.akses = akses;
+                user_iterasi.nama = nama;
+                user_iterasi.password = password;
+                user_iterasi.meminjam = meminjam;
+                user_iterasi.judul = judul;
+
+                user.push_back(user_iterasi);
+                index++;
+            }
+        data.close();
+        }
+
+        else {
+            cout << "Gagal membuka file User" << endl;
+        }
+        Start_Pertama_Kali = false;
     }
     int input;
     system("cls");
@@ -93,7 +154,8 @@ void read() {
                      << setw(6)  << buku[i].kode  <<"|"
                      << setw(47) << buku[i].judul <<"|"
                      << setw(24) << buku[i].pengarang << "|"
-                     << setw(11) << buku[i].jumHalaman << "|\n";
+                     << setw(11) << buku[i].jumHalaman << "|"
+                     << setw(11) << buku[i].tersedia << "\n";
         }
         cout << "+------+------+-----------------------------------------------+------------------------+-----------+\n";
         file.close();
@@ -150,7 +212,7 @@ void edit() {
     string kode, judul, pengarang, jumHalaman;
     int index; char ngedit, save;
     cout << "pilih nomor index buku yang mau di edit\n(cek di data buku)\nindex: ";cin >> index;
-    for (int i = 0; i < buku.size(); i++) {
+    for (size_t i = 0; i < buku.size(); i++) {
         if (index == buku[i].index) {
             cout << "Apakah buku dengan judul \""<<buku[i].judul <<"\" ?\n(y/n): "; cin >> ngedit;
             if (ngedit == 'Y' || ngedit == 'y') {
@@ -173,7 +235,7 @@ void edit() {
                         ofstream file("databuku.txt");
                         if (file.is_open()) {
                             for (size_t o = 0; o < buku.size(); o++) {
-                            file << buku[o].kode << ',' << buku[o].judul << ',' << buku[o].pengarang << ',' << buku[o].jumHalaman << "\n";
+                            file << buku[o].kode << ',' << buku[o].judul << ',' << buku[o].pengarang << ',' << buku[o].jumHalaman << ','<<buku[o].tersedia << "\n";
                             }
                         file.close();
                         }
@@ -190,6 +252,64 @@ void edit() {
         case 'y':
             admin();
         break;
+    }
+}
+void minjem() {
+    int index, input;
+    char ya;
+    system("cls");
+    cout << peminjaman;
+    move(29, 10);
+    cin >> input;
+    if (input == 1 && user[user_sekarang].meminjam == "false") {
+        cout << "\n\nindex buku: "; cin >> index;
+        for (size_t i = 0; i < buku.size(); i++) {
+            if ((buku[i].index == index) && (buku[i].tersedia == "true")) {
+                cout <<"Apakah \""<< buku[i].judul << "\" ?(y/n): "; cin >> ya;
+                if (ya == 'Y' || ya == 'y') {
+                    user[user_sekarang].judul = buku[i].judul;
+                    user[user_sekarang].meminjam = "true";
+                    buku[i].tersedia = "false";
+                    rewrite();
+                }
+            }
+        }
+        system("cls");
+        cout << "tunggu sebentar... kembali ke menu sebelumnya...";
+        Sleep(1500);
+        minjem();
+    }
+    else if (input == 1 && user[user_sekarang].meminjam == "true") {
+        system("cls");
+        cout << "Anda memiliki pinjaman aktif";
+        Sleep(1500);
+        minjem();
+    }
+    else if (input == 2 && user[user_sekarang].meminjam == "true") {
+        cout << "\n\napakah anda ingin mengembalikan buku " << user[user_sekarang].judul << " ?(y/n): "; cin >> ya;
+        if (ya == 'Y' || ya == 'y') {
+            for (size_t i = 0; i < buku.size(); i++) {
+                if (buku[i].judul == user[user_sekarang].judul) {
+                   buku[i].tersedia == "true";
+                }
+            }
+            user[user_sekarang].judul = " ";
+            user[user_sekarang].meminjam = "false";
+            rewrite();
+        }
+        system("cls");
+        cout << "tunggu sebentar... kembali ke menu sebelumnya...";
+        Sleep(1500);
+        minjem();
+    }
+    else if (input == 2 && user[user_sekarang].meminjam == "false") {
+        system("cls");
+        cout << "Anda tidak memiliki pinjaman aktif";
+        Sleep(1500);
+        minjem();
+    }
+    else if (input == 3) {
+        member();
     }
 }
 void cari() {
@@ -260,6 +380,7 @@ void admin() {
 void member() {
     int input;
     system("cls");
+    //cout << user_sekarang << "\n";
     cout << dashboardMember;
     move(29, 9);
     cin >> input;
@@ -268,10 +389,10 @@ void member() {
             cari();
         break;
         case 2:
-
+            minjem();
         break;
         case 3:
-
+            main();
         break;
 
     }
