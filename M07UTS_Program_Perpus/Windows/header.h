@@ -7,10 +7,11 @@
 using namespace std;
 struct Buku {
     int index;
-    string kode;
-    string judul;
-    string pengarang;
-    string jumHalaman;
+    string kode, judul, pengarang, jumHalaman, tersedia;
+};
+struct User {
+    int index;
+    string akses, nama, password, meminjam, judul;
 };
 string login =
     "============================================\n"
@@ -87,8 +88,24 @@ string dashboardMember =
     "|                                  |\n"
     "| 1. Cari Buku                     |\n"
     "| 2. Peminjaman Buku               |\n"
+    "| 3. Log Out                       |\n"
+    "|                                  |\n"
+    "====================================\n"
+    "| Masukan pilihan anda      :      |\n"
+    "====================================";
+
+string peminjaman =
+    "====================================\n"
+    "|          MENU PEMINJAMAN         |\n"
+    "====================================\n"
+    "|                                  |\n"
+    "|                                  |\n"
+    "| 1. Pinjam Buku                   |\n"
+    "| 2. Kembalikan Buku               |\n"
     "| 3. Exit                          |\n"
     "|                                  |\n"
     "====================================\n"
     "| Masukan pilihan anda      :      |\n"
     "====================================";
+
+
