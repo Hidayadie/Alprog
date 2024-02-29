@@ -9,21 +9,31 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau m
 <details>
     <summary>Algoritma dan Pemrograman</summary> 
     
-- [M2 - tugas lab   : Sisi miring segitiga](<Semester 1/M02Lab_Segitiga/main.cpp>)
-- [M3 - tugas kelas : Notasi algoritma](Semester1/M3Kelas_Notasi/README.md)
-- [M3 - tugas lab   : Tabel menggunakan setw()](M3Lab_Tabel/main.cpp)
-- [M4 - tugas kelas : Percabangan](M4Kelas_Percabangan)
-- [M4 - tugas lab   : Angka terbesar](M4Lab_AngkaTerbesar)
-- [M5 - tugas kelas : Angka prima](M5Kelas_BilanganPrima)
-- [M5 - tugas lab   : Faktorial](M5Lab_Faktorial)
-- [M6 - tugas lab   : Judul](M6Lab_TabelJudul)
-- [M8 - tugas lab   : Palindrome](M8Lab_Palindrome)
-- [M9 - tugas lab   : Putar Kalimat](M9Lab_PutarKalimat)
-- [M10 - tugas lab  : Fungsi](M10Lab_Fungsi)
+- [M2 - tugas lab   : Sisi miring segitiga](<Semester 1/M02Lab_Segitiga>)
+- [M3 - tugas kelas : Notasi algoritma](<Semester 1/M3Kelas_Notasi>)
+- [M3 - tugas lab   : Tabel menggunakan setw()](<Semester 1/M3Lab_Tabel>)
+- [M4 - tugas kelas : Percabangan](<Semester 1/M4Kelas_Percabangan>)
+- [M4 - tugas lab   : Angka terbesar](<Semester 1/M4Lab_AngkaTerbesar>)
+- [M5 - tugas kelas : Angka prima](<Semester 1/M5Kelas_BilanganPrima>)
+- [M5 - tugas lab   : Faktorial](<Semester 1/M5Lab_Faktorial>)
+- [M6 - tugas lab   : Judul](<Semester 1/M6Lab_TabelJudul>)
+- [M8 - tugas lab   : Palindrome](<Semester 1/M8Lab_Palindrome>)
+- [M9 - tugas lab   : Putar Kalimat](<Semester 1/M9Lab_PutarKalimat>)
+- [M10 - tugas lab  : Fungsi](<Semester 1/M10Lab_Fungsi>)
 
 </details>
 
 ### Semester 2 ###
 <details>
     <summary>Struktur Data</summary>
+
+- [M01 - Task 1 : Array](<Semester 2/Struktur Data/M01Praktikum_1>)
+</details>
+<details>
+    <summary>Pemrograman</summary>
+
+</details>
+<details>
+    <summary>Hardware & Software</summary>
+
 </details>
