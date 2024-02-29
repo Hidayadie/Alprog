@@ -9,7 +9,7 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau m
 <details>
     <summary>Algoritma dan Pemrograman</summary> 
     
-- [M2 - tugas lab   : Sisi miring segitiga](Semester 1/M02Lab_Segitiga/main.cpp)
+- [M2 - tugas lab   : Sisi miring segitiga](<Semester 1/M02Lab_Segitiga/main.cpp>)
 - [M3 - tugas kelas : Notasi algoritma](Semester1/M3Kelas_Notasi/README.md)
 - [M3 - tugas lab   : Tabel menggunakan setw()](M3Lab_Tabel/main.cpp)
 - [M4 - tugas kelas : Percabangan](M4Kelas_Percabangan)
