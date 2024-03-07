@@ -26,7 +26,7 @@ int main() {
          << "\nNilai maximum: "<< maxArray(aray, &ukuran);
 }
 
-// Fungsi lain //
+// Fungsib b4 lain //
 
 int minArray(int aray[], int *ukuran) {
     int kecil = aray[0];
