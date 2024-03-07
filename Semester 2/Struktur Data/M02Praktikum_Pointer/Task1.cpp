@@ -1,18 +1,24 @@
 #include <iostream>
+#include <string>
+#include <cstring>
 
 using namespace std;
 
-    int main() {
-	int x =100;
-	int *pointer;
-	pointer = &x;
-
-	int y = *pointer;
-
-	cout << "nilai x = " << x << ", dengan alamat " << &x << "\n"
-		 << "nilai alamat pointer = " << pointer << "\n"
-		 << "nilai yg ditunjuk pointer = " << *pointer << "\n"
-		 << "nilai y = " << y << "\n\n";
+int ngitungspasi(string *ptr) {
+    int jumlah;
+    for (char karakter : *ptr) {
+        if (karakter == ' ') {
+            ++jumlah;
+        }
+    }
+    return jumlah;
+}
 
 
+int main() {
+    string kalimat;
+    int spasi;
+    cout << "Masukkan kalimat: "; getline(cin, kalimat);
+    spasi = ngitungspasi(&kalimat);
+    cout << "\n\nPada kalmat \n\"" << kalimat << "\"\nterdapat spasi sebanyak: " << spasi;
 }
