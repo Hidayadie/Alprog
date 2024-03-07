@@ -1,52 +1,55 @@
 #include <iostream>
-#include <algorithm> // Untuk std::sort
+#include <algorithm>
 
-// Fungsi untuk mengurutkan array secara descending
-void urutkanDescending(int* arr, int ukuran) {
-    std::sort(arr, arr + ukuran, std::greater<int>());
+using namespace std;
+
+void nurun(int *data, int ukuran) {
+    sort(data, data + ukuran, greater<int>());
+}
+void naik(int *data, int ukuran) {
+    sort(data, data + ukuran, less<int>());
 }
 
-// Fungsi untuk mencari nilai tertentu dalam array menggunakan pointer
-bool cariNilai(const int* arr, int ukuran, int nilaiCari) {
+bool cari(int *data, int ukuran, int target) {
     for (int i = 0; i < ukuran; i++) {
-        if (*arr == nilaiCari) {
-            return true; // Nilai ditemukan
+        if (*data == target) {
+            return true;
         }
-        arr++;
     }
-    return false; // Nilai tidak ditemukan
+    return false;
 }
+
+
 
 int main() {
-    const int ukuranArray = 5;
-    int data[ukuranArray];
-
-    // Memasukkan nilai ke dalam array
-    std::cout << "Masukkan " << ukuranArray << " angka:\n";
-    for (int i = 0; i < ukuranArray; i++) {
-        std::cout << "Angka ke-" << i + 1 << ": ";
-        std::cin >> data[i];
+    int ukuran;
+    cout << "Masukkan ukuran aray: "; cin >> ukuran;
+    int data[ukuran];
+    for (int i = 0; i < ukuran; i++) {
+        cout << "Masukkan nilai ke - " << i + 1 << " : "; cin >> data[i];
     }
 
-    // Panggil fungsi untuk mengurutkan array secara descending
-    urutkanDescending(data, ukuranArray);
-
-    // Tampilkan array setelah diurutkan
-    std::cout << "Array setelah diurutkan secara descending: ";
-    for (int i = 0; i < ukuranArray; i++) {
-        std::cout << data[i] << " ";
+    naik(data, ukuran);
+    cout << "\nArray setelah diurutkan secara ascending...\n\"";
+    for (int i = 0; i < ukuran; i++) {
+        cout << data[i] << " ";
     }
-    std::cout << std::endl;
+    cout << "\"";
 
-    // Cari nilai tertentu dengan fasilitas pointer
-    int nilaiCari;
-    std::cout << "Masukkan nilai yang ingin dicari: ";
-    std::cin >> nilaiCari;
+    nurun(data, ukuran);
+    cout << "\nArray setelah diurutkan secara descending...\n\"";
+    for (int i = 0; i < ukuran; i++) {
+        cout << data[i] << " ";
+    }
+    cout << "\"";
+    int target;
+    cout << "\nMasukkan nilai yang ingin dicari: ";
+    cin >> target;
 
-    if (cariNilai(data, ukuranArray, nilaiCari)) {
-        std::cout << "Nilai " << nilaiCari << " ditemukan dalam array.\n";
+    if (cari(data, ukuran, target)) {
+        cout << "\nNilai " << target << " ditemukan dalam array.\n";
     } else {
-        std::cout << "Nilai " << nilaiCari << " tidak ditemukan dalam array.\n";
+        cout << "\nNilai " << target << " tidak ditemukan dalam array.\n";
     }
 
     return 0;
