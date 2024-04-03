@@ -1,4 +1,5 @@
-# ALGORITMA DAN PEMROGRAMAN #
+# <P align=center>ALGORITMA DAN PEMROGRAMAN</P> #
+$${\color{red}Welcome \space \color{lightblue}To \space \color{green}my \space repo}$$
 <b>Kelas: 23 IF 07</b> <br>
 <p style="text-align: justify">Github ini digunakan sebagai gudang atau tempat untuk tugas kampus. Setiap
 tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau minggu pertemuannya.</p>
@@ -27,7 +28,11 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau m
 <details>
     <summary>Struktur Data</summary>
 
-- [M01 - Task 1 : Array](<Semester 2/Struktur Data/M01Praktikum_1>)
+- [M01 - Array](<Semester 2/Struktur Data/M01Praktikum_1>)
+- [M02 - Pointer](<Semester 2/Struktur Data/M02Praktikum_Pointer>)
+- [M02 - Struct](<Semester 2/Struktur Data/M03Praktikum_Struct>)
+- [M02 - Stack](<Semester 2/Struktur Data/M04Praktikum_Stack>)
+- [M02 - Queue](<Semester 2/Struktur Data/M05Praktikum_Queue>)
 </details>
 <details>
     <summary>Pemrograman</summary>
