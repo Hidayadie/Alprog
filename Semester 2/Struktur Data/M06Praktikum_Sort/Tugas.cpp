@@ -5,14 +5,17 @@ using namespace std;
 void sortZA(int n, string arr[]), print(string arr[], int n), sortAZ(int n, string arr[]);
 
 int main() {
-	string arr[] = {"Abdul", "Hadi", "Harsoyo", "Bajul", "Abdullah"};
+	string arr[5];
+	for (int i = 0; i < 5; i++) {
+        cout << "Masukkan nilai ke - " << i +1 << " : "; getline(cin, arr[i]);
+	}
 	int n = sizeof(arr)/sizeof(arr[0]);
-	cout << "Sebelum disorting: ";
+	cout << "\nSebelum disorting:\t";
 	print(arr, n);
-	cout << "\nSetelah disorting ZA: ";
+	cout << "\n\nSetelah disorting ZA:\t";
 	sortZA(n, arr);
 	print(arr, n);
-	cout << "\nSetelah disorting AZ: ";
+	cout << "\n\nSetelah disorting AZ:\t";
 	sortAZ(n, arr);
 	print(arr, n);
 }
@@ -35,7 +38,7 @@ void sortAZ(int n, string arr[]) {
 	int i, j, min;
 	for (int i = 0; i < n; i++) {
 		min = i;
-		for (int j = i + 1; j < n; j++) {
+		for (int j = i; j < n; j++) {
 			if (arr[j] > arr[min]) {
 				min = j;
 			}
@@ -46,6 +49,7 @@ void sortAZ(int n, string arr[]) {
 
 void print(string arr[], int n) {
 	for (int i = 0; i < n; i++) {
-		cout << arr[i] << " ";
-	} 
+		cout << "\n- " << arr[i] << " ";
+	}
+
 }

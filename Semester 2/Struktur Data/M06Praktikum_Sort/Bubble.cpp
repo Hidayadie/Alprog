@@ -6,17 +6,21 @@ void bubbleSort(int n, int arr[]);
 
 
 int main() {
-	int arr[] = {-2,45,0,11,-9};
+    cout << "masukkan 5 nilai ke array...\n";
+	int arr[5];
+	for (int i = 0; i < 5; i++) {
+        cout << "Masukkan nilai ke - " << i +1 << " : "; cin >> arr[i];
+	}
 	int n = sizeof(arr)/sizeof(int);
 	cout << "Sebelum disorting: ";
 	for (int i = 0; i < n; i++) {
 		cout << arr[i] << " ";
-	} 
+	}
 	cout << "\nSetelah disorting: ";
 	bubbleSort(n, arr);
 	for (int i = 0; i < n; i++) {
 		cout << arr[i] << " ";
-	} 
+	}
 }
 
 void bubbleSort(int n, int arr[]) {

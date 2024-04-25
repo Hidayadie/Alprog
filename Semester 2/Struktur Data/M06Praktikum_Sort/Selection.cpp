@@ -4,7 +4,11 @@ using namespace std;
 void selectionSort(int n, int arr[]), print(int arr[], int n);
 
 int main() {
-	int arr[] = {20,12,10,15,2};
+	cout << "masukkan 5 nilai ke array...\n";
+	int arr[5];
+	for (int i = 0; i < 5; i++) {
+        cout << "Masukkan nilai ke - " << i +1 << " : "; cin >> arr[i];
+	}
 	int n = sizeof(arr)/sizeof(int);
 	cout << "Sebelum disorting: ";
 	print(arr, n);
@@ -30,5 +34,5 @@ void selectionSort(int n, int arr[]) {
 void print(int arr[], int n) {
 	for (int i = 0; i < n; i++) {
 		cout << arr[i] << " ";
-	} 
+	}
 }
