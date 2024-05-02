@@ -1,9 +1,24 @@
-<mxfile host="app.diagrams.net" modified="2024-05-02T10:56:59.404Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0" version="24.3.1" etag="3WqWn-Woo4_IJu5_PXe9" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-02T11:06:24.241Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="kSp_ishH8kQ-SUgiEsn2" version="24.3.1" type="github">
   <diagram name="Page-1" id="RWq5tlv6KhhAK4Pza8mO">
-    <mxGraphModel>
+    <mxGraphModel dx="880" dy="454" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="KTKbgiwWAz-cd3F3gUqR-1" value="&lt;b&gt;Mulai&lt;/b&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="390" y="140" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KTKbgiwWAz-cd3F3gUqR-2" value="&lt;b&gt;Inisialisasi&lt;/b&gt;&lt;br&gt;Semua lampu bewarna Merah" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="390" y="230" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="KTKbgiwWAz-cd3F3gUqR-3" value="&lt;br&gt;Input Tombol" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;" vertex="1" parent="1">
+          <mxGeometry x="390" y="380" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KTKbgiwWAz-cd3F3gUqR-4" value="&lt;b&gt;Proses&lt;/b&gt;&lt;br&gt;Lampu sebelumnya bewarna Kuning" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="570" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KTKbgiwWAz-cd3F3gUqR-5" value="&lt;b&gt;Display&lt;br&gt;Lampu Kuning&lt;/b&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.display;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="580" y="470" width="100" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
