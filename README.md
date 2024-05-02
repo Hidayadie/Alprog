@@ -30,9 +30,10 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau m
 
 - [M01 - Array](<Semester 2/Struktur Data/M01Praktikum_1>)
 - [M02 - Pointer](<Semester 2/Struktur Data/M02Praktikum_Pointer>)
-- [M02 - Struct](<Semester 2/Struktur Data/M03Praktikum_Struct>)
-- [M02 - Stack](<Semester 2/Struktur Data/M04Praktikum_Stack>)
-- [M02 - Queue](<Semester 2/Struktur Data/M05Praktikum_Queue>)
+- [M03 - Struct](<Semester 2/Struktur Data/M03Praktikum_Struct>)
+- [M04 - Stack](<Semester 2/Struktur Data/M04Praktikum_Stack>)
+- [M05 - Queue](<Semester 2/Struktur Data/M05Praktikum_Queue>)
+- [M06 - Sort](<Semester 2/Struktur Data/M06Praktikum_Sort>)
 </details>
 <details>
     <summary>Pemrograman</summary>
