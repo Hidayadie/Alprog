@@ -12,6 +12,7 @@ int main() {
     cin.ignore();
     for (int i = 0; i < n; i++) {
         cout << "Nama ke - ["<<i<<"]: "; getline(cin, arr[i]);
+        //cin.ignore();
     }
     for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n-1; j++) {
@@ -26,29 +27,29 @@ int main() {
     for (int i =0; i < n; i++) {
         cout << arr[i] << "\n";
     }
+    //cin.ignore();
     cout << "\nMasukkan Nama yang dicari: "; getline(cin, key);
     //key = "Malik";
     kiri = 0;
     kanan = n-1;
 
     while (kiri <= kanan) {
-        tengah = (kiri + (kanan - kiri))/2;
+        tengah = (kiri + kanan) / 2;
 
         if (key == arr[tengah]) {
             ketemu = true;
+            cout << "\nNama ditemukan pada index ke " << tengah;
             break;
         }
         else if (key < arr[tengah]) {
-            kanan = tengah-1;
+            kanan = tengah - 1;
         }
         else {
-            kiri = tengah +1;
+            kiri = tengah + 1;
         }
     }
-    if (ketemu == true) {
-        cout << "\nNama ditemukan pada index ke " << tengah;
-    }
-    else {
+
+    if (!ketemu) {
         cout << "\nGa ketemu";
     }
 }
