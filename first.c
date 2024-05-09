@@ -109,8 +109,7 @@ SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<
 // TWI disabled
 TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
 }
-
-
+void otomatis(void);
 
 void lampu1(int status) {
      switch (status) {
@@ -242,8 +241,11 @@ void ganti() {
         }
     }   
 }
+void main(void) {
 
-void main(void)
+}
+
+void manual(void)
 {
     init();
     lampu1(0);
@@ -253,7 +255,14 @@ void main(void)
     while (1)
           {
           // Place your code here
-          if((PINA&0b00000001)== 0) { 
+          
+          if((PINA&0b00010000)== 0) {
+            break;
+            //otomatis();
+            
+          }
+        
+          else if((PINA&0b00000001)== 0) { 
             ganti();
             delay_ms(1000);
             lampu1(2);
@@ -282,4 +291,40 @@ void main(void)
           }*/ 
           
     } //while
+    //PORTC.1 = 1;
+    otomatis();
 }// main
+
+void otomatis(void) {
+    lampu1(0);
+    lampu2(0);
+    lampu3(0);
+    lampu4(0);
+    while (1) { 
+        if ((PINA&0b00010000)== 0) {
+            break;
+        } 
+        else {
+        while ((PINA&0b00010000)== 0) {
+        delay_ms(1000);
+        lampu1(2);
+        delay_ms(3000);
+        lampu1(0);
+        delay_ms(1000);
+        lampu2(2);
+        delay_ms(3000);
+        lampu2(0);
+        delay_ms(1000);
+        lampu3(2);
+        delay_ms(3000);
+        lampu3(0);
+        delay_ms(1000);
+        lampu4(2);
+        delay_ms(3000);
+        lampu4(0);
+        } // while not
+        }
+        
+    } // while
+   main();     
+}

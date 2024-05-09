@@ -119,8 +119,8 @@ WatchAVR8LAutoVariables=0
 UseEEPROMLocation0=1
 RebuildAll=0
 LinkageInformationPresent=1
-COFFileTimeStamp=1487504483
-Build=26
+COFFileTimeStamp=1487507973
+Build=50
 [DefinedSymbolsDebug]
 Count=0
 [Compiler]
@@ -222,7 +222,7 @@ UseEEPROMLocation0=1
 RebuildAll=1
 LinkageInformationPresent=0
 COFFileTimeStamp=-1
-Build=26
+Build=50
 [DefinedSymbols]
 Count=0
 [CompilerAdvanced]
@@ -322,10 +322,10 @@ L13=Enhanced function parameters passing: Yes
 L14=Automatic register allocation: Yes
 L15=Smart register allocation: Yes
 L16=
-L17=Build: 26
-L18=997 line(s) compiled
+L17=Build: 50
+L18=1038 line(s) compiled
 L19=No errors
-L20=No warnings
+L20=1 warning(s)
 L21=
 L22=Bit variables size: 0 byte(s)
 L23=
@@ -342,19 +342,19 @@ L33=
 L34=Heap size: 0 byte(s)
 L35=
 L36=EEPROM usage: 0 byte(s), 0,0% of EEPROM
-L37=Program size: 399 words (798 bytes), 2,4% of FLASH
+L37=Program size: 459 words (918 bytes), 2,8% of FLASH
 Lines=38
-L38=30 words (60 bytes), 7,0% reduced by Code Compression
+L38=31 words (62 bytes), 6,3% reduced by Code Compression
 [BuildInfoAssembler]
 L1=AVRASM: AVR macro assembler 2.1.30 (build 592 Nov  7 2008 12:38:17)
 L2=Copyright (C) 1995-2008 ATMEL Corporation
 L3=
-L4=E:\Kuliah\PT\Debug\List\first.asm(1876): No EEPROM data, deleting E:\Kuliah\PT\Debug\Exe\first.eep
+L4=E:\Kuliah\PT\Debug\List\first.asm(2006): No EEPROM data, deleting E:\Kuliah\PT\Debug\Exe\first.eep
 L5=
 L6=ATmega32 memory use summary [bytes]:
 L7=Segment   Begin    End      Code   Data   Used    Size   Use%
 L8=---------------------------------------------------------------
-L9=[.cseg] 0x000000 0x00031e    798      0    798   32768   2.4%
+L9=[.cseg] 0x000000 0x000396    918      0    918   32768   2.8%
 L10=[.dseg] 0x000060 0x000268      0      8      8    2048   0.4%
 L11=[.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 L12=

@@ -19,5 +19,6 @@ lampu1                                                                          
 lampu2                                                                            0x00090     32
 lampu3                                                                            0x000B0     32
 lampu4                                                                            0x000D0     33
-ganti                                                                             0x000F1     75
-main                                                                              0x0013C     34
+ganti                                                                             0x000F1     69
+main                                                                              0x00136     37
+otomatis                                                                          0x0015B     36
