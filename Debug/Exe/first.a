@@ -1,0 +1,727 @@
+;#include <mega32.h>
+;PCODE: $00000000 VOL: 0
+	#ifndef __SLEEP_DEFINED__
+;PCODE: $00000001 VOL: 0
+	#define __SLEEP_DEFINED__
+;PCODE: $00000002 VOL: 0
+	.EQU __se_bit=0x80
+;PCODE: $00000003 VOL: 0
+	.EQU __sm_mask=0x70
+;PCODE: $00000004 VOL: 0
+	.EQU __sm_powerdown=0x20
+;PCODE: $00000005 VOL: 0
+	.EQU __sm_powersave=0x30
+;PCODE: $00000006 VOL: 0
+	.EQU __sm_standby=0x60
+;PCODE: $00000007 VOL: 0
+	.EQU __sm_ext_standby=0x70
+;PCODE: $00000008 VOL: 0
+	.EQU __sm_adc_noise_red=0x10
+;PCODE: $00000009 VOL: 0
+	.SET power_ctrl_reg=mcucr
+;PCODE: $0000000A VOL: 0
+	#endif
+;PCODE: $0000000B VOL: 0
+;PCODE: $0000000C VOL: 0
+;#include <delay.h>
+;//#include <cstdio>
+;const short JUMLAHLAMPU = 4;
+;short lampuSebelumnya[JUMLAHLAMPU] = {0,0,0,0};
+;
+;void init(void) {
+; 0000 0007 void init(void) {
+
+	.CSEG
+;PCODE: $0000000D VOL: 0
+;PCODE: $0000000E VOL: 0
+; 0000 0008 // Declare your local variables here
+; 0000 0009 
+; 0000 000A // Input/Output Ports initialization
+; 0000 000B // Port A initialization
+; 0000 000C // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 000D DDRA=(0<<DDA7) | (0<<DDA6) | (0<<DDA5) | (0<<DDA4) | (0<<DDA3) | (0<<DDA2) | (0<<DDA1) | (0<<DDA0);
+;PCODE: $0000000F VOL: 0
+;PCODE: $00000010 VOL: 0
+; 0000 000E // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 000F PORTA=(0<<PORTA7) | (0<<PORTA6) | (0<<PORTA5) | (0<<PORTA4) | (0<<PORTA3) | (0<<PORTA2) | (0<<PORTA1) | (0<<PORTA0);
+;PCODE: $00000011 VOL: 0
+;PCODE: $00000012 VOL: 0
+; 0000 0010 
+; 0000 0011 // Port B initialization
+; 0000 0012 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 0013 DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (0<<DDB1) | (0<<DDB0);
+;PCODE: $00000013 VOL: 0
+;PCODE: $00000014 VOL: 0
+; 0000 0014 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 0015 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+;PCODE: $00000015 VOL: 0
+;PCODE: $00000016 VOL: 0
+; 0000 0016 
+; 0000 0017 // Port C initialization
+; 0000 0018 // Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out
+; 0000 0019 DDRC=(1<<DDC7) | (1<<DDC6) | (1<<DDC5) | (1<<DDC4) | (1<<DDC3) | (1<<DDC2) | (1<<DDC1) | (1<<DDC0);
+;PCODE: $00000017 VOL: 0
+;PCODE: $00000018 VOL: 0
+; 0000 001A // State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0
+; 0000 001B PORTC=(0<<PORTC7) | (0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+;PCODE: $00000019 VOL: 0
+;PCODE: $0000001A VOL: 0
+; 0000 001C 
+; 0000 001D // Port D initialization
+; 0000 001E // Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out
+; 0000 001F DDRD=(1<<DDD7) | (1<<DDD6) | (1<<DDD5) | (1<<DDD4) | (1<<DDD3) | (1<<DDD2) | (1<<DDD1) | (1<<DDD0);
+;PCODE: $0000001B VOL: 0
+;PCODE: $0000001C VOL: 0
+; 0000 0020 // State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0
+; 0000 0021 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+;PCODE: $0000001D VOL: 0
+;PCODE: $0000001E VOL: 0
+; 0000 0022 
+; 0000 0023 // Timer/Counter 0 initialization
+; 0000 0024 // Clock source: System Clock
+; 0000 0025 // Clock value: Timer 0 Stopped
+; 0000 0026 // Mode: Normal top=0xFF
+; 0000 0027 // OC0 output: Disconnected
+; 0000 0028 TCCR0=(0<<WGM00) | (0<<COM01) | (0<<COM00) | (0<<WGM01) | (0<<CS02) | (0<<CS01) | (0<<CS00);
+;PCODE: $0000001F VOL: 0
+;PCODE: $00000020 VOL: 0
+; 0000 0029 TCNT0=0x00;
+;PCODE: $00000021 VOL: 0
+;PCODE: $00000022 VOL: 0
+; 0000 002A OCR0=0x00;
+;PCODE: $00000023 VOL: 0
+;PCODE: $00000024 VOL: 0
+; 0000 002B 
+; 0000 002C // Timer/Counter 1 initialization
+; 0000 002D // Clock source: System Clock
+; 0000 002E // Clock value: Timer1 Stopped
+; 0000 002F // Mode: Normal top=0xFFFF
+; 0000 0030 // OC1A output: Disconnected
+; 0000 0031 // OC1B output: Disconnected
+; 0000 0032 // Noise Canceler: Off
+; 0000 0033 // Input Capture on Falling Edge
+; 0000 0034 // Timer1 Overflow Interrupt: Off
+; 0000 0035 // Input Capture Interrupt: Off
+; 0000 0036 // Compare A Match Interrupt: Off
+; 0000 0037 // Compare B Match Interrupt: Off
+; 0000 0038 TCCR1A=(0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
+;PCODE: $00000025 VOL: 0
+;PCODE: $00000026 VOL: 0
+; 0000 0039 TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
+;PCODE: $00000027 VOL: 0
+;PCODE: $00000028 VOL: 0
+; 0000 003A TCNT1H=0x00;
+;PCODE: $00000029 VOL: 0
+;PCODE: $0000002A VOL: 0
+; 0000 003B TCNT1L=0x00;
+;PCODE: $0000002B VOL: 0
+;PCODE: $0000002C VOL: 0
+; 0000 003C ICR1H=0x00;
+;PCODE: $0000002D VOL: 0
+;PCODE: $0000002E VOL: 0
+; 0000 003D ICR1L=0x00;
+;PCODE: $0000002F VOL: 0
+;PCODE: $00000030 VOL: 0
+; 0000 003E OCR1AH=0x00;
+;PCODE: $00000031 VOL: 0
+;PCODE: $00000032 VOL: 0
+; 0000 003F OCR1AL=0x00;
+;PCODE: $00000033 VOL: 0
+;PCODE: $00000034 VOL: 0
+; 0000 0040 OCR1BH=0x00;
+;PCODE: $00000035 VOL: 0
+;PCODE: $00000036 VOL: 0
+; 0000 0041 OCR1BL=0x00;
+;PCODE: $00000037 VOL: 0
+;PCODE: $00000038 VOL: 0
+; 0000 0042 
+; 0000 0043 // Timer/Counter 2 initialization
+; 0000 0044 // Clock source: System Clock
+; 0000 0045 // Clock value: Timer2 Stopped
+; 0000 0046 // Mode: Normal top=0xFF
+; 0000 0047 // OC2 output: Disconnected
+; 0000 0048 ASSR=0<<AS2;
+;PCODE: $00000039 VOL: 0
+;PCODE: $0000003A VOL: 0
+; 0000 0049 TCCR2=(0<<PWM2) | (0<<COM21) | (0<<COM20) | (0<<CTC2) | (0<<CS22) | (0<<CS21) | (0<<CS20);
+;PCODE: $0000003B VOL: 0
+;PCODE: $0000003C VOL: 0
+; 0000 004A TCNT2=0x00;
+;PCODE: $0000003D VOL: 0
+;PCODE: $0000003E VOL: 0
+; 0000 004B OCR2=0x00;
+;PCODE: $0000003F VOL: 0
+;PCODE: $00000040 VOL: 0
+; 0000 004C 
+; 0000 004D // Timer(s)/Counter(s) Interrupt(s) initialization
+; 0000 004E TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
+;PCODE: $00000041 VOL: 0
+;PCODE: $00000042 VOL: 0
+; 0000 004F 
+; 0000 0050 // External Interrupt(s) initialization
+; 0000 0051 // INT0: Off
+; 0000 0052 // INT1: Off
+; 0000 0053 // INT2: Off
+; 0000 0054 MCUCR=(0<<ISC11) | (0<<ISC10) | (0<<ISC01) | (0<<ISC00);
+;PCODE: $00000043 VOL: 0
+;PCODE: $00000044 VOL: 0
+; 0000 0055 MCUCSR=(0<<ISC2);
+;PCODE: $00000045 VOL: 0
+;PCODE: $00000046 VOL: 0
+; 0000 0056 
+; 0000 0057 // USART initialization
+; 0000 0058 // USART disabled
+; 0000 0059 UCSRB=(0<<RXCIE) | (0<<TXCIE) | (0<<UDRIE) | (0<<RXEN) | (0<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
+;PCODE: $00000047 VOL: 0
+;PCODE: $00000048 VOL: 0
+; 0000 005A 
+; 0000 005B // Analog Comparator initialization
+; 0000 005C // Analog Comparator: Off
+; 0000 005D // The Analog Comparator's positive input is
+; 0000 005E // connected to the AIN0 pin
+; 0000 005F // The Analog Comparator's negative input is
+; 0000 0060 // connected to the AIN1 pin
+; 0000 0061 ACSR=(1<<ACD) | (0<<ACBG) | (0<<ACO) | (0<<ACI) | (0<<ACIE) | (0<<ACIC) | (0<<ACIS1) | (0<<ACIS0);
+;PCODE: $00000049 VOL: 0
+;PCODE: $0000004A VOL: 0
+; 0000 0062 SFIOR=(0<<ACME);
+;PCODE: $0000004B VOL: 0
+;PCODE: $0000004C VOL: 0
+; 0000 0063 
+; 0000 0064 // ADC initialization
+; 0000 0065 // ADC disabled
+; 0000 0066 ADCSRA=(0<<ADEN) | (0<<ADSC) | (0<<ADATE) | (0<<ADIF) | (0<<ADIE) | (0<<ADPS2) | (0<<ADPS1) | (0<<ADPS0);
+;PCODE: $0000004D VOL: 0
+;PCODE: $0000004E VOL: 0
+; 0000 0067 
+; 0000 0068 // SPI initialization
+; 0000 0069 // SPI disabled
+; 0000 006A SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<SPR1) | (0<<SPR0);
+;PCODE: $0000004F VOL: 0
+;PCODE: $00000050 VOL: 0
+; 0000 006B 
+; 0000 006C // TWI initialization
+; 0000 006D // TWI disabled
+; 0000 006E TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
+;PCODE: $00000051 VOL: 0
+;PCODE: $00000052 VOL: 0
+; 0000 006F }
+;PCODE: $00000053 VOL: 0
+;PCODE: $00000054 VOL: 0
+;
+;
+;
+;void lampu1(int status) {
+; 0000 0073 void lampu1(int status) {
+;PCODE: $00000055 VOL: 0
+;PCODE: $00000056 VOL: 0
+; 0000 0074      switch (status) {
+;PCODE: $00000057 VOL: 0
+;	status -> Y+0
+;PCODE: $00000058 VOL: 0
+; 0000 0075         case 0:
+;PCODE: $00000059 VOL: 0
+;PCODE: $0000005A VOL: 0
+; 0000 0076             PORTC.0 = 1;
+;PCODE: $0000005B VOL: 0
+;PCODE: $0000005C VOL: 0
+; 0000 0077             PORTC.1 = 0;
+;PCODE: $0000005D VOL: 0
+;PCODE: $0000005E VOL: 0
+; 0000 0078             PORTC.2 = 0;
+;PCODE: $0000005F VOL: 0
+;PCODE: $00000060 VOL: 0
+; 0000 0079             lampuSebelumnya[0] = 0;
+;PCODE: $00000061 VOL: 0
+;PCODE: $00000062 VOL: 0
+; 0000 007A         break;
+;PCODE: $00000063 VOL: 0
+; 0000 007B 
+; 0000 007C         case 1:
+;PCODE: $00000064 VOL: 0
+;PCODE: $00000065 VOL: 0
+;PCODE: $00000066 VOL: 0
+; 0000 007D             PORTC.0 = 0;
+;PCODE: $00000067 VOL: 0
+;PCODE: $00000068 VOL: 0
+; 0000 007E             PORTC.1 = 1;
+;PCODE: $00000069 VOL: 0
+;PCODE: $0000006A VOL: 0
+; 0000 007F             PORTC.2 = 0;
+;PCODE: $0000006B VOL: 0
+;PCODE: $0000006C VOL: 0
+; 0000 0080         break;
+;PCODE: $0000006D VOL: 0
+; 0000 0081 
+; 0000 0082         case 2:
+;PCODE: $0000006E VOL: 0
+;PCODE: $0000006F VOL: 0
+;PCODE: $00000070 VOL: 0
+; 0000 0083             PORTC.0 = 0;
+;PCODE: $00000071 VOL: 0
+;PCODE: $00000072 VOL: 0
+; 0000 0084             PORTC.1 = 0;
+;PCODE: $00000073 VOL: 0
+;PCODE: $00000074 VOL: 0
+; 0000 0085             PORTC.2 = 1;
+;PCODE: $00000075 VOL: 0
+;PCODE: $00000076 VOL: 0
+; 0000 0086             lampuSebelumnya[0] = 1;
+;PCODE: $00000077 VOL: 0
+;PCODE: $00000078 VOL: 0
+; 0000 0087         break;
+;PCODE: $00000079 VOL: 0
+; 0000 0088     }
+;PCODE: $0000007A VOL: 0
+; 0000 0089 }
+;PCODE: $0000007B VOL: 0
+;PCODE: $0000007C VOL: 0
+;PCODE: $0000007D VOL: 0
+;
+;void lampu2(int status) {
+; 0000 008B void lampu2(int status) {
+;PCODE: $0000007E VOL: 0
+;PCODE: $0000007F VOL: 0
+; 0000 008C     switch (status) {
+;PCODE: $00000080 VOL: 0
+;	status -> Y+0
+;PCODE: $00000081 VOL: 0
+; 0000 008D         case 0:
+;PCODE: $00000082 VOL: 0
+;PCODE: $00000083 VOL: 0
+; 0000 008E             PORTC.3 = 1;
+;PCODE: $00000084 VOL: 0
+;PCODE: $00000085 VOL: 0
+; 0000 008F             PORTC.4 = 0;
+;PCODE: $00000086 VOL: 0
+;PCODE: $00000087 VOL: 0
+; 0000 0090             PORTC.5 = 0;
+;PCODE: $00000088 VOL: 0
+;PCODE: $00000089 VOL: 0
+; 0000 0091             lampuSebelumnya[1] = 0;
+;PCODE: $0000008A VOL: 0
+;PCODE: $0000008B VOL: 0
+;PCODE: $0000008C VOL: 0
+;PCODE: $0000008D VOL: 0
+; 0000 0092         break;
+;PCODE: $0000008E VOL: 0
+; 0000 0093 
+; 0000 0094         case 1:
+;PCODE: $0000008F VOL: 0
+;PCODE: $00000090 VOL: 0
+;PCODE: $00000091 VOL: 0
+; 0000 0095             PORTC.3 = 0;
+;PCODE: $00000092 VOL: 0
+;PCODE: $00000093 VOL: 0
+; 0000 0096             PORTC.4 = 1;
+;PCODE: $00000094 VOL: 0
+;PCODE: $00000095 VOL: 0
+; 0000 0097             PORTC.5 = 0;
+;PCODE: $00000096 VOL: 0
+;PCODE: $00000097 VOL: 0
+; 0000 0098         break;
+;PCODE: $00000098 VOL: 0
+; 0000 0099 
+; 0000 009A         case 2:
+;PCODE: $00000099 VOL: 0
+;PCODE: $0000009A VOL: 0
+;PCODE: $0000009B VOL: 0
+; 0000 009B             PORTC.3 = 0;
+;PCODE: $0000009C VOL: 0
+;PCODE: $0000009D VOL: 0
+; 0000 009C             PORTC.4 = 0;
+;PCODE: $0000009E VOL: 0
+;PCODE: $0000009F VOL: 0
+; 0000 009D             PORTC.5 = 1;
+;PCODE: $000000A0 VOL: 0
+;PCODE: $000000A1 VOL: 0
+; 0000 009E             lampuSebelumnya[1] = 1;
+;PCODE: $000000A2 VOL: 0
+;PCODE: $000000A3 VOL: 0
+;PCODE: $000000A4 VOL: 0
+;PCODE: $000000A5 VOL: 0
+; 0000 009F         break;
+;PCODE: $000000A6 VOL: 0
+; 0000 00A0     }
+;PCODE: $000000A7 VOL: 0
+; 0000 00A1 }
+;PCODE: $000000A8 VOL: 0
+;PCODE: $000000A9 VOL: 0
+;PCODE: $000000AA VOL: 0
+;
+;void lampu3(int status) {
+; 0000 00A3 void lampu3(int status) {
+;PCODE: $000000AB VOL: 0
+;PCODE: $000000AC VOL: 0
+; 0000 00A4     switch (status) {
+;PCODE: $000000AD VOL: 0
+;	status -> Y+0
+;PCODE: $000000AE VOL: 0
+; 0000 00A5         case 0:
+;PCODE: $000000AF VOL: 0
+;PCODE: $000000B0 VOL: 0
+; 0000 00A6             PORTD.0 = 1;
+;PCODE: $000000B1 VOL: 0
+;PCODE: $000000B2 VOL: 0
+; 0000 00A7             PORTD.1 = 0;
+;PCODE: $000000B3 VOL: 0
+;PCODE: $000000B4 VOL: 0
+; 0000 00A8             PORTD.2 = 0;
+;PCODE: $000000B5 VOL: 0
+;PCODE: $000000B6 VOL: 0
+; 0000 00A9             lampuSebelumnya[2] = 0;
+;PCODE: $000000B7 VOL: 0
+;PCODE: $000000B8 VOL: 0
+;PCODE: $000000B9 VOL: 0
+;PCODE: $000000BA VOL: 0
+; 0000 00AA         break;
+;PCODE: $000000BB VOL: 0
+; 0000 00AB 
+; 0000 00AC         case 1:
+;PCODE: $000000BC VOL: 0
+;PCODE: $000000BD VOL: 0
+;PCODE: $000000BE VOL: 0
+; 0000 00AD             PORTD.0 = 0;
+;PCODE: $000000BF VOL: 0
+;PCODE: $000000C0 VOL: 0
+; 0000 00AE             PORTD.1 = 1;
+;PCODE: $000000C1 VOL: 0
+;PCODE: $000000C2 VOL: 0
+; 0000 00AF             PORTD.2 = 0;
+;PCODE: $000000C3 VOL: 0
+;PCODE: $000000C4 VOL: 0
+; 0000 00B0         break;
+;PCODE: $000000C5 VOL: 0
+; 0000 00B1 
+; 0000 00B2         case 2:
+;PCODE: $000000C6 VOL: 0
+;PCODE: $000000C7 VOL: 0
+;PCODE: $000000C8 VOL: 0
+; 0000 00B3             PORTD.0 = 0;
+;PCODE: $000000C9 VOL: 0
+;PCODE: $000000CA VOL: 0
+; 0000 00B4             PORTD.1 = 0;
+;PCODE: $000000CB VOL: 0
+;PCODE: $000000CC VOL: 0
+; 0000 00B5             PORTD.2 = 1;
+;PCODE: $000000CD VOL: 0
+;PCODE: $000000CE VOL: 0
+; 0000 00B6             lampuSebelumnya[2] = 1;
+;PCODE: $000000CF VOL: 0
+;PCODE: $000000D0 VOL: 0
+;PCODE: $000000D1 VOL: 0
+;PCODE: $000000D2 VOL: 0
+; 0000 00B7         break;
+;PCODE: $000000D3 VOL: 0
+; 0000 00B8     }
+;PCODE: $000000D4 VOL: 0
+; 0000 00B9 }
+;PCODE: $000000D5 VOL: 0
+;PCODE: $000000D6 VOL: 0
+;PCODE: $000000D7 VOL: 0
+;
+;void lampu4(int status) {
+; 0000 00BB void lampu4(int status) {
+;PCODE: $000000D8 VOL: 0
+;PCODE: $000000D9 VOL: 0
+; 0000 00BC     switch (status) {
+;PCODE: $000000DA VOL: 0
+;	status -> Y+0
+;PCODE: $000000DB VOL: 0
+; 0000 00BD         case 0:
+;PCODE: $000000DC VOL: 0
+;PCODE: $000000DD VOL: 0
+; 0000 00BE             PORTD.3 = 1;
+;PCODE: $000000DE VOL: 0
+;PCODE: $000000DF VOL: 0
+; 0000 00BF             PORTD.4 = 0;
+;PCODE: $000000E0 VOL: 0
+;PCODE: $000000E1 VOL: 0
+; 0000 00C0             PORTD.5 = 0;
+;PCODE: $000000E2 VOL: 0
+;PCODE: $000000E3 VOL: 0
+; 0000 00C1             lampuSebelumnya[3] = 0;
+;PCODE: $000000E4 VOL: 0
+;PCODE: $000000E5 VOL: 0
+;PCODE: $000000E6 VOL: 0
+;PCODE: $000000E7 VOL: 0
+; 0000 00C2         break;
+;PCODE: $000000E8 VOL: 0
+; 0000 00C3 
+; 0000 00C4         case 1:
+;PCODE: $000000E9 VOL: 0
+;PCODE: $000000EA VOL: 0
+;PCODE: $000000EB VOL: 0
+; 0000 00C5             PORTD.3 = 0;
+;PCODE: $000000EC VOL: 0
+;PCODE: $000000ED VOL: 0
+; 0000 00C6             PORTD.4 = 1;
+;PCODE: $000000EE VOL: 0
+;PCODE: $000000EF VOL: 0
+; 0000 00C7             PORTD.5 = 0;
+;PCODE: $000000F0 VOL: 0
+;PCODE: $000000F1 VOL: 0
+; 0000 00C8         break;
+;PCODE: $000000F2 VOL: 0
+; 0000 00C9 
+; 0000 00CA         case 2:
+;PCODE: $000000F3 VOL: 0
+;PCODE: $000000F4 VOL: 0
+;PCODE: $000000F5 VOL: 0
+; 0000 00CB             PORTD.3 = 0;
+;PCODE: $000000F6 VOL: 0
+;PCODE: $000000F7 VOL: 0
+; 0000 00CC             PORTD.4 = 0;
+;PCODE: $000000F8 VOL: 0
+;PCODE: $000000F9 VOL: 0
+; 0000 00CD             PORTD.5 = 1;
+;PCODE: $000000FA VOL: 0
+;PCODE: $000000FB VOL: 0
+; 0000 00CE             lampuSebelumnya[3] = 1;
+;PCODE: $000000FC VOL: 0
+;PCODE: $000000FD VOL: 0
+;PCODE: $000000FE VOL: 0
+;PCODE: $000000FF VOL: 0
+; 0000 00CF         break;
+;PCODE: $00000100 VOL: 0
+; 0000 00D0     }
+;PCODE: $00000101 VOL: 0
+; 0000 00D1 }
+;PCODE: $00000102 VOL: 0
+;PCODE: $00000103 VOL: 0
+;PCODE: $00000104 VOL: 0
+;
+;void ganti() {
+; 0000 00D3 void ganti() {
+;PCODE: $00000105 VOL: 0
+;PCODE: $00000106 VOL: 0
+; 0000 00D4     int i, ketemu, ubah;
+; 0000 00D5     for (i = 0; i < JUMLAHLAMPU; i++) {
+;PCODE: $00000107 VOL: 0
+;	i -> R16,R17
+;	ketemu -> R18,R19
+;	ubah -> R20,R21
+;PCODE: $00000108 VOL: 0
+;PCODE: $00000109 VOL: 0
+;PCODE: $0000010A VOL: 0
+;PCODE: $0000010B VOL: 0
+;PCODE: $0000010C VOL: 0
+;PCODE: $0000010D VOL: 0
+;PCODE: $0000010E VOL: 0
+;PCODE: $0000010F VOL: 0
+;PCODE: $00000110 VOL: 0
+; 0000 00D6         if (lampuSebelumnya[i] == 1) {
+;PCODE: $00000111 VOL: 0
+;PCODE: $00000112 VOL: 0
+;PCODE: $00000113 VOL: 0
+;PCODE: $00000114 VOL: 0
+;PCODE: $00000115 VOL: 0
+;PCODE: $00000116 VOL: 0
+;PCODE: $00000117 VOL: 0
+; 0000 00D7             ketemu = 1;
+;PCODE: $00000118 VOL: 0
+;PCODE: $00000119 VOL: 0
+; 0000 00D8             ubah = i;
+;PCODE: $0000011A VOL: 0
+;PCODE: $0000011B VOL: 0
+; 0000 00D9             break;
+;PCODE: $0000011C VOL: 0
+; 0000 00DA         }
+; 0000 00DB     }
+;PCODE: $0000011D VOL: 0
+;PCODE: $0000011E VOL: 0
+;PCODE: $0000011F VOL: 0
+;PCODE: $00000120 VOL: 0
+;PCODE: $00000121 VOL: 0
+;PCODE: $00000122 VOL: 0
+; 0000 00DC     if (ketemu == 1) {
+;PCODE: $00000123 VOL: 0
+;PCODE: $00000124 VOL: 0
+;PCODE: $00000125 VOL: 0
+; 0000 00DD         switch (ubah) {
+;PCODE: $00000126 VOL: 0
+; 0000 00DE             case 0:
+;PCODE: $00000127 VOL: 0
+;PCODE: $00000128 VOL: 0
+; 0000 00DF                 lampu1(1);
+;PCODE: $00000129 VOL: 0
+;PCODE: $0000012A VOL: 0
+;PCODE: $0000012B VOL: 0
+; 0000 00E0                 delay_ms(1000);
+;PCODE: $0000012C VOL: 0
+;PCODE: $0000012D VOL: 0
+; 0000 00E1                 lampu1(0);
+;PCODE: $0000012E VOL: 0
+;PCODE: $0000012F VOL: 0
+;PCODE: $00000130 VOL: 0
+; 0000 00E2             break;
+;PCODE: $00000131 VOL: 0
+; 0000 00E3             case 1:
+;PCODE: $00000132 VOL: 0
+;PCODE: $00000133 VOL: 0
+;PCODE: $00000134 VOL: 0
+; 0000 00E4                 lampu2(1);
+;PCODE: $00000135 VOL: 0
+;PCODE: $00000136 VOL: 0
+;PCODE: $00000137 VOL: 0
+; 0000 00E5                 delay_ms(1000);
+;PCODE: $00000138 VOL: 0
+;PCODE: $00000139 VOL: 0
+; 0000 00E6                 lampu2(0);
+;PCODE: $0000013A VOL: 0
+;PCODE: $0000013B VOL: 0
+;PCODE: $0000013C VOL: 0
+; 0000 00E7             break;
+;PCODE: $0000013D VOL: 0
+; 0000 00E8             case 2:
+;PCODE: $0000013E VOL: 0
+;PCODE: $0000013F VOL: 0
+;PCODE: $00000140 VOL: 0
+; 0000 00E9                 lampu3(1);
+;PCODE: $00000141 VOL: 0
+;PCODE: $00000142 VOL: 0
+;PCODE: $00000143 VOL: 0
+; 0000 00EA                 delay_ms(1000);
+;PCODE: $00000144 VOL: 0
+;PCODE: $00000145 VOL: 0
+; 0000 00EB                 lampu3(0);
+;PCODE: $00000146 VOL: 0
+;PCODE: $00000147 VOL: 0
+;PCODE: $00000148 VOL: 0
+; 0000 00EC             break;
+;PCODE: $00000149 VOL: 0
+; 0000 00ED             case 3:
+;PCODE: $0000014A VOL: 0
+;PCODE: $0000014B VOL: 0
+;PCODE: $0000014C VOL: 0
+; 0000 00EE                 lampu4(1);
+;PCODE: $0000014D VOL: 0
+;PCODE: $0000014E VOL: 0
+;PCODE: $0000014F VOL: 0
+; 0000 00EF                 delay_ms(1000);
+;PCODE: $00000150 VOL: 0
+;PCODE: $00000151 VOL: 0
+; 0000 00F0                 lampu4(0);
+;PCODE: $00000152 VOL: 0
+;PCODE: $00000153 VOL: 0
+;PCODE: $00000154 VOL: 0
+; 0000 00F1             break;
+;PCODE: $00000155 VOL: 0
+; 0000 00F2         }
+;PCODE: $00000156 VOL: 0
+; 0000 00F3     }
+; 0000 00F4 
+; 0000 00F5 
+; 0000 00F6 }
+;PCODE: $00000157 VOL: 0
+;PCODE: $00000158 VOL: 0
+;PCODE: $00000159 VOL: 0
+;PCODE: $0000015A VOL: 0
+;PCODE: $0000015B VOL: 0
+;
+;void main(void)
+; 0000 00F9 {
+;PCODE: $0000015C VOL: 0
+; 0000 00FA     init();
+;PCODE: $0000015D VOL: 0
+; 0000 00FB     lampu1(0);
+;PCODE: $0000015E VOL: 0
+;PCODE: $0000015F VOL: 0
+;PCODE: $00000160 VOL: 0
+; 0000 00FC     lampu2(0);
+;PCODE: $00000161 VOL: 0
+;PCODE: $00000162 VOL: 0
+;PCODE: $00000163 VOL: 0
+; 0000 00FD     lampu3(0);
+;PCODE: $00000164 VOL: 0
+;PCODE: $00000165 VOL: 0
+;PCODE: $00000166 VOL: 0
+; 0000 00FE     lampu4(0);
+;PCODE: $00000167 VOL: 0
+;PCODE: $00000168 VOL: 0
+;PCODE: $00000169 VOL: 0
+; 0000 00FF     while (1)
+;PCODE: $0000016A VOL: 0
+; 0000 0100           {
+; 0000 0101           // Place your code here
+; 0000 0102           if((PINA&0b00000001)== 0) {
+;PCODE: $0000016B VOL: 0
+;PCODE: $0000016C VOL: 0
+;PCODE: $0000016D VOL: 0
+; 0000 0103             ganti();
+;PCODE: $0000016E VOL: 0
+; 0000 0104             delay_ms(1000);
+;PCODE: $0000016F VOL: 0
+;PCODE: $00000170 VOL: 0
+; 0000 0105             lampu1(2);
+;PCODE: $00000171 VOL: 0
+;PCODE: $00000172 VOL: 0
+;PCODE: $00000173 VOL: 0
+; 0000 0106 
+; 0000 0107           }
+; 0000 0108 
+; 0000 0109           else if((PINA&0b00000010)== 0) {
+;PCODE: $00000174 VOL: 0
+;PCODE: $00000175 VOL: 0
+;PCODE: $00000176 VOL: 0
+;PCODE: $00000177 VOL: 0
+;PCODE: $00000178 VOL: 0
+; 0000 010A             ganti();
+;PCODE: $00000179 VOL: 0
+; 0000 010B             delay_ms(1000);
+;PCODE: $0000017A VOL: 0
+;PCODE: $0000017B VOL: 0
+; 0000 010C             lampu2(2);
+;PCODE: $0000017C VOL: 0
+;PCODE: $0000017D VOL: 0
+;PCODE: $0000017E VOL: 0
+; 0000 010D           }
+; 0000 010E 
+; 0000 010F           else if((PINA&0b00000100)== 0) {
+;PCODE: $0000017F VOL: 0
+;PCODE: $00000180 VOL: 0
+;PCODE: $00000181 VOL: 0
+;PCODE: $00000182 VOL: 0
+;PCODE: $00000183 VOL: 0
+; 0000 0110             ganti();
+;PCODE: $00000184 VOL: 0
+; 0000 0111             delay_ms(1000);
+;PCODE: $00000185 VOL: 0
+;PCODE: $00000186 VOL: 0
+; 0000 0112             lampu3(2);
+;PCODE: $00000187 VOL: 0
+;PCODE: $00000188 VOL: 0
+;PCODE: $00000189 VOL: 0
+; 0000 0113           }
+; 0000 0114 
+; 0000 0115           else if((PINA&0b00001000)== 0) {
+;PCODE: $0000018A VOL: 0
+;PCODE: $0000018B VOL: 0
+;PCODE: $0000018C VOL: 0
+;PCODE: $0000018D VOL: 0
+;PCODE: $0000018E VOL: 0
+; 0000 0116             ganti();
+;PCODE: $0000018F VOL: 0
+; 0000 0117             delay_ms(1000);
+;PCODE: $00000190 VOL: 0
+;PCODE: $00000191 VOL: 0
+; 0000 0118             lampu4(2);
+;PCODE: $00000192 VOL: 0
+;PCODE: $00000193 VOL: 0
+;PCODE: $00000194 VOL: 0
+; 0000 0119           }
+; 0000 011A          /* else {
+; 0000 011B             PORTC.0 = 0;
+; 0000 011C           }*/
+; 0000 011D 
+; 0000 011E     } //while
+;PCODE: $00000195 VOL: 0
+;PCODE: $00000196 VOL: 0
+;PCODE: $00000197 VOL: 0
+;PCODE: $00000198 VOL: 0
+;PCODE: $00000199 VOL: 0
+;PCODE: $0000019A VOL: 0
+; 0000 011F }// main
+;PCODE: $0000019B VOL: 0
+;PCODE: $0000019C VOL: 0
+;PCODE: $0000019D VOL: 0

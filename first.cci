@@ -1,0 +1,12 @@
+VERSION:3 SOURCE_TIMESTAMP:58A98461
+NODE:I LEVEL:0 LINE:1 "C:\cvavr\inc\mega32.h"
+NODE:I LEVEL:0 LINE:2 "C:\cvavr\inc\delay.h"
+NODE:C LEVEL:0 LINE:4 "JUMLAHLAMPU -> FLASH"
+NODE:V LEVEL:0 LINE:5 "lampuSebelumnya -> RAM:????"
+NODE:F LEVEL:0 LINE:7 "init(void)"
+NODE:F LEVEL:0 LINE:115 "lampu1(int status)"
+NODE:F LEVEL:0 LINE:139 "lampu2(int status)"
+NODE:F LEVEL:0 LINE:163 "lampu3(int status)"
+NODE:F LEVEL:0 LINE:187 "lampu4(int status)"
+NODE:F LEVEL:0 LINE:211 "ganti(void)"
+NODE:F LEVEL:0 LINE:248 "main(void)"
