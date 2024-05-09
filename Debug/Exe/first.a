@@ -209,293 +209,294 @@
 ;PCODE: $00000053 VOL: 0
 ;PCODE: $00000054 VOL: 0
 ;void otomatis(void);
+;void manual(void);
 ;
 ;void lampu1(int status) {
-; 0000 0072 void lampu1(int status) {
+; 0000 0073 void lampu1(int status) {
 ;PCODE: $00000055 VOL: 0
 ;PCODE: $00000056 VOL: 0
-; 0000 0073      switch (status) {
+; 0000 0074      switch (status) {
 ;PCODE: $00000057 VOL: 0
 ;	status -> Y+0
 ;PCODE: $00000058 VOL: 0
-; 0000 0074         case 0:
+; 0000 0075         case 0:
 ;PCODE: $00000059 VOL: 0
 ;PCODE: $0000005A VOL: 0
-; 0000 0075             PORTC.0 = 1;
+; 0000 0076             PORTC.0 = 1;
 ;PCODE: $0000005B VOL: 0
 ;PCODE: $0000005C VOL: 0
-; 0000 0076             PORTC.1 = 0;
+; 0000 0077             PORTC.1 = 0;
 ;PCODE: $0000005D VOL: 0
 ;PCODE: $0000005E VOL: 0
-; 0000 0077             PORTC.2 = 0;
+; 0000 0078             PORTC.2 = 0;
 ;PCODE: $0000005F VOL: 0
 ;PCODE: $00000060 VOL: 0
-; 0000 0078             lampuSebelumnya[0] = 0;
+; 0000 0079             lampuSebelumnya[0] = 0;
 ;PCODE: $00000061 VOL: 0
 ;PCODE: $00000062 VOL: 0
-; 0000 0079         break;
+; 0000 007A         break;
 ;PCODE: $00000063 VOL: 0
-; 0000 007A 
-; 0000 007B         case 1:
+; 0000 007B 
+; 0000 007C         case 1:
 ;PCODE: $00000064 VOL: 0
 ;PCODE: $00000065 VOL: 0
 ;PCODE: $00000066 VOL: 0
-; 0000 007C             PORTC.0 = 0;
+; 0000 007D             PORTC.0 = 0;
 ;PCODE: $00000067 VOL: 0
 ;PCODE: $00000068 VOL: 0
-; 0000 007D             PORTC.1 = 1;
+; 0000 007E             PORTC.1 = 1;
 ;PCODE: $00000069 VOL: 0
 ;PCODE: $0000006A VOL: 0
-; 0000 007E             PORTC.2 = 0;
+; 0000 007F             PORTC.2 = 0;
 ;PCODE: $0000006B VOL: 0
 ;PCODE: $0000006C VOL: 0
-; 0000 007F         break;
+; 0000 0080         break;
 ;PCODE: $0000006D VOL: 0
-; 0000 0080 
-; 0000 0081         case 2:
+; 0000 0081 
+; 0000 0082         case 2:
 ;PCODE: $0000006E VOL: 0
 ;PCODE: $0000006F VOL: 0
 ;PCODE: $00000070 VOL: 0
-; 0000 0082             PORTC.0 = 0;
+; 0000 0083             PORTC.0 = 0;
 ;PCODE: $00000071 VOL: 0
 ;PCODE: $00000072 VOL: 0
-; 0000 0083             PORTC.1 = 0;
+; 0000 0084             PORTC.1 = 0;
 ;PCODE: $00000073 VOL: 0
 ;PCODE: $00000074 VOL: 0
-; 0000 0084             PORTC.2 = 1;
+; 0000 0085             PORTC.2 = 1;
 ;PCODE: $00000075 VOL: 0
 ;PCODE: $00000076 VOL: 0
-; 0000 0085             lampuSebelumnya[0] = 1;
+; 0000 0086             lampuSebelumnya[0] = 1;
 ;PCODE: $00000077 VOL: 0
 ;PCODE: $00000078 VOL: 0
-; 0000 0086         break;
+; 0000 0087         break;
 ;PCODE: $00000079 VOL: 0
-; 0000 0087     }
+; 0000 0088     }
 ;PCODE: $0000007A VOL: 0
-; 0000 0088 }
+; 0000 0089 }
 ;PCODE: $0000007B VOL: 0
 ;PCODE: $0000007C VOL: 0
 ;PCODE: $0000007D VOL: 0
 ;
 ;void lampu2(int status) {
-; 0000 008A void lampu2(int status) {
+; 0000 008B void lampu2(int status) {
 ;PCODE: $0000007E VOL: 0
 ;PCODE: $0000007F VOL: 0
-; 0000 008B     switch (status) {
+; 0000 008C     switch (status) {
 ;PCODE: $00000080 VOL: 0
 ;	status -> Y+0
 ;PCODE: $00000081 VOL: 0
-; 0000 008C         case 0:
+; 0000 008D         case 0:
 ;PCODE: $00000082 VOL: 0
 ;PCODE: $00000083 VOL: 0
-; 0000 008D             PORTC.3 = 1;
+; 0000 008E             PORTC.3 = 1;
 ;PCODE: $00000084 VOL: 0
 ;PCODE: $00000085 VOL: 0
-; 0000 008E             PORTC.4 = 0;
+; 0000 008F             PORTC.4 = 0;
 ;PCODE: $00000086 VOL: 0
 ;PCODE: $00000087 VOL: 0
-; 0000 008F             PORTC.5 = 0;
+; 0000 0090             PORTC.5 = 0;
 ;PCODE: $00000088 VOL: 0
 ;PCODE: $00000089 VOL: 0
-; 0000 0090             lampuSebelumnya[1] = 0;
+; 0000 0091             lampuSebelumnya[1] = 0;
 ;PCODE: $0000008A VOL: 0
 ;PCODE: $0000008B VOL: 0
 ;PCODE: $0000008C VOL: 0
 ;PCODE: $0000008D VOL: 0
-; 0000 0091         break;
+; 0000 0092         break;
 ;PCODE: $0000008E VOL: 0
-; 0000 0092 
-; 0000 0093         case 1:
+; 0000 0093 
+; 0000 0094         case 1:
 ;PCODE: $0000008F VOL: 0
 ;PCODE: $00000090 VOL: 0
 ;PCODE: $00000091 VOL: 0
-; 0000 0094             PORTC.3 = 0;
+; 0000 0095             PORTC.3 = 0;
 ;PCODE: $00000092 VOL: 0
 ;PCODE: $00000093 VOL: 0
-; 0000 0095             PORTC.4 = 1;
+; 0000 0096             PORTC.4 = 1;
 ;PCODE: $00000094 VOL: 0
 ;PCODE: $00000095 VOL: 0
-; 0000 0096             PORTC.5 = 0;
+; 0000 0097             PORTC.5 = 0;
 ;PCODE: $00000096 VOL: 0
 ;PCODE: $00000097 VOL: 0
-; 0000 0097         break;
+; 0000 0098         break;
 ;PCODE: $00000098 VOL: 0
-; 0000 0098 
-; 0000 0099         case 2:
+; 0000 0099 
+; 0000 009A         case 2:
 ;PCODE: $00000099 VOL: 0
 ;PCODE: $0000009A VOL: 0
 ;PCODE: $0000009B VOL: 0
-; 0000 009A             PORTC.3 = 0;
+; 0000 009B             PORTC.3 = 0;
 ;PCODE: $0000009C VOL: 0
 ;PCODE: $0000009D VOL: 0
-; 0000 009B             PORTC.4 = 0;
+; 0000 009C             PORTC.4 = 0;
 ;PCODE: $0000009E VOL: 0
 ;PCODE: $0000009F VOL: 0
-; 0000 009C             PORTC.5 = 1;
+; 0000 009D             PORTC.5 = 1;
 ;PCODE: $000000A0 VOL: 0
 ;PCODE: $000000A1 VOL: 0
-; 0000 009D             lampuSebelumnya[1] = 1;
+; 0000 009E             lampuSebelumnya[1] = 1;
 ;PCODE: $000000A2 VOL: 0
 ;PCODE: $000000A3 VOL: 0
 ;PCODE: $000000A4 VOL: 0
 ;PCODE: $000000A5 VOL: 0
-; 0000 009E         break;
+; 0000 009F         break;
 ;PCODE: $000000A6 VOL: 0
-; 0000 009F     }
+; 0000 00A0     }
 ;PCODE: $000000A7 VOL: 0
-; 0000 00A0 }
+; 0000 00A1 }
 ;PCODE: $000000A8 VOL: 0
 ;PCODE: $000000A9 VOL: 0
 ;PCODE: $000000AA VOL: 0
 ;
 ;void lampu3(int status) {
-; 0000 00A2 void lampu3(int status) {
+; 0000 00A3 void lampu3(int status) {
 ;PCODE: $000000AB VOL: 0
 ;PCODE: $000000AC VOL: 0
-; 0000 00A3     switch (status) {
+; 0000 00A4     switch (status) {
 ;PCODE: $000000AD VOL: 0
 ;	status -> Y+0
 ;PCODE: $000000AE VOL: 0
-; 0000 00A4         case 0:
+; 0000 00A5         case 0:
 ;PCODE: $000000AF VOL: 0
 ;PCODE: $000000B0 VOL: 0
-; 0000 00A5             PORTD.0 = 1;
+; 0000 00A6             PORTD.0 = 1;
 ;PCODE: $000000B1 VOL: 0
 ;PCODE: $000000B2 VOL: 0
-; 0000 00A6             PORTD.1 = 0;
+; 0000 00A7             PORTD.1 = 0;
 ;PCODE: $000000B3 VOL: 0
 ;PCODE: $000000B4 VOL: 0
-; 0000 00A7             PORTD.2 = 0;
+; 0000 00A8             PORTD.2 = 0;
 ;PCODE: $000000B5 VOL: 0
 ;PCODE: $000000B6 VOL: 0
-; 0000 00A8             lampuSebelumnya[2] = 0;
+; 0000 00A9             lampuSebelumnya[2] = 0;
 ;PCODE: $000000B7 VOL: 0
 ;PCODE: $000000B8 VOL: 0
 ;PCODE: $000000B9 VOL: 0
 ;PCODE: $000000BA VOL: 0
-; 0000 00A9         break;
+; 0000 00AA         break;
 ;PCODE: $000000BB VOL: 0
-; 0000 00AA 
-; 0000 00AB         case 1:
+; 0000 00AB 
+; 0000 00AC         case 1:
 ;PCODE: $000000BC VOL: 0
 ;PCODE: $000000BD VOL: 0
 ;PCODE: $000000BE VOL: 0
-; 0000 00AC             PORTD.0 = 0;
+; 0000 00AD             PORTD.0 = 0;
 ;PCODE: $000000BF VOL: 0
 ;PCODE: $000000C0 VOL: 0
-; 0000 00AD             PORTD.1 = 1;
+; 0000 00AE             PORTD.1 = 1;
 ;PCODE: $000000C1 VOL: 0
 ;PCODE: $000000C2 VOL: 0
-; 0000 00AE             PORTD.2 = 0;
+; 0000 00AF             PORTD.2 = 0;
 ;PCODE: $000000C3 VOL: 0
 ;PCODE: $000000C4 VOL: 0
-; 0000 00AF         break;
+; 0000 00B0         break;
 ;PCODE: $000000C5 VOL: 0
-; 0000 00B0 
-; 0000 00B1         case 2:
+; 0000 00B1 
+; 0000 00B2         case 2:
 ;PCODE: $000000C6 VOL: 0
 ;PCODE: $000000C7 VOL: 0
 ;PCODE: $000000C8 VOL: 0
-; 0000 00B2             PORTD.0 = 0;
+; 0000 00B3             PORTD.0 = 0;
 ;PCODE: $000000C9 VOL: 0
 ;PCODE: $000000CA VOL: 0
-; 0000 00B3             PORTD.1 = 0;
+; 0000 00B4             PORTD.1 = 0;
 ;PCODE: $000000CB VOL: 0
 ;PCODE: $000000CC VOL: 0
-; 0000 00B4             PORTD.2 = 1;
+; 0000 00B5             PORTD.2 = 1;
 ;PCODE: $000000CD VOL: 0
 ;PCODE: $000000CE VOL: 0
-; 0000 00B5             lampuSebelumnya[2] = 1;
+; 0000 00B6             lampuSebelumnya[2] = 1;
 ;PCODE: $000000CF VOL: 0
 ;PCODE: $000000D0 VOL: 0
 ;PCODE: $000000D1 VOL: 0
 ;PCODE: $000000D2 VOL: 0
-; 0000 00B6         break;
+; 0000 00B7         break;
 ;PCODE: $000000D3 VOL: 0
-; 0000 00B7     }
+; 0000 00B8     }
 ;PCODE: $000000D4 VOL: 0
-; 0000 00B8 }
+; 0000 00B9 }
 ;PCODE: $000000D5 VOL: 0
 ;PCODE: $000000D6 VOL: 0
 ;PCODE: $000000D7 VOL: 0
 ;
 ;void lampu4(int status) {
-; 0000 00BA void lampu4(int status) {
+; 0000 00BB void lampu4(int status) {
 ;PCODE: $000000D8 VOL: 0
 ;PCODE: $000000D9 VOL: 0
-; 0000 00BB     switch (status) {
+; 0000 00BC     switch (status) {
 ;PCODE: $000000DA VOL: 0
 ;	status -> Y+0
 ;PCODE: $000000DB VOL: 0
-; 0000 00BC         case 0:
+; 0000 00BD         case 0:
 ;PCODE: $000000DC VOL: 0
 ;PCODE: $000000DD VOL: 0
-; 0000 00BD             PORTD.3 = 1;
+; 0000 00BE             PORTD.3 = 1;
 ;PCODE: $000000DE VOL: 0
 ;PCODE: $000000DF VOL: 0
-; 0000 00BE             PORTD.4 = 0;
+; 0000 00BF             PORTD.4 = 0;
 ;PCODE: $000000E0 VOL: 0
 ;PCODE: $000000E1 VOL: 0
-; 0000 00BF             PORTD.5 = 0;
+; 0000 00C0             PORTD.5 = 0;
 ;PCODE: $000000E2 VOL: 0
 ;PCODE: $000000E3 VOL: 0
-; 0000 00C0             lampuSebelumnya[3] = 0;
+; 0000 00C1             lampuSebelumnya[3] = 0;
 ;PCODE: $000000E4 VOL: 0
 ;PCODE: $000000E5 VOL: 0
 ;PCODE: $000000E6 VOL: 0
 ;PCODE: $000000E7 VOL: 0
-; 0000 00C1         break;
+; 0000 00C2         break;
 ;PCODE: $000000E8 VOL: 0
-; 0000 00C2 
-; 0000 00C3         case 1:
+; 0000 00C3 
+; 0000 00C4         case 1:
 ;PCODE: $000000E9 VOL: 0
 ;PCODE: $000000EA VOL: 0
 ;PCODE: $000000EB VOL: 0
-; 0000 00C4             PORTD.3 = 0;
+; 0000 00C5             PORTD.3 = 0;
 ;PCODE: $000000EC VOL: 0
 ;PCODE: $000000ED VOL: 0
-; 0000 00C5             PORTD.4 = 1;
+; 0000 00C6             PORTD.4 = 1;
 ;PCODE: $000000EE VOL: 0
 ;PCODE: $000000EF VOL: 0
-; 0000 00C6             PORTD.5 = 0;
+; 0000 00C7             PORTD.5 = 0;
 ;PCODE: $000000F0 VOL: 0
 ;PCODE: $000000F1 VOL: 0
-; 0000 00C7         break;
+; 0000 00C8         break;
 ;PCODE: $000000F2 VOL: 0
-; 0000 00C8 
-; 0000 00C9         case 2:
+; 0000 00C9 
+; 0000 00CA         case 2:
 ;PCODE: $000000F3 VOL: 0
 ;PCODE: $000000F4 VOL: 0
 ;PCODE: $000000F5 VOL: 0
-; 0000 00CA             PORTD.3 = 0;
+; 0000 00CB             PORTD.3 = 0;
 ;PCODE: $000000F6 VOL: 0
 ;PCODE: $000000F7 VOL: 0
-; 0000 00CB             PORTD.4 = 0;
+; 0000 00CC             PORTD.4 = 0;
 ;PCODE: $000000F8 VOL: 0
 ;PCODE: $000000F9 VOL: 0
-; 0000 00CC             PORTD.5 = 1;
+; 0000 00CD             PORTD.5 = 1;
 ;PCODE: $000000FA VOL: 0
 ;PCODE: $000000FB VOL: 0
-; 0000 00CD             lampuSebelumnya[3] = 1;
+; 0000 00CE             lampuSebelumnya[3] = 1;
 ;PCODE: $000000FC VOL: 0
 ;PCODE: $000000FD VOL: 0
 ;PCODE: $000000FE VOL: 0
 ;PCODE: $000000FF VOL: 0
-; 0000 00CE         break;
+; 0000 00CF         break;
 ;PCODE: $00000100 VOL: 0
-; 0000 00CF     }
+; 0000 00D0     }
 ;PCODE: $00000101 VOL: 0
-; 0000 00D0 }
+; 0000 00D1 }
 ;PCODE: $00000102 VOL: 0
 ;PCODE: $00000103 VOL: 0
 ;PCODE: $00000104 VOL: 0
 ;
 ;void ganti() {
-; 0000 00D2 void ganti() {
+; 0000 00D3 void ganti() {
 ;PCODE: $00000105 VOL: 0
 ;PCODE: $00000106 VOL: 0
-; 0000 00D3     int i, ketemu, ubah;
-; 0000 00D4     for (i = 0; i < JUMLAHLAMPU; i++) {
+; 0000 00D4     int i, ketemu, ubah;
+; 0000 00D5     for (i = 0; i < JUMLAHLAMPU; i++) {
 ;PCODE: $00000107 VOL: 0
 ;	i -> R16,R17
 ;	ketemu -> R18,R19
@@ -509,7 +510,7 @@
 ;PCODE: $0000010E VOL: 0
 ;PCODE: $0000010F VOL: 0
 ;PCODE: $00000110 VOL: 0
-; 0000 00D5         if (lampuSebelumnya[i] == 1) {
+; 0000 00D6         if (lampuSebelumnya[i] == 1) {
 ;PCODE: $00000111 VOL: 0
 ;PCODE: $00000112 VOL: 0
 ;PCODE: $00000113 VOL: 0
@@ -517,334 +518,428 @@
 ;PCODE: $00000115 VOL: 0
 ;PCODE: $00000116 VOL: 0
 ;PCODE: $00000117 VOL: 0
-; 0000 00D6             ketemu = 1;
+; 0000 00D7             ketemu = 1;
 ;PCODE: $00000118 VOL: 0
 ;PCODE: $00000119 VOL: 0
-; 0000 00D7             ubah = i;
+; 0000 00D8             ubah = i;
 ;PCODE: $0000011A VOL: 0
 ;PCODE: $0000011B VOL: 0
-; 0000 00D8             break;
+; 0000 00D9             break;
 ;PCODE: $0000011C VOL: 0
-; 0000 00D9         }
-; 0000 00DA     }
+; 0000 00DA         }
+; 0000 00DB     }
 ;PCODE: $0000011D VOL: 0
 ;PCODE: $0000011E VOL: 0
 ;PCODE: $0000011F VOL: 0
 ;PCODE: $00000120 VOL: 0
 ;PCODE: $00000121 VOL: 0
 ;PCODE: $00000122 VOL: 0
-; 0000 00DB     if (ketemu == 1) {
+; 0000 00DC     if (ketemu == 1) {
 ;PCODE: $00000123 VOL: 0
 ;PCODE: $00000124 VOL: 0
 ;PCODE: $00000125 VOL: 0
-; 0000 00DC         switch (ubah) {
+; 0000 00DD         switch (ubah) {
 ;PCODE: $00000126 VOL: 0
-; 0000 00DD             case 0:
+; 0000 00DE             case 0:
 ;PCODE: $00000127 VOL: 0
 ;PCODE: $00000128 VOL: 0
-; 0000 00DE                 lampu1(1);
+; 0000 00DF                 lampu1(1);
 ;PCODE: $00000129 VOL: 0
 ;PCODE: $0000012A VOL: 0
 ;PCODE: $0000012B VOL: 0
-; 0000 00DF                 delay_ms(1000);
+; 0000 00E0                 delay_ms(1000);
 ;PCODE: $0000012C VOL: 0
 ;PCODE: $0000012D VOL: 0
-; 0000 00E0                 lampu1(0);
+; 0000 00E1                 lampu1(0);
 ;PCODE: $0000012E VOL: 0
 ;PCODE: $0000012F VOL: 0
 ;PCODE: $00000130 VOL: 0
-; 0000 00E1             break;
+; 0000 00E2             break;
 ;PCODE: $00000131 VOL: 0
-; 0000 00E2             case 1:
+; 0000 00E3             case 1:
 ;PCODE: $00000132 VOL: 0
 ;PCODE: $00000133 VOL: 0
 ;PCODE: $00000134 VOL: 0
-; 0000 00E3                 lampu2(1);
+; 0000 00E4                 lampu2(1);
 ;PCODE: $00000135 VOL: 0
 ;PCODE: $00000136 VOL: 0
 ;PCODE: $00000137 VOL: 0
-; 0000 00E4                 delay_ms(1000);
+; 0000 00E5                 delay_ms(1000);
 ;PCODE: $00000138 VOL: 0
 ;PCODE: $00000139 VOL: 0
-; 0000 00E5                 lampu2(0);
+; 0000 00E6                 lampu2(0);
 ;PCODE: $0000013A VOL: 0
 ;PCODE: $0000013B VOL: 0
 ;PCODE: $0000013C VOL: 0
-; 0000 00E6             break;
+; 0000 00E7             break;
 ;PCODE: $0000013D VOL: 0
-; 0000 00E7             case 2:
+; 0000 00E8             case 2:
 ;PCODE: $0000013E VOL: 0
 ;PCODE: $0000013F VOL: 0
 ;PCODE: $00000140 VOL: 0
-; 0000 00E8                 lampu3(1);
+; 0000 00E9                 lampu3(1);
 ;PCODE: $00000141 VOL: 0
 ;PCODE: $00000142 VOL: 0
 ;PCODE: $00000143 VOL: 0
-; 0000 00E9                 delay_ms(1000);
+; 0000 00EA                 delay_ms(1000);
 ;PCODE: $00000144 VOL: 0
 ;PCODE: $00000145 VOL: 0
-; 0000 00EA                 lampu3(0);
+; 0000 00EB                 lampu3(0);
 ;PCODE: $00000146 VOL: 0
 ;PCODE: $00000147 VOL: 0
 ;PCODE: $00000148 VOL: 0
-; 0000 00EB             break;
+; 0000 00EC             break;
 ;PCODE: $00000149 VOL: 0
-; 0000 00EC             case 3:
+; 0000 00ED             case 3:
 ;PCODE: $0000014A VOL: 0
 ;PCODE: $0000014B VOL: 0
 ;PCODE: $0000014C VOL: 0
-; 0000 00ED                 lampu4(1);
+; 0000 00EE                 lampu4(1);
 ;PCODE: $0000014D VOL: 0
 ;PCODE: $0000014E VOL: 0
 ;PCODE: $0000014F VOL: 0
-; 0000 00EE                 delay_ms(1000);
+; 0000 00EF                 delay_ms(1000);
 ;PCODE: $00000150 VOL: 0
 ;PCODE: $00000151 VOL: 0
-; 0000 00EF                 lampu4(0);
+; 0000 00F0                 lampu4(0);
 ;PCODE: $00000152 VOL: 0
 ;PCODE: $00000153 VOL: 0
 ;PCODE: $00000154 VOL: 0
-; 0000 00F0             break;
+; 0000 00F1             break;
 ;PCODE: $00000155 VOL: 0
-; 0000 00F1         }
+; 0000 00F2         }
 ;PCODE: $00000156 VOL: 0
-; 0000 00F2     }
-; 0000 00F3 }
+; 0000 00F3     }
+; 0000 00F4 }
 ;PCODE: $00000157 VOL: 0
 ;PCODE: $00000158 VOL: 0
 ;PCODE: $00000159 VOL: 0
 ;PCODE: $0000015A VOL: 0
 ;PCODE: $0000015B VOL: 0
-;
-;
-;void main(void)
-; 0000 00F7 {
+;void main(void) {
+; 0000 00F5 void main(void) {
 ;PCODE: $0000015C VOL: 0
-; 0000 00F8     init();
+; 0000 00F6     int mode = 0;
+; 0000 00F7     init();
+;	mode -> R16,R17
 ;PCODE: $0000015D VOL: 0
-; 0000 00F9     lampu1(0);
 ;PCODE: $0000015E VOL: 0
 ;PCODE: $0000015F VOL: 0
+; 0000 00F8 
+; 0000 00F9     while (1) {
 ;PCODE: $00000160 VOL: 0
-; 0000 00FA     lampu2(0);
+; 0000 00FA         if (mode == 0) {
 ;PCODE: $00000161 VOL: 0
 ;PCODE: $00000162 VOL: 0
+; 0000 00FB             otomatis();
 ;PCODE: $00000163 VOL: 0
-; 0000 00FB     lampu3(0);
+; 0000 00FC         }
+; 0000 00FD         else if (mode == 1) {
 ;PCODE: $00000164 VOL: 0
 ;PCODE: $00000165 VOL: 0
 ;PCODE: $00000166 VOL: 0
-; 0000 00FC     lampu4(0);
 ;PCODE: $00000167 VOL: 0
 ;PCODE: $00000168 VOL: 0
+; 0000 00FE             manual();
 ;PCODE: $00000169 VOL: 0
-; 0000 00FD     while (1)
-;PCODE: $0000016A VOL: 0
-; 0000 00FE           {
-; 0000 00FF           // Place your code here
+; 0000 00FF         }
 ; 0000 0100 
-; 0000 0101           if((PINA&0b00010000)== 0) {
+; 0000 0101         mode = (mode == 1) ? 0 : 1;
+;PCODE: $0000016A VOL: 0
 ;PCODE: $0000016B VOL: 0
 ;PCODE: $0000016C VOL: 0
 ;PCODE: $0000016D VOL: 0
-; 0000 0102             break;
 ;PCODE: $0000016E VOL: 0
-; 0000 0103             //otomatis();
-; 0000 0104 
-; 0000 0105           }
-; 0000 0106 
-; 0000 0107           else if((PINA&0b00000001)== 0) {
 ;PCODE: $0000016F VOL: 0
 ;PCODE: $00000170 VOL: 0
 ;PCODE: $00000171 VOL: 0
 ;PCODE: $00000172 VOL: 0
 ;PCODE: $00000173 VOL: 0
-; 0000 0108             ganti();
 ;PCODE: $00000174 VOL: 0
-; 0000 0109             delay_ms(1000);
 ;PCODE: $00000175 VOL: 0
+; 0000 0102 
+; 0000 0103     }
 ;PCODE: $00000176 VOL: 0
-; 0000 010A             lampu1(2);
 ;PCODE: $00000177 VOL: 0
+; 0000 0104 }
 ;PCODE: $00000178 VOL: 0
 ;PCODE: $00000179 VOL: 0
-; 0000 010B 
-; 0000 010C           }
-; 0000 010D 
-; 0000 010E           else if((PINA&0b00000010)== 0) {
 ;PCODE: $0000017A VOL: 0
+;
+;void manual(void)
+; 0000 0107 {
 ;PCODE: $0000017B VOL: 0
 ;PCODE: $0000017C VOL: 0
+; 0000 0108     PORTD.7 = 1;
 ;PCODE: $0000017D VOL: 0
 ;PCODE: $0000017E VOL: 0
-; 0000 010F             ganti();
+; 0000 0109     PORTD.6 = 0;
 ;PCODE: $0000017F VOL: 0
-; 0000 0110             delay_ms(1000);
 ;PCODE: $00000180 VOL: 0
+; 0000 010A     lampu1(0);
 ;PCODE: $00000181 VOL: 0
-; 0000 0111             lampu2(2);
 ;PCODE: $00000182 VOL: 0
 ;PCODE: $00000183 VOL: 0
+; 0000 010B     lampu2(0);
 ;PCODE: $00000184 VOL: 0
-; 0000 0112           }
-; 0000 0113 
-; 0000 0114           else if((PINA&0b00000100)== 0) {
 ;PCODE: $00000185 VOL: 0
 ;PCODE: $00000186 VOL: 0
+; 0000 010C     lampu3(0);
 ;PCODE: $00000187 VOL: 0
 ;PCODE: $00000188 VOL: 0
 ;PCODE: $00000189 VOL: 0
-; 0000 0115             ganti();
+; 0000 010D     lampu4(0);
 ;PCODE: $0000018A VOL: 0
-; 0000 0116             delay_ms(1000);
 ;PCODE: $0000018B VOL: 0
 ;PCODE: $0000018C VOL: 0
-; 0000 0117             lampu3(2);
+; 0000 010E     while (1)
 ;PCODE: $0000018D VOL: 0
+; 0000 010F           {
+; 0000 0110           // Place your code here
+; 0000 0111           if ((PINA&0b00010000) == 0) {
 ;PCODE: $0000018E VOL: 0
 ;PCODE: $0000018F VOL: 0
-; 0000 0118           }
-; 0000 0119 
-; 0000 011A           else if((PINA&0b00001000)== 0) {
 ;PCODE: $00000190 VOL: 0
+; 0000 0112             break;
 ;PCODE: $00000191 VOL: 0
+; 0000 0113           }
+; 0000 0114 
+; 0000 0115 
+; 0000 0116            else if((PINA&0b00000001)== 0) {
 ;PCODE: $00000192 VOL: 0
 ;PCODE: $00000193 VOL: 0
 ;PCODE: $00000194 VOL: 0
-; 0000 011B             ganti();
 ;PCODE: $00000195 VOL: 0
-; 0000 011C             delay_ms(1000);
 ;PCODE: $00000196 VOL: 0
+; 0000 0117             ganti();
 ;PCODE: $00000197 VOL: 0
-; 0000 011D             lampu4(2);
+; 0000 0118             delay_ms(1000);
 ;PCODE: $00000198 VOL: 0
 ;PCODE: $00000199 VOL: 0
+; 0000 0119             lampu1(2);
 ;PCODE: $0000019A VOL: 0
-; 0000 011E           }
-; 0000 011F          /* else {
-; 0000 0120             PORTC.0 = 0;
-; 0000 0121           }*/
-; 0000 0122 
-; 0000 0123     } //while
 ;PCODE: $0000019B VOL: 0
 ;PCODE: $0000019C VOL: 0
+; 0000 011A 
+; 0000 011B           }
+; 0000 011C 
+; 0000 011D           else if((PINA&0b00000010)== 0) {
 ;PCODE: $0000019D VOL: 0
 ;PCODE: $0000019E VOL: 0
 ;PCODE: $0000019F VOL: 0
 ;PCODE: $000001A0 VOL: 0
 ;PCODE: $000001A1 VOL: 0
-; 0000 0124     //PORTC.1 = 1;
-; 0000 0125     otomatis();
+; 0000 011E             ganti();
 ;PCODE: $000001A2 VOL: 0
-; 0000 0126 }// main
+; 0000 011F             delay_ms(1000);
 ;PCODE: $000001A3 VOL: 0
 ;PCODE: $000001A4 VOL: 0
+; 0000 0120             lampu2(2);
 ;PCODE: $000001A5 VOL: 0
-;
-;void otomatis(void) {
-; 0000 0128 void otomatis(void) {
 ;PCODE: $000001A6 VOL: 0
 ;PCODE: $000001A7 VOL: 0
-; 0000 0129     lampu1(0);
+; 0000 0121           }
+; 0000 0122 
+; 0000 0123           else if((PINA&0b00000100)== 0) {
 ;PCODE: $000001A8 VOL: 0
 ;PCODE: $000001A9 VOL: 0
 ;PCODE: $000001AA VOL: 0
-; 0000 012A     lampu2(0);
 ;PCODE: $000001AB VOL: 0
 ;PCODE: $000001AC VOL: 0
+; 0000 0124             ganti();
 ;PCODE: $000001AD VOL: 0
-; 0000 012B     lampu3(0);
+; 0000 0125             delay_ms(1000);
 ;PCODE: $000001AE VOL: 0
 ;PCODE: $000001AF VOL: 0
+; 0000 0126             lampu3(2);
 ;PCODE: $000001B0 VOL: 0
-; 0000 012C     lampu4(0);
 ;PCODE: $000001B1 VOL: 0
 ;PCODE: $000001B2 VOL: 0
+; 0000 0127           }
+; 0000 0128 
+; 0000 0129           else if((PINA&0b00001000)== 0) {
 ;PCODE: $000001B3 VOL: 0
-; 0000 012D     while (1) {
 ;PCODE: $000001B4 VOL: 0
-; 0000 012E         if ((PINA&0b00010000)== 0) {
 ;PCODE: $000001B5 VOL: 0
 ;PCODE: $000001B6 VOL: 0
 ;PCODE: $000001B7 VOL: 0
-; 0000 012F             break;
+; 0000 012A             ganti();
 ;PCODE: $000001B8 VOL: 0
-; 0000 0130         }
-; 0000 0131         else {
+; 0000 012B             delay_ms(1000);
 ;PCODE: $000001B9 VOL: 0
 ;PCODE: $000001BA VOL: 0
-; 0000 0132         while ((PINA&0b00010000)== 0) {
+; 0000 012C             lampu4(2);
 ;PCODE: $000001BB VOL: 0
 ;PCODE: $000001BC VOL: 0
 ;PCODE: $000001BD VOL: 0
+; 0000 012D           }
+; 0000 012E          /* else {
+; 0000 012F             PORTC.0 = 0;
+; 0000 0130           }*/
+; 0000 0131 
+; 0000 0132     } //while
 ;PCODE: $000001BE VOL: 0
-; 0000 0133         delay_ms(1000);
 ;PCODE: $000001BF VOL: 0
 ;PCODE: $000001C0 VOL: 0
-; 0000 0134         lampu1(2);
 ;PCODE: $000001C1 VOL: 0
 ;PCODE: $000001C2 VOL: 0
 ;PCODE: $000001C3 VOL: 0
-; 0000 0135         delay_ms(3000);
 ;PCODE: $000001C4 VOL: 0
+; 0000 0133 }// main
 ;PCODE: $000001C5 VOL: 0
-; 0000 0136         lampu1(0);
 ;PCODE: $000001C6 VOL: 0
+;
+;void otomatis(void) {
+; 0000 0135 void otomatis(void) {
 ;PCODE: $000001C7 VOL: 0
 ;PCODE: $000001C8 VOL: 0
-; 0000 0137         delay_ms(1000);
+; 0000 0136     int bruh = 0;
+; 0000 0137     PORTD.7 = 0;
 ;PCODE: $000001C9 VOL: 0
 ;PCODE: $000001CA VOL: 0
-; 0000 0138         lampu2(2);
+;	bruh -> R16,R17
 ;PCODE: $000001CB VOL: 0
 ;PCODE: $000001CC VOL: 0
 ;PCODE: $000001CD VOL: 0
-; 0000 0139         delay_ms(3000);
 ;PCODE: $000001CE VOL: 0
+; 0000 0138     PORTD.6 = 1;
 ;PCODE: $000001CF VOL: 0
-; 0000 013A         lampu2(0);
 ;PCODE: $000001D0 VOL: 0
+; 0000 0139 
+; 0000 013A     lampu1(0);
 ;PCODE: $000001D1 VOL: 0
 ;PCODE: $000001D2 VOL: 0
-; 0000 013B         delay_ms(1000);
 ;PCODE: $000001D3 VOL: 0
+; 0000 013B     lampu2(0);
 ;PCODE: $000001D4 VOL: 0
-; 0000 013C         lampu3(2);
 ;PCODE: $000001D5 VOL: 0
 ;PCODE: $000001D6 VOL: 0
+; 0000 013C     lampu3(0);
 ;PCODE: $000001D7 VOL: 0
-; 0000 013D         delay_ms(3000);
 ;PCODE: $000001D8 VOL: 0
 ;PCODE: $000001D9 VOL: 0
-; 0000 013E         lampu3(0);
+; 0000 013D     lampu4(0);
 ;PCODE: $000001DA VOL: 0
 ;PCODE: $000001DB VOL: 0
 ;PCODE: $000001DC VOL: 0
-; 0000 013F         delay_ms(1000);
+; 0000 013E     while (1) {
 ;PCODE: $000001DD VOL: 0
+; 0000 013F         if ((PINA&0b00010000) == 0) {
 ;PCODE: $000001DE VOL: 0
-; 0000 0140         lampu4(2);
 ;PCODE: $000001DF VOL: 0
 ;PCODE: $000001E0 VOL: 0
+; 0000 0140             bruh = -1;
 ;PCODE: $000001E1 VOL: 0
-; 0000 0141         delay_ms(3000);
 ;PCODE: $000001E2 VOL: 0
+; 0000 0141             break;
 ;PCODE: $000001E3 VOL: 0
-; 0000 0142         lampu4(0);
+; 0000 0142         }
+; 0000 0143         else if (bruh == 0) {
 ;PCODE: $000001E4 VOL: 0
 ;PCODE: $000001E5 VOL: 0
 ;PCODE: $000001E6 VOL: 0
-; 0000 0143         } // while not
 ;PCODE: $000001E7 VOL: 0
+; 0000 0144             delay_ms(1000);
 ;PCODE: $000001E8 VOL: 0
-; 0000 0144         }
 ;PCODE: $000001E9 VOL: 0
-; 0000 0145 
-; 0000 0146     } // while
+; 0000 0145             lampu1(2);
 ;PCODE: $000001EA VOL: 0
 ;PCODE: $000001EB VOL: 0
-; 0000 0147    main();
 ;PCODE: $000001EC VOL: 0
-; 0000 0148 }
+; 0000 0146             delay_ms(3000);
 ;PCODE: $000001ED VOL: 0
 ;PCODE: $000001EE VOL: 0
+; 0000 0147             lampu1(0);
+;PCODE: $000001EF VOL: 0
+;PCODE: $000001F0 VOL: 0
+;PCODE: $000001F1 VOL: 0
+; 0000 0148             bruh++;
+;PCODE: $000001F2 VOL: 0
+;PCODE: $000001F3 VOL: 0
+; 0000 0149         }
+; 0000 014A         else if (bruh == 1) {
+;PCODE: $000001F4 VOL: 0
+;PCODE: $000001F5 VOL: 0
+;PCODE: $000001F6 VOL: 0
+;PCODE: $000001F7 VOL: 0
+;PCODE: $000001F8 VOL: 0
+; 0000 014B             delay_ms(1000);
+;PCODE: $000001F9 VOL: 0
+;PCODE: $000001FA VOL: 0
+; 0000 014C             lampu2(2);
+;PCODE: $000001FB VOL: 0
+;PCODE: $000001FC VOL: 0
+;PCODE: $000001FD VOL: 0
+; 0000 014D             delay_ms(3000);
+;PCODE: $000001FE VOL: 0
+;PCODE: $000001FF VOL: 0
+; 0000 014E             lampu2(0);
+;PCODE: $00000200 VOL: 0
+;PCODE: $00000201 VOL: 0
+;PCODE: $00000202 VOL: 0
+; 0000 014F             bruh++;
+;PCODE: $00000203 VOL: 0
+;PCODE: $00000204 VOL: 0
+; 0000 0150         }
+; 0000 0151         else if (bruh == 2) {
+;PCODE: $00000205 VOL: 0
+;PCODE: $00000206 VOL: 0
+;PCODE: $00000207 VOL: 0
+;PCODE: $00000208 VOL: 0
+;PCODE: $00000209 VOL: 0
+; 0000 0152             delay_ms(1000);
+;PCODE: $0000020A VOL: 0
+;PCODE: $0000020B VOL: 0
+; 0000 0153             lampu3(2);
+;PCODE: $0000020C VOL: 0
+;PCODE: $0000020D VOL: 0
+;PCODE: $0000020E VOL: 0
+; 0000 0154             delay_ms(3000);
+;PCODE: $0000020F VOL: 0
+;PCODE: $00000210 VOL: 0
+; 0000 0155             lampu3(0);
+;PCODE: $00000211 VOL: 0
+;PCODE: $00000212 VOL: 0
+;PCODE: $00000213 VOL: 0
+; 0000 0156             bruh++;
+;PCODE: $00000214 VOL: 0
+;PCODE: $00000215 VOL: 0
+; 0000 0157         }
+; 0000 0158         else if (bruh == 3) {
+;PCODE: $00000216 VOL: 0
+;PCODE: $00000217 VOL: 0
+;PCODE: $00000218 VOL: 0
+;PCODE: $00000219 VOL: 0
+;PCODE: $0000021A VOL: 0
+; 0000 0159             delay_ms(1000);
+;PCODE: $0000021B VOL: 0
+;PCODE: $0000021C VOL: 0
+; 0000 015A             lampu4(2);
+;PCODE: $0000021D VOL: 0
+;PCODE: $0000021E VOL: 0
+;PCODE: $0000021F VOL: 0
+; 0000 015B             delay_ms(3000);
+;PCODE: $00000220 VOL: 0
+;PCODE: $00000221 VOL: 0
+; 0000 015C             lampu4(0);
+;PCODE: $00000222 VOL: 0
+;PCODE: $00000223 VOL: 0
+;PCODE: $00000224 VOL: 0
+; 0000 015D             bruh = 0;
+;PCODE: $00000225 VOL: 0
+;PCODE: $00000226 VOL: 0
+; 0000 015E         }
+; 0000 015F 
+; 0000 0160     }
+;PCODE: $00000227 VOL: 0
+;PCODE: $00000228 VOL: 0
+;PCODE: $00000229 VOL: 0
+;PCODE: $0000022A VOL: 0
+;PCODE: $0000022B VOL: 0
+;PCODE: $0000022C VOL: 0
+;PCODE: $0000022D VOL: 0
+; 0000 0161 
+; 0000 0162 }
+;PCODE: $0000022E VOL: 0
+;PCODE: $0000022F VOL: 0
+;PCODE: $00000230 VOL: 0

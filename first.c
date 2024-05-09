@@ -110,6 +110,7 @@ SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<
 TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
 }
 void otomatis(void);
+void manual(void);
 
 void lampu1(int status) {
      switch (status) {
@@ -242,12 +243,26 @@ void ganti() {
     }   
 }
 void main(void) {
-
+    int mode = 0;
+    init();
+    
+    while (1) {
+        if (mode == 0) {
+            otomatis();
+        }
+        else if (mode == 1) {
+            manual();
+        }
+       
+        mode = (mode == 1) ? 0 : 1; 
+        
+    }    
 }
 
 void manual(void)
 {
-    init();
+    PORTD.7 = 1;
+    PORTD.6 = 0;
     lampu1(0);
     lampu2(0);
     lampu3(0);
@@ -255,14 +270,12 @@ void manual(void)
     while (1)
           {
           // Place your code here
-          
-          if((PINA&0b00010000)== 0) {
+          if ((PINA&0b00010000) == 0) {
             break;
-            //otomatis();
-            
           }
+         
         
-          else if((PINA&0b00000001)== 0) { 
+           else if((PINA&0b00000001)== 0) { 
             ganti();
             delay_ms(1000);
             lampu1(2);
@@ -291,40 +304,51 @@ void manual(void)
           }*/ 
           
     } //while
-    //PORTC.1 = 1;
-    otomatis();
 }// main
 
 void otomatis(void) {
+    int bruh = 0;
+    PORTD.7 = 0;
+    PORTD.6 = 1;
+    
     lampu1(0);
     lampu2(0);
     lampu3(0);
     lampu4(0);
-    while (1) { 
-        if ((PINA&0b00010000)== 0) {
+    while (1) {
+        if ((PINA&0b00010000) == 0) {
+            bruh = -1;
             break;
-        } 
-        else {
-        while ((PINA&0b00010000)== 0) {
-        delay_ms(1000);
-        lampu1(2);
-        delay_ms(3000);
-        lampu1(0);
-        delay_ms(1000);
-        lampu2(2);
-        delay_ms(3000);
-        lampu2(0);
-        delay_ms(1000);
-        lampu3(2);
-        delay_ms(3000);
-        lampu3(0);
-        delay_ms(1000);
-        lampu4(2);
-        delay_ms(3000);
-        lampu4(0);
-        } // while not
+        }
+        else if (bruh == 0) {
+            delay_ms(1000);
+            lampu1(2);
+            delay_ms(3000);
+            lampu1(0);
+            bruh++;
+        }
+        else if (bruh == 1) {
+            delay_ms(1000);
+            lampu2(2);
+            delay_ms(3000);
+            lampu2(0);
+            bruh++;
+        }
+        else if (bruh == 2) {
+            delay_ms(1000);
+            lampu3(2);
+            delay_ms(3000);
+            lampu3(0);
+            bruh++;
+        }
+        else if (bruh == 3) {
+            delay_ms(1000);
+            lampu4(2);
+            delay_ms(3000);
+            lampu4(0);
+            bruh = 0;
         }
         
-    } // while
-   main();     
+    }  
+             
 }
