@@ -1179,420 +1179,426 @@ __CLEAR_SRAM:
 ;const short JUMLAHLAMPU = 4;
 ;short lampuSebelumnya[JUMLAHLAMPU] = {0,0,0,0};
 ;
+;// FUNGSI INISIALISASI
 ;void init(void) {
-; 0000 0007 void init(void) {
+; 0000 0008 void init(void) {
 
 	.CSEG
 _init:
 ; .FSTART _init
-; 0000 0008 // Declare your local variables here
-; 0000 0009 
-; 0000 000A // Input/Output Ports initialization
-; 0000 000B // Port A initialization
-; 0000 000C // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 000D DDRA=(0<<DDA7) | (0<<DDA6) | (0<<DDA5) | (0<<DDA4) | (0<<DDA3) | (0<<DDA2) | (0<<DDA1) | (0<<DDA0);
+; 0000 0009 // Declare your local variables here
+; 0000 000A 
+; 0000 000B // Input/Output Ports initialization
+; 0000 000C // Port A initialization
+; 0000 000D // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 000E DDRA=(0<<DDA7) | (0<<DDA6) | (0<<DDA5) | (0<<DDA4) | (0<<DDA3) | (0<<DDA2) | (0<<DDA1) | (0<<DDA0);
 	LDI  R30,LOW(0)
 	OUT  0x1A,R30
-; 0000 000E // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 000F PORTA=(0<<PORTA7) | (0<<PORTA6) | (0<<PORTA5) | (0<<PORTA4) | (0<<PORTA3) | (0<<PORTA2) | (0<<PORTA1) | (0<<PORTA0);
+; 0000 000F // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 0010 PORTA=(0<<PORTA7) | (0<<PORTA6) | (0<<PORTA5) | (0<<PORTA4) | (0<<PORTA3) | (0<<PORTA2) | (0<<PORTA1) | (0<<PORTA0);
 	OUT  0x1B,R30
-; 0000 0010 
-; 0000 0011 // Port B initialization
-; 0000 0012 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 0013 DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (0<<DDB1) | (0<<DDB0);
+; 0000 0011 
+; 0000 0012 // Port B initialization
+; 0000 0013 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 0014 DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (0<<DDB1) | (0<<DDB0);
 	OUT  0x17,R30
-; 0000 0014 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 0015 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+; 0000 0015 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 0016 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
 	OUT  0x18,R30
-; 0000 0016 
-; 0000 0017 // Port C initialization
-; 0000 0018 // Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out
-; 0000 0019 DDRC=(1<<DDC7) | (1<<DDC6) | (1<<DDC5) | (1<<DDC4) | (1<<DDC3) | (1<<DDC2) | (1<<DDC1) | (1<<DDC0);
+; 0000 0017 
+; 0000 0018 // Port C initialization
+; 0000 0019 // Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out
+; 0000 001A DDRC=(1<<DDC7) | (1<<DDC6) | (1<<DDC5) | (1<<DDC4) | (1<<DDC3) | (1<<DDC2) | (1<<DDC1) | (1<<DDC0);
 	LDI  R30,LOW(255)
 	OUT  0x14,R30
-; 0000 001A // State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0
-; 0000 001B PORTC=(0<<PORTC7) | (0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+; 0000 001B // State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0
+; 0000 001C PORTC=(0<<PORTC7) | (0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
 	LDI  R30,LOW(0)
 	OUT  0x15,R30
-; 0000 001C 
-; 0000 001D // Port D initialization
-; 0000 001E // Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out
-; 0000 001F DDRD=(1<<DDD7) | (1<<DDD6) | (1<<DDD5) | (1<<DDD4) | (1<<DDD3) | (1<<DDD2) | (1<<DDD1) | (1<<DDD0);
+; 0000 001D 
+; 0000 001E // Port D initialization
+; 0000 001F // Function: Bit7=Out Bit6=Out Bit5=Out Bit4=Out Bit3=Out Bit2=Out Bit1=Out Bit0=Out
+; 0000 0020 DDRD=(1<<DDD7) | (1<<DDD6) | (1<<DDD5) | (1<<DDD4) | (1<<DDD3) | (1<<DDD2) | (1<<DDD1) | (1<<DDD0);
 	LDI  R30,LOW(255)
 	OUT  0x11,R30
-; 0000 0020 // State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0
-; 0000 0021 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+; 0000 0021 // State: Bit7=0 Bit6=0 Bit5=0 Bit4=0 Bit3=0 Bit2=0 Bit1=0 Bit0=0
+; 0000 0022 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
 	LDI  R30,LOW(0)
 	OUT  0x12,R30
-; 0000 0022 
-; 0000 0023 // Timer/Counter 0 initialization
-; 0000 0024 // Clock source: System Clock
-; 0000 0025 // Clock value: Timer 0 Stopped
-; 0000 0026 // Mode: Normal top=0xFF
-; 0000 0027 // OC0 output: Disconnected
-; 0000 0028 TCCR0=(0<<WGM00) | (0<<COM01) | (0<<COM00) | (0<<WGM01) | (0<<CS02) | (0<<CS01) | (0<<CS00);
+; 0000 0023 
+; 0000 0024 // Timer/Counter 0 initialization
+; 0000 0025 // Clock source: System Clock
+; 0000 0026 // Clock value: Timer 0 Stopped
+; 0000 0027 // Mode: Normal top=0xFF
+; 0000 0028 // OC0 output: Disconnected
+; 0000 0029 TCCR0=(0<<WGM00) | (0<<COM01) | (0<<COM00) | (0<<WGM01) | (0<<CS02) | (0<<CS01) | (0<<CS00);
 	OUT  0x33,R30
-; 0000 0029 TCNT0=0x00;
+; 0000 002A TCNT0=0x00;
 	OUT  0x32,R30
-; 0000 002A OCR0=0x00;
+; 0000 002B OCR0=0x00;
 	OUT  0x3C,R30
-; 0000 002B 
-; 0000 002C // Timer/Counter 1 initialization
-; 0000 002D // Clock source: System Clock
-; 0000 002E // Clock value: Timer1 Stopped
-; 0000 002F // Mode: Normal top=0xFFFF
-; 0000 0030 // OC1A output: Disconnected
-; 0000 0031 // OC1B output: Disconnected
-; 0000 0032 // Noise Canceler: Off
-; 0000 0033 // Input Capture on Falling Edge
-; 0000 0034 // Timer1 Overflow Interrupt: Off
-; 0000 0035 // Input Capture Interrupt: Off
-; 0000 0036 // Compare A Match Interrupt: Off
-; 0000 0037 // Compare B Match Interrupt: Off
-; 0000 0038 TCCR1A=(0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
+; 0000 002C 
+; 0000 002D // Timer/Counter 1 initialization
+; 0000 002E // Clock source: System Clock
+; 0000 002F // Clock value: Timer1 Stopped
+; 0000 0030 // Mode: Normal top=0xFFFF
+; 0000 0031 // OC1A output: Disconnected
+; 0000 0032 // OC1B output: Disconnected
+; 0000 0033 // Noise Canceler: Off
+; 0000 0034 // Input Capture on Falling Edge
+; 0000 0035 // Timer1 Overflow Interrupt: Off
+; 0000 0036 // Input Capture Interrupt: Off
+; 0000 0037 // Compare A Match Interrupt: Off
+; 0000 0038 // Compare B Match Interrupt: Off
+; 0000 0039 TCCR1A=(0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
 	OUT  0x2F,R30
-; 0000 0039 TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
+; 0000 003A TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
 	OUT  0x2E,R30
-; 0000 003A TCNT1H=0x00;
+; 0000 003B TCNT1H=0x00;
 	OUT  0x2D,R30
-; 0000 003B TCNT1L=0x00;
+; 0000 003C TCNT1L=0x00;
 	OUT  0x2C,R30
-; 0000 003C ICR1H=0x00;
+; 0000 003D ICR1H=0x00;
 	OUT  0x27,R30
-; 0000 003D ICR1L=0x00;
+; 0000 003E ICR1L=0x00;
 	OUT  0x26,R30
-; 0000 003E OCR1AH=0x00;
+; 0000 003F OCR1AH=0x00;
 	OUT  0x2B,R30
-; 0000 003F OCR1AL=0x00;
+; 0000 0040 OCR1AL=0x00;
 	OUT  0x2A,R30
-; 0000 0040 OCR1BH=0x00;
+; 0000 0041 OCR1BH=0x00;
 	OUT  0x29,R30
-; 0000 0041 OCR1BL=0x00;
+; 0000 0042 OCR1BL=0x00;
 	OUT  0x28,R30
-; 0000 0042 
-; 0000 0043 // Timer/Counter 2 initialization
-; 0000 0044 // Clock source: System Clock
-; 0000 0045 // Clock value: Timer2 Stopped
-; 0000 0046 // Mode: Normal top=0xFF
-; 0000 0047 // OC2 output: Disconnected
-; 0000 0048 ASSR=0<<AS2;
+; 0000 0043 
+; 0000 0044 // Timer/Counter 2 initialization
+; 0000 0045 // Clock source: System Clock
+; 0000 0046 // Clock value: Timer2 Stopped
+; 0000 0047 // Mode: Normal top=0xFF
+; 0000 0048 // OC2 output: Disconnected
+; 0000 0049 ASSR=0<<AS2;
 	OUT  0x22,R30
-; 0000 0049 TCCR2=(0<<PWM2) | (0<<COM21) | (0<<COM20) | (0<<CTC2) | (0<<CS22) | (0<<CS21) | (0<<CS20);
+; 0000 004A TCCR2=(0<<PWM2) | (0<<COM21) | (0<<COM20) | (0<<CTC2) | (0<<CS22) | (0<<CS21) | (0<<CS20);
 	OUT  0x25,R30
-; 0000 004A TCNT2=0x00;
+; 0000 004B TCNT2=0x00;
 	OUT  0x24,R30
-; 0000 004B OCR2=0x00;
+; 0000 004C OCR2=0x00;
 	OUT  0x23,R30
-; 0000 004C 
-; 0000 004D // Timer(s)/Counter(s) Interrupt(s) initialization
-; 0000 004E TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
+; 0000 004D 
+; 0000 004E // Timer(s)/Counter(s) Interrupt(s) initialization
+; 0000 004F TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
 	OUT  0x39,R30
-; 0000 004F 
-; 0000 0050 // External Interrupt(s) initialization
-; 0000 0051 // INT0: Off
-; 0000 0052 // INT1: Off
-; 0000 0053 // INT2: Off
-; 0000 0054 MCUCR=(0<<ISC11) | (0<<ISC10) | (0<<ISC01) | (0<<ISC00);
+; 0000 0050 
+; 0000 0051 // External Interrupt(s) initialization
+; 0000 0052 // INT0: Off
+; 0000 0053 // INT1: Off
+; 0000 0054 // INT2: Off
+; 0000 0055 MCUCR=(0<<ISC11) | (0<<ISC10) | (0<<ISC01) | (0<<ISC00);
 	OUT  0x35,R30
-; 0000 0055 MCUCSR=(0<<ISC2);
+; 0000 0056 MCUCSR=(0<<ISC2);
 	OUT  0x34,R30
-; 0000 0056 
-; 0000 0057 // USART initialization
-; 0000 0058 // USART disabled
-; 0000 0059 UCSRB=(0<<RXCIE) | (0<<TXCIE) | (0<<UDRIE) | (0<<RXEN) | (0<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
+; 0000 0057 
+; 0000 0058 // USART initialization
+; 0000 0059 // USART disabled
+; 0000 005A UCSRB=(0<<RXCIE) | (0<<TXCIE) | (0<<UDRIE) | (0<<RXEN) | (0<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
 	OUT  0xA,R30
-; 0000 005A 
-; 0000 005B // Analog Comparator initialization
-; 0000 005C // Analog Comparator: Off
-; 0000 005D // The Analog Comparator's positive input is
-; 0000 005E // connected to the AIN0 pin
-; 0000 005F // The Analog Comparator's negative input is
-; 0000 0060 // connected to the AIN1 pin
-; 0000 0061 ACSR=(1<<ACD) | (0<<ACBG) | (0<<ACO) | (0<<ACI) | (0<<ACIE) | (0<<ACIC) | (0<<ACIS1) | (0<<ACIS0);
+; 0000 005B 
+; 0000 005C // Analog Comparator initialization
+; 0000 005D // Analog Comparator: Off
+; 0000 005E // The Analog Comparator's positive input is
+; 0000 005F // connected to the AIN0 pin
+; 0000 0060 // The Analog Comparator's negative input is
+; 0000 0061 // connected to the AIN1 pin
+; 0000 0062 ACSR=(1<<ACD) | (0<<ACBG) | (0<<ACO) | (0<<ACI) | (0<<ACIE) | (0<<ACIC) | (0<<ACIS1) | (0<<ACIS0);
 	LDI  R30,LOW(128)
 	OUT  0x8,R30
-; 0000 0062 SFIOR=(0<<ACME);
+; 0000 0063 SFIOR=(0<<ACME);
 	LDI  R30,LOW(0)
 	OUT  0x30,R30
-; 0000 0063 
-; 0000 0064 // ADC initialization
-; 0000 0065 // ADC disabled
-; 0000 0066 ADCSRA=(0<<ADEN) | (0<<ADSC) | (0<<ADATE) | (0<<ADIF) | (0<<ADIE) | (0<<ADPS2) | (0<<ADPS1) | (0<<ADPS0);
+; 0000 0064 
+; 0000 0065 // ADC initialization
+; 0000 0066 // ADC disabled
+; 0000 0067 ADCSRA=(0<<ADEN) | (0<<ADSC) | (0<<ADATE) | (0<<ADIF) | (0<<ADIE) | (0<<ADPS2) | (0<<ADPS1) | (0<<ADPS0);
 	OUT  0x6,R30
-; 0000 0067 
-; 0000 0068 // SPI initialization
-; 0000 0069 // SPI disabled
-; 0000 006A SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<SPR1) | (0<<SPR0);
+; 0000 0068 
+; 0000 0069 // SPI initialization
+; 0000 006A // SPI disabled
+; 0000 006B SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<SPR1) | (0<<SPR0);
 	OUT  0xD,R30
-; 0000 006B 
-; 0000 006C // TWI initialization
-; 0000 006D // TWI disabled
-; 0000 006E TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
+; 0000 006C 
+; 0000 006D // TWI initialization
+; 0000 006E // TWI disabled
+; 0000 006F TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
 	OUT  0x36,R30
-; 0000 006F }
+; 0000 0070 }
 	RET
 ; .FEND
+;
+;// KONSTRUKTOR
 ;void otomatis(void);
 ;void manual(void);
 ;
+;// FUNGSI" LAMPU
 ;void lampu1(int status) {
-; 0000 0073 void lampu1(int status) {
+; 0000 0077 void lampu1(int status) {
 _lampu1:
 ; .FSTART _lampu1
-; 0000 0074      switch (status) {
+; 0000 0078      switch (status) {             // KODE STATUS
 	RCALL SUBOPT_0x0
 ;	status -> Y+0
-; 0000 0075         case 0:
+; 0000 0079         case 0:                    // MERAH
 	BRNE _0x6
-; 0000 0076             PORTC.0 = 1;
+; 0000 007A             PORTC.0 = 1;
 	SBI  0x15,0
-; 0000 0077             PORTC.1 = 0;
+; 0000 007B             PORTC.1 = 0;
 	CBI  0x15,1
-; 0000 0078             PORTC.2 = 0;
+; 0000 007C             PORTC.2 = 0;
 	CBI  0x15,2
-; 0000 0079             lampuSebelumnya[0] = 0;
+; 0000 007D             lampuSebelumnya[0] = 0;
 	LDI  R30,LOW(0)
 	STS  _lampuSebelumnya,R30
 	STS  _lampuSebelumnya+1,R30
-; 0000 007A         break;
+; 0000 007E         break;
 	RJMP _0x5
-; 0000 007B 
-; 0000 007C         case 1:
+; 0000 007F 
+; 0000 0080         case 1:                    // KUNING
 _0x6:
 	CPI  R30,LOW(0x1)
 	LDI  R26,HIGH(0x1)
 	CPC  R31,R26
 	BRNE _0xD
-; 0000 007D             PORTC.0 = 0;
+; 0000 0081             PORTC.0 = 0;
 	CBI  0x15,0
-; 0000 007E             PORTC.1 = 1;
+; 0000 0082             PORTC.1 = 1;
 	SBI  0x15,1
-; 0000 007F             PORTC.2 = 0;
+; 0000 0083             PORTC.2 = 0;
 	CBI  0x15,2
-; 0000 0080         break;
+; 0000 0084         break;
 	RJMP _0x5
-; 0000 0081 
-; 0000 0082         case 2:
+; 0000 0085 
+; 0000 0086         case 2:                    // HIJAU
 _0xD:
 	CPI  R30,LOW(0x2)
 	LDI  R26,HIGH(0x2)
 	CPC  R31,R26
 	BRNE _0x5
-; 0000 0083             PORTC.0 = 0;
+; 0000 0087             PORTC.0 = 0;
 	CBI  0x15,0
-; 0000 0084             PORTC.1 = 0;
+; 0000 0088             PORTC.1 = 0;
 	CBI  0x15,1
-; 0000 0085             PORTC.2 = 1;
+; 0000 0089             PORTC.2 = 1;
 	SBI  0x15,2
-; 0000 0086             lampuSebelumnya[0] = 1;
+; 0000 008A             lampuSebelumnya[0] = 1;
 	LDI  R30,LOW(1)
 	LDI  R31,HIGH(1)
 	STS  _lampuSebelumnya,R30
 	STS  _lampuSebelumnya+1,R31
-; 0000 0087         break;
-; 0000 0088     }
+; 0000 008B         break;
+; 0000 008C     }
 _0x5:
-; 0000 0089 }
+; 0000 008D }
 	RJMP _0x2000001
 ; .FEND
 ;
 ;void lampu2(int status) {
-; 0000 008B void lampu2(int status) {
+; 0000 008F void lampu2(int status) {
 _lampu2:
 ; .FSTART _lampu2
-; 0000 008C     switch (status) {
+; 0000 0090     switch (status) {
 	RCALL SUBOPT_0x0
 ;	status -> Y+0
-; 0000 008D         case 0:
+; 0000 0091         case 0:
 	BRNE _0x1E
-; 0000 008E             PORTC.3 = 1;
+; 0000 0092             PORTC.3 = 1;
 	SBI  0x15,3
-; 0000 008F             PORTC.4 = 0;
+; 0000 0093             PORTC.4 = 0;
 	CBI  0x15,4
-; 0000 0090             PORTC.5 = 0;
+; 0000 0094             PORTC.5 = 0;
 	CBI  0x15,5
-; 0000 0091             lampuSebelumnya[1] = 0;
+; 0000 0095             lampuSebelumnya[1] = 0;
 	__POINTW1MN _lampuSebelumnya,2
 	LDI  R26,LOW(0)
 	LDI  R27,HIGH(0)
 	RJMP _0x99
-; 0000 0092         break;
-; 0000 0093 
-; 0000 0094         case 1:
+; 0000 0096         break;
+; 0000 0097 
+; 0000 0098         case 1:
 _0x1E:
 	CPI  R30,LOW(0x1)
 	LDI  R26,HIGH(0x1)
 	CPC  R31,R26
 	BRNE _0x25
-; 0000 0095             PORTC.3 = 0;
+; 0000 0099             PORTC.3 = 0;
 	CBI  0x15,3
-; 0000 0096             PORTC.4 = 1;
+; 0000 009A             PORTC.4 = 1;
 	SBI  0x15,4
-; 0000 0097             PORTC.5 = 0;
+; 0000 009B             PORTC.5 = 0;
 	CBI  0x15,5
-; 0000 0098         break;
+; 0000 009C         break;
 	RJMP _0x1D
-; 0000 0099 
-; 0000 009A         case 2:
+; 0000 009D 
+; 0000 009E         case 2:
 _0x25:
 	CPI  R30,LOW(0x2)
 	LDI  R26,HIGH(0x2)
 	CPC  R31,R26
 	BRNE _0x1D
-; 0000 009B             PORTC.3 = 0;
+; 0000 009F             PORTC.3 = 0;
 	CBI  0x15,3
-; 0000 009C             PORTC.4 = 0;
+; 0000 00A0             PORTC.4 = 0;
 	CBI  0x15,4
-; 0000 009D             PORTC.5 = 1;
+; 0000 00A1             PORTC.5 = 1;
 	SBI  0x15,5
-; 0000 009E             lampuSebelumnya[1] = 1;
+; 0000 00A2             lampuSebelumnya[1] = 1;
 	__POINTW1MN _lampuSebelumnya,2
 	LDI  R26,LOW(1)
 	LDI  R27,HIGH(1)
 _0x99:
 	STD  Z+0,R26
 	STD  Z+1,R27
-; 0000 009F         break;
-; 0000 00A0     }
+; 0000 00A3         break;
+; 0000 00A4     }
 _0x1D:
-; 0000 00A1 }
+; 0000 00A5 }
 	RJMP _0x2000001
 ; .FEND
 ;
 ;void lampu3(int status) {
-; 0000 00A3 void lampu3(int status) {
+; 0000 00A7 void lampu3(int status) {
 _lampu3:
 ; .FSTART _lampu3
-; 0000 00A4     switch (status) {
+; 0000 00A8     switch (status) {
 	RCALL SUBOPT_0x0
 ;	status -> Y+0
-; 0000 00A5         case 0:
+; 0000 00A9         case 0:
 	BRNE _0x36
-; 0000 00A6             PORTD.0 = 1;
+; 0000 00AA             PORTD.0 = 1;
 	SBI  0x12,0
-; 0000 00A7             PORTD.1 = 0;
+; 0000 00AB             PORTD.1 = 0;
 	CBI  0x12,1
-; 0000 00A8             PORTD.2 = 0;
+; 0000 00AC             PORTD.2 = 0;
 	CBI  0x12,2
-; 0000 00A9             lampuSebelumnya[2] = 0;
+; 0000 00AD             lampuSebelumnya[2] = 0;
 	__POINTW1MN _lampuSebelumnya,4
 	LDI  R26,LOW(0)
 	LDI  R27,HIGH(0)
 	RJMP _0x9A
-; 0000 00AA         break;
-; 0000 00AB 
-; 0000 00AC         case 1:
+; 0000 00AE         break;
+; 0000 00AF 
+; 0000 00B0         case 1:
 _0x36:
 	CPI  R30,LOW(0x1)
 	LDI  R26,HIGH(0x1)
 	CPC  R31,R26
 	BRNE _0x3D
-; 0000 00AD             PORTD.0 = 0;
+; 0000 00B1             PORTD.0 = 0;
 	CBI  0x12,0
-; 0000 00AE             PORTD.1 = 1;
+; 0000 00B2             PORTD.1 = 1;
 	SBI  0x12,1
-; 0000 00AF             PORTD.2 = 0;
+; 0000 00B3             PORTD.2 = 0;
 	CBI  0x12,2
-; 0000 00B0         break;
+; 0000 00B4         break;
 	RJMP _0x35
-; 0000 00B1 
-; 0000 00B2         case 2:
+; 0000 00B5 
+; 0000 00B6         case 2:
 _0x3D:
 	CPI  R30,LOW(0x2)
 	LDI  R26,HIGH(0x2)
 	CPC  R31,R26
 	BRNE _0x35
-; 0000 00B3             PORTD.0 = 0;
+; 0000 00B7             PORTD.0 = 0;
 	CBI  0x12,0
-; 0000 00B4             PORTD.1 = 0;
+; 0000 00B8             PORTD.1 = 0;
 	CBI  0x12,1
-; 0000 00B5             PORTD.2 = 1;
+; 0000 00B9             PORTD.2 = 1;
 	SBI  0x12,2
-; 0000 00B6             lampuSebelumnya[2] = 1;
+; 0000 00BA             lampuSebelumnya[2] = 1;
 	__POINTW1MN _lampuSebelumnya,4
 	LDI  R26,LOW(1)
 	LDI  R27,HIGH(1)
 _0x9A:
 	STD  Z+0,R26
 	STD  Z+1,R27
-; 0000 00B7         break;
-; 0000 00B8     }
+; 0000 00BB         break;
+; 0000 00BC     }
 _0x35:
-; 0000 00B9 }
+; 0000 00BD }
 	RJMP _0x2000001
 ; .FEND
 ;
 ;void lampu4(int status) {
-; 0000 00BB void lampu4(int status) {
+; 0000 00BF void lampu4(int status) {
 _lampu4:
 ; .FSTART _lampu4
-; 0000 00BC     switch (status) {
+; 0000 00C0     switch (status) {
 	RCALL SUBOPT_0x0
 ;	status -> Y+0
-; 0000 00BD         case 0:
+; 0000 00C1         case 0:
 	BRNE _0x4E
-; 0000 00BE             PORTD.3 = 1;
+; 0000 00C2             PORTD.3 = 1;
 	SBI  0x12,3
-; 0000 00BF             PORTD.4 = 0;
+; 0000 00C3             PORTD.4 = 0;
 	CBI  0x12,4
-; 0000 00C0             PORTD.5 = 0;
+; 0000 00C4             PORTD.5 = 0;
 	CBI  0x12,5
-; 0000 00C1             lampuSebelumnya[3] = 0;
+; 0000 00C5             lampuSebelumnya[3] = 0;
 	__POINTW1MN _lampuSebelumnya,6
 	LDI  R26,LOW(0)
 	LDI  R27,HIGH(0)
 	RJMP _0x9B
-; 0000 00C2         break;
-; 0000 00C3 
-; 0000 00C4         case 1:
+; 0000 00C6         break;
+; 0000 00C7 
+; 0000 00C8         case 1:
 _0x4E:
 	CPI  R30,LOW(0x1)
 	LDI  R26,HIGH(0x1)
 	CPC  R31,R26
 	BRNE _0x55
-; 0000 00C5             PORTD.3 = 0;
+; 0000 00C9             PORTD.3 = 0;
 	CBI  0x12,3
-; 0000 00C6             PORTD.4 = 1;
+; 0000 00CA             PORTD.4 = 1;
 	SBI  0x12,4
-; 0000 00C7             PORTD.5 = 0;
+; 0000 00CB             PORTD.5 = 0;
 	CBI  0x12,5
-; 0000 00C8         break;
+; 0000 00CC         break;
 	RJMP _0x4D
-; 0000 00C9 
-; 0000 00CA         case 2:
+; 0000 00CD 
+; 0000 00CE         case 2:
 _0x55:
 	CPI  R30,LOW(0x2)
 	LDI  R26,HIGH(0x2)
 	CPC  R31,R26
 	BRNE _0x4D
-; 0000 00CB             PORTD.3 = 0;
+; 0000 00CF             PORTD.3 = 0;
 	CBI  0x12,3
-; 0000 00CC             PORTD.4 = 0;
+; 0000 00D0             PORTD.4 = 0;
 	CBI  0x12,4
-; 0000 00CD             PORTD.5 = 1;
+; 0000 00D1             PORTD.5 = 1;
 	SBI  0x12,5
-; 0000 00CE             lampuSebelumnya[3] = 1;
+; 0000 00D2             lampuSebelumnya[3] = 1;
 	__POINTW1MN _lampuSebelumnya,6
 	LDI  R26,LOW(1)
 	LDI  R27,HIGH(1)
 _0x9B:
 	STD  Z+0,R26
 	STD  Z+1,R27
-; 0000 00CF         break;
-; 0000 00D0     }
+; 0000 00D3         break;
+; 0000 00D4     }
 _0x4D:
-; 0000 00D1 }
+; 0000 00D5 }
 _0x2000001:
 	ADIW R28,2
 	RET
 ; .FEND
 ;
+;
+;// FUNGSI GANTI WARNA BIAR JADI KUNING
 ;void ganti() {
-; 0000 00D3 void ganti() {
+; 0000 00D9 void ganti() {
 _ganti:
 ; .FSTART _ganti
-; 0000 00D4     int i, ketemu, ubah;
-; 0000 00D5     for (i = 0; i < JUMLAHLAMPU; i++) {
+; 0000 00DA     int i, ketemu, ubah;
+; 0000 00DB     for (i = 0; i < JUMLAHLAMPU; i++) { /* NGECEK 1 PER 1 */
 	CALL __SAVELOCR6
 ;	i -> R16,R17
 ;	ketemu -> R18,R19
@@ -1601,7 +1607,7 @@ _ganti:
 _0x64:
 	__CPWRN 16,17,4
 	BRGE _0x65
-; 0000 00D6         if (lampuSebelumnya[i] == 1) {
+; 0000 00DC         if (lampuSebelumnya[i] == 1) {  // KALO KETEMU...
 	MOVW R30,R16
 	LDI  R26,LOW(_lampuSebelumnya)
 	LDI  R27,HIGH(_lampuSebelumnya)
@@ -1614,90 +1620,90 @@ _0x64:
 	LDI  R26,HIGH(0x1)
 	CPC  R31,R26
 	BRNE _0x66
-; 0000 00D7             ketemu = 1;
+; 0000 00DD             ketemu = 1;                 // kondisi ketemu menjadi 1 = true
 	__GETWRN 18,19,1
-; 0000 00D8             ubah = i;
+; 0000 00DE             ubah = i;                   // dan nilai iterator disimpan
 	MOVW R20,R16
-; 0000 00D9             break;
+; 0000 00DF             break;                      // keluar dari loop for, jadi kalo
 	RJMP _0x65
-; 0000 00DA         }
-; 0000 00DB     }
+; 0000 00E0         }                               // ketemu langsung berhenti loop for
+; 0000 00E1     }
 _0x66:
 	__ADDWRN 16,17,1
 	RJMP _0x64
 _0x65:
-; 0000 00DC     if (ketemu == 1) {
+; 0000 00E2     if (ketemu == 1) {                  // KALAU TADI ADA (TRUE)
 	LDI  R30,LOW(1)
 	LDI  R31,HIGH(1)
 	CP   R30,R18
 	CPC  R31,R19
 	BRNE _0x67
-; 0000 00DD         switch (ubah) {
+; 0000 00E3         switch (ubah) {                 // cek lampu mana yang diubah
 	MOVW R30,R20
-; 0000 00DE             case 0:
+; 0000 00E4             case 0:                     /* LAMPU 1 */
 	SBIW R30,0
 	BRNE _0x6B
-; 0000 00DF                 lampu1(1);
+; 0000 00E5                 lampu1(1);              // lampu 1 -> kuning
 	LDI  R26,LOW(1)
 	LDI  R27,0
 	RCALL _lampu1
-; 0000 00E0                 delay_ms(1000);
+; 0000 00E6                 delay_ms(1000);         // delay 1 detik
 	RCALL SUBOPT_0x1
-; 0000 00E1                 lampu1(0);
+; 0000 00E7                 lampu1(0);              // lampu 1 -> merah
 	RCALL _lampu1
-; 0000 00E2             break;
+; 0000 00E8             break;
 	RJMP _0x6A
-; 0000 00E3             case 1:
+; 0000 00E9             case 1:                     /* LAMPU 2 */
 _0x6B:
 	CPI  R30,LOW(0x1)
 	LDI  R26,HIGH(0x1)
 	CPC  R31,R26
 	BRNE _0x6C
-; 0000 00E4                 lampu2(1);
+; 0000 00EA                 lampu2(1);              // lampu 2 -> kuning
 	LDI  R26,LOW(1)
 	LDI  R27,0
 	RCALL _lampu2
-; 0000 00E5                 delay_ms(1000);
+; 0000 00EB                 delay_ms(1000);         // delay 1 detik
 	RCALL SUBOPT_0x1
-; 0000 00E6                 lampu2(0);
+; 0000 00EC                 lampu2(0);              // lampu 2 -> merah
 	RCALL _lampu2
-; 0000 00E7             break;
+; 0000 00ED             break;
 	RJMP _0x6A
-; 0000 00E8             case 2:
+; 0000 00EE             case 2:                     /* LAMPU 3 */
 _0x6C:
 	CPI  R30,LOW(0x2)
 	LDI  R26,HIGH(0x2)
 	CPC  R31,R26
 	BRNE _0x6D
-; 0000 00E9                 lampu3(1);
+; 0000 00EF                 lampu3(1);              // lampu 3 -> kuning
 	LDI  R26,LOW(1)
 	LDI  R27,0
 	RCALL _lampu3
-; 0000 00EA                 delay_ms(1000);
+; 0000 00F0                 delay_ms(1000);         // delay 1 detik
 	RCALL SUBOPT_0x1
-; 0000 00EB                 lampu3(0);
+; 0000 00F1                 lampu3(0);              // lampu 3 -> merah
 	RCALL _lampu3
-; 0000 00EC             break;
+; 0000 00F2             break;
 	RJMP _0x6A
-; 0000 00ED             case 3:
+; 0000 00F3             case 3:                     /* LAMPU 4 */
 _0x6D:
 	CPI  R30,LOW(0x3)
 	LDI  R26,HIGH(0x3)
 	CPC  R31,R26
 	BRNE _0x6A
-; 0000 00EE                 lampu4(1);
+; 0000 00F4                 lampu4(1);              // lampu 4 -> kuning
 	LDI  R26,LOW(1)
 	LDI  R27,0
 	RCALL _lampu4
-; 0000 00EF                 delay_ms(1000);
+; 0000 00F5                 delay_ms(1000);         // delay 1 detik
 	RCALL SUBOPT_0x1
-; 0000 00F0                 lampu4(0);
+; 0000 00F6                 lampu4(0);              // lampu 4 -> merah
 	RCALL _lampu4
-; 0000 00F1             break;
-; 0000 00F2         }
+; 0000 00F7             break;
+; 0000 00F8         }
 _0x6A:
-; 0000 00F3     }
-; 0000 00F4 }
+; 0000 00F9     }
+; 0000 00FA }
 _0x67:
 	CALL __LOADLOCR6
 	ADIW R28,6
@@ -1713,35 +1719,41 @@ _0x67:
 ;}
 ;*/
 ;
+;
+;        /****************/
+;        /*  KODE UTAMA  */
+;        /****************/
+;
+;
 ;void main(void) {
-; 0000 00FF void main(void) {
+; 0000 010B void main(void) {
 _main:
 ; .FSTART _main
-; 0000 0100     int mode = 0;
-; 0000 0101     init();
+; 0000 010C     int mode = 0;                   /* START MODE: OTOMATIS */
+; 0000 010D     init();                         // jalanin kode inisialisasi 1x
 ;	mode -> R16,R17
 	__GETWRN 16,17,0
 	RCALL _init
-; 0000 0102 
-; 0000 0103     while (1) {
+; 0000 010E 
+; 0000 010F     while (1) {                     // looping utama
 _0x6F:
-; 0000 0104         if (mode == 0) {
+; 0000 0110         if (mode == 0) {            // cek mode lampu, jika 0
 	MOV  R0,R16
 	OR   R0,R17
 	BRNE _0x72
-; 0000 0105             otomatis();
+; 0000 0111             otomatis();             // jalanin mode otomatis
 	RCALL _otomatis
-; 0000 0106         }
-; 0000 0107         else if (mode == 1) {
+; 0000 0112         }
+; 0000 0113         else if (mode == 1) {       // cek mode lampu, jika 1
 	RJMP _0x73
 _0x72:
 	RCALL SUBOPT_0x2
 	BRNE _0x74
-; 0000 0108             manual();
+; 0000 0114             manual();               // kalanin mode manual
 	RCALL _manual
-; 0000 0109         }
-; 0000 010A 
-; 0000 010B         mode = (mode == 1) ? 0 : 1;
+; 0000 0115         }
+; 0000 0116 
+; 0000 0117         mode = (mode == 1) ? 0 : 1; // cek, apakah mode isi nilainya 1...
 _0x74:
 _0x73:
 	RCALL SUBOPT_0x2
@@ -1754,167 +1766,169 @@ _0x75:
 	LDI  R31,HIGH(1)
 _0x76:
 	MOVW R16,R30
-; 0000 010C 
-; 0000 010D     }
+; 0000 0118                                     // jika iya isinya 1,   ganti 0
+; 0000 0119     }                               // jika isinya bukan 1, ganti 1
 	RJMP _0x6F
-; 0000 010E }
+; 0000 011A }
 _0x78:
 	RJMP _0x78
 ; .FEND
 ;
 ;void manual(void)
-; 0000 0111 {
+; 0000 011D {
 _manual:
 ; .FSTART _manual
-; 0000 0112     PORTD.7 = 1;
+; 0000 011E     PORTD.7 = 1;             // hidupin lampu mode manual
 	SBI  0x12,7
-; 0000 0113 
-; 0000 0114     lampu1(0);
+; 0000 011F 
+; 0000 0120     lampu1(0);               // semua lampu bewarna merah
 	RCALL SUBOPT_0x3
-; 0000 0115     lampu2(0);
-; 0000 0116     lampu3(0);
-; 0000 0117     lampu4(0);
-; 0000 0118     while (1)
+; 0000 0121     lampu2(0);
+; 0000 0122     lampu3(0);
+; 0000 0123     lampu4(0);
+; 0000 0124     while (1)                // looping utama
 _0x7B:
-; 0000 0119           {
-; 0000 011A           // Place your code here
-; 0000 011B           if ((PINA&0b00010000) == 0) {
+; 0000 0125           {
+; 0000 0126           // Place your code here
+; 0000 0127           if ((PINA&0b00010000) == 0) {     /* TOMBOL MODE */
 	SBIS 0x19,4
-; 0000 011C             //tutt();
-; 0000 011D             break;
+; 0000 0128             //tutt();
+; 0000 0129             break;                          // keluar dari looping while
 	RJMP _0x7D
-; 0000 011E 
-; 0000 011F           }
-; 0000 0120 
-; 0000 0121 
-; 0000 0122            else if((PINA&0b00000001)== 0) {
+; 0000 012A 
+; 0000 012B           }
+; 0000 012C 
+; 0000 012D 
+; 0000 012E            else if((PINA&0b00000001)== 0) { /* TOMBOL 1 */
 	SBIC 0x19,0
 	RJMP _0x80
-; 0000 0123             ganti();
+; 0000 012F             ganti();                        // ganti warna lampu sebelumnya
 	RCALL SUBOPT_0x4
-; 0000 0124             delay_ms(1000);
-; 0000 0125             lampu1(2);
+; 0000 0130             delay_ms(1000);                 // delay 1 detik
+; 0000 0131             lampu1(2);                      // lampu 1 -> hijau
 	RCALL _lampu1
-; 0000 0126 
-; 0000 0127           }
-; 0000 0128 
-; 0000 0129           else if((PINA&0b00000010)== 0) {
+; 0000 0132 
+; 0000 0133           }
+; 0000 0134 
+; 0000 0135           else if((PINA&0b00000010)== 0) {  /* TOMBOL 2 */
 	RJMP _0x81
 _0x80:
 	SBIC 0x19,1
 	RJMP _0x82
-; 0000 012A             ganti();
+; 0000 0136             ganti();                        // ganti warna lampu sebelumnya
 	RCALL SUBOPT_0x4
-; 0000 012B             delay_ms(1000);
-; 0000 012C             lampu2(2);
+; 0000 0137             delay_ms(1000);                 // delay 1 detik
+; 0000 0138             lampu2(2);                      // lampu 2 -> hijau
 	RCALL _lampu2
-; 0000 012D           }
-; 0000 012E 
-; 0000 012F           else if((PINA&0b00000100)== 0) {
+; 0000 0139           }
+; 0000 013A 
+; 0000 013B           else if((PINA&0b00000100)== 0) {  /* TOMBOL 3 */
 	RJMP _0x83
 _0x82:
 	SBIC 0x19,2
 	RJMP _0x84
-; 0000 0130             ganti();
+; 0000 013C             ganti();                        // ganti warna lampu sebelumnya
 	RCALL SUBOPT_0x4
-; 0000 0131             delay_ms(1000);
-; 0000 0132             lampu3(2);
+; 0000 013D             delay_ms(1000);                 // delay 1 detik
+; 0000 013E             lampu3(2);                      // lampu 3 -> hijau
 	RCALL _lampu3
-; 0000 0133           }
-; 0000 0134 
-; 0000 0135           else if((PINA&0b00001000)== 0) {
+; 0000 013F           }
+; 0000 0140 
+; 0000 0141           else if((PINA&0b00001000)== 0) {  /* TOMBOL 4 */
 	RJMP _0x85
 _0x84:
 	SBIC 0x19,3
 	RJMP _0x86
-; 0000 0136             ganti();
+; 0000 0142             ganti();                        // ganti warna lampu sebelumnya
 	RCALL SUBOPT_0x4
-; 0000 0137             delay_ms(1000);
-; 0000 0138             lampu4(2);
+; 0000 0143             delay_ms(1000);                 // delay 1 detik
+; 0000 0144             lampu4(2);                      // lampu 4 -> hijau
 	RCALL _lampu4
-; 0000 0139           }
-; 0000 013A          /* else {
-; 0000 013B             PORTC.0 = 0;
-; 0000 013C           }*/
-; 0000 013D 
-; 0000 013E     } //while
+; 0000 0145           }
+; 0000 0146 
+; 0000 0147     } //while
 _0x86:
 _0x85:
 _0x83:
 _0x81:
 	RJMP _0x7B
 _0x7D:
-; 0000 013F     PORTD.7 = 0;
+; 0000 0148 
+; 0000 0149     PORTD.7 = 0;             // Matikan lampu mode Manual
 	CBI  0x12,7
-; 0000 0140     delay_ms(2000);
+; 0000 014A     delay_ms(2000);          // delay 2 detik
 	LDI  R26,LOW(2000)
 	LDI  R27,HIGH(2000)
 	CALL _delay_ms
-; 0000 0141 }// main
+; 0000 014B }// main
 	RET
 ; .FEND
 ;
+;        /*********************/
+;        /*  FUNGSI OTOMATIS  */
+;        /*********************/
+;
 ;void otomatis(void) {
-; 0000 0143 void otomatis(void) {
+; 0000 0151 void otomatis(void) {
 _otomatis:
 ; .FSTART _otomatis
-; 0000 0144     int bruh = 0;
-; 0000 0145     PORTD.6 = 1;
+; 0000 0152     int bruh = 0;               // :v tanya sendiri
+; 0000 0153     PORTD.6 = 1;                // hidupin lampu mode
 	ST   -Y,R17
 	ST   -Y,R16
 ;	bruh -> R16,R17
 	__GETWRN 16,17,0
 	SBI  0x12,6
-; 0000 0146 
-; 0000 0147     lampu1(0);
+; 0000 0154 
+; 0000 0155     lampu1(0);                  // semua lampu merah
 	RCALL SUBOPT_0x3
-; 0000 0148     lampu2(0);
-; 0000 0149     lampu3(0);
-; 0000 014A     lampu4(0);
-; 0000 014B     while (1) {
+; 0000 0156     lampu2(0);
+; 0000 0157     lampu3(0);
+; 0000 0158     lampu4(0);
+; 0000 0159     while (1) {                 // loop utama
 _0x8B:
-; 0000 014C         if ((PINA&0b00010000) == 0) {
+; 0000 015A         if ((PINA&0b00010000) == 0) { /* TOMBOL MODE */
 	SBIC 0x19,4
 	RJMP _0x8E
-; 0000 014D             bruh = -1;
+; 0000 015B             bruh = -1;                // rusak urutan nyala lampu, lalu
 	__GETWRN 16,17,-1
-; 0000 014E             //tutt();
-; 0000 014F             break;
+; 0000 015C             //tutt();                 // keluar dari loop harus nunggu
+; 0000 015D             break;                    // delay dibawahnya selesai
 	RJMP _0x8D
-; 0000 0150         }
-; 0000 0151         else if (bruh == 0) {
+; 0000 015E         }
+; 0000 015F         else if (bruh == 0) {         /* URUTAN PERTAMA */
 _0x8E:
 	MOV  R0,R16
 	OR   R0,R17
 	BRNE _0x90
-; 0000 0152             delay_ms(1000);
+; 0000 0160             delay_ms(1000);           // delay 1 detik
 	RCALL SUBOPT_0x5
-; 0000 0153             lampu1(2);
+; 0000 0161             lampu1(2);                // lampu 1 -> hijau
 	RCALL _lampu1
-; 0000 0154             delay_ms(3000);
+; 0000 0162             delay_ms(3000);           // delay 3 detik
 	RCALL SUBOPT_0x6
-; 0000 0155             lampu1(0);
+; 0000 0163             lampu1(0);                // lampu 1 -> merah
 	RCALL _lampu1
-; 0000 0156             bruh++;
+; 0000 0164             bruh++;                   // urutan + 1
 	__ADDWRN 16,17,1
-; 0000 0157         }
-; 0000 0158         else if (bruh == 1) {
+; 0000 0165         }
+; 0000 0166         else if (bruh == 1) {         /* URUTAN KEDUA */
 	RJMP _0x91
 _0x90:
 	RCALL SUBOPT_0x2
 	BRNE _0x92
-; 0000 0159             delay_ms(1000);
+; 0000 0167             delay_ms(1000);           // delay 1 deti
 	RCALL SUBOPT_0x5
-; 0000 015A             lampu2(2);
+; 0000 0168             lampu2(2);                // lampu 2 -> hijau
 	RCALL _lampu2
-; 0000 015B             delay_ms(3000);
+; 0000 0169             delay_ms(3000);           // delay 3 detik
 	RCALL SUBOPT_0x6
-; 0000 015C             lampu2(0);
+; 0000 016A             lampu2(0);                // lampu 2 -> merah
 	RCALL _lampu2
-; 0000 015D             bruh++;
+; 0000 016B             bruh++;                   // urutan + 1
 	__ADDWRN 16,17,1
-; 0000 015E         }
-; 0000 015F         else if (bruh == 2) {
+; 0000 016C         }
+; 0000 016D         else if (bruh == 2) {         /* URUTAN KETIGA */
 	RJMP _0x93
 _0x92:
 	LDI  R30,LOW(2)
@@ -1922,18 +1936,18 @@ _0x92:
 	CP   R30,R16
 	CPC  R31,R17
 	BRNE _0x94
-; 0000 0160             delay_ms(1000);
+; 0000 016E             delay_ms(1000);           // delay 1 deti
 	RCALL SUBOPT_0x5
-; 0000 0161             lampu3(2);
+; 0000 016F             lampu3(2);                // lampu 3 -> hijau
 	RCALL _lampu3
-; 0000 0162             delay_ms(3000);
+; 0000 0170             delay_ms(3000);           // delay 3 detik
 	RCALL SUBOPT_0x6
-; 0000 0163             lampu3(0);
+; 0000 0171             lampu3(0);                // lampu 3 -> merah
 	RCALL _lampu3
-; 0000 0164             bruh++;
+; 0000 0172             bruh++;                   // urutan + 1
 	__ADDWRN 16,17,1
-; 0000 0165         }
-; 0000 0166         else if (bruh == 3) {
+; 0000 0173         }
+; 0000 0174         else if (bruh == 3) {         /* URUTAN KEEMPAT */
 	RJMP _0x95
 _0x94:
 	LDI  R30,LOW(3)
@@ -1941,34 +1955,34 @@ _0x94:
 	CP   R30,R16
 	CPC  R31,R17
 	BRNE _0x96
-; 0000 0167             delay_ms(1000);
+; 0000 0175             delay_ms(1000);           // delay 1 deti
 	RCALL SUBOPT_0x5
-; 0000 0168             lampu4(2);
+; 0000 0176             lampu4(2);                // lampu 4 -> hijau
 	RCALL _lampu4
-; 0000 0169             delay_ms(3000);
+; 0000 0177             delay_ms(3000);           // delay 3 detik
 	RCALL SUBOPT_0x6
-; 0000 016A             lampu4(0);
+; 0000 0178             lampu4(0);                // lampu 4 -> merah
 	RCALL _lampu4
-; 0000 016B             bruh = 0;
+; 0000 0179             bruh = 0;                 // urutan reset mulai dari awal
 	__GETWRN 16,17,0
-; 0000 016C         }
-; 0000 016D 
-; 0000 016E     }
+; 0000 017A         }
+; 0000 017B 
+; 0000 017C     }
 _0x96:
 _0x95:
 _0x93:
 _0x91:
 	RJMP _0x8B
 _0x8D:
-; 0000 016F 
-; 0000 0170     PORTD.6 = 0;
+; 0000 017D 
+; 0000 017E     PORTD.6 = 0;             // matikan lampu mode Otomatis
 	CBI  0x12,6
-; 0000 0171     delay_ms(2000);
+; 0000 017F     delay_ms(2000);          // delay 2 detik
 	LDI  R26,LOW(2000)
 	LDI  R27,HIGH(2000)
 	CALL _delay_ms
-; 0000 0172 
-; 0000 0173 }
+; 0000 0180 
+; 0000 0181 }
 	LD   R16,Y+
 	LD   R17,Y+
 	RET

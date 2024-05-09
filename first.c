@@ -4,6 +4,7 @@
 const short JUMLAHLAMPU = 4;
 short lampuSebelumnya[JUMLAHLAMPU] = {0,0,0,0};
 
+// FUNGSI INISIALISASI
 void init(void) {
 // Declare your local variables here
 
@@ -109,25 +110,28 @@ SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<
 // TWI disabled
 TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
 }
+
+// KONSTRUKTOR
 void otomatis(void);
 void manual(void);
 
+// FUNGSI" LAMPU
 void lampu1(int status) {
-     switch (status) {
-        case 0:
-            PORTC.0 = 1;   
-            PORTC.1 = 0;
-            PORTC.2 = 0;
+     switch (status) {             // KODE STATUS 
+        case 0:                    // MERAH
+            PORTC.0 = 1;            
+            PORTC.1 = 0;           
+            PORTC.2 = 0;           
             lampuSebelumnya[0] = 0;
         break;
         
-        case 1:
+        case 1:                    // KUNING
             PORTC.0 = 0;   
             PORTC.1 = 1;
             PORTC.2 = 0;
         break;
         
-        case 2:
+        case 2:                    // HIJAU
             PORTC.0 = 0;   
             PORTC.1 = 0;
             PORTC.2 = 1;
@@ -208,36 +212,38 @@ void lampu4(int status) {
     }
 }
 
+
+// FUNGSI GANTI WARNA BIAR JADI KUNING
 void ganti() {
     int i, ketemu, ubah;
-    for (i = 0; i < JUMLAHLAMPU; i++) {
-        if (lampuSebelumnya[i] == 1) { 
-            ketemu = 1;
-            ubah = i;
-            break;
-        }
+    for (i = 0; i < JUMLAHLAMPU; i++) { /* NGECEK 1 PER 1 */
+        if (lampuSebelumnya[i] == 1) {  // KALO KETEMU...
+            ketemu = 1;                 // kondisi ketemu menjadi 1 = true
+            ubah = i;                   // dan nilai iterator disimpan
+            break;                      // keluar dari loop for, jadi kalo
+        }                               // ketemu langsung berhenti loop for
     }
-    if (ketemu == 1) {
-        switch (ubah) {
-            case 0:
-                lampu1(1);
-                delay_ms(1000);
-                lampu1(0);
+    if (ketemu == 1) {                  // KALAU TADI ADA (TRUE)
+        switch (ubah) {                 // cek lampu mana yang diubah
+            case 0:                     /* LAMPU 1 */
+                lampu1(1);              // lampu 1 -> kuning
+                delay_ms(1000);         // delay 1 detik
+                lampu1(0);              // lampu 1 -> merah
             break;
-            case 1:
-                lampu2(1);
-                delay_ms(1000);
-                lampu2(0);
+            case 1:                     /* LAMPU 2 */ 
+                lampu2(1);              // lampu 2 -> kuning
+                delay_ms(1000);         // delay 1 detik
+                lampu2(0);              // lampu 2 -> merah
             break;
-            case 2:
-                lampu3(1);
-                delay_ms(1000);
-                lampu3(0);
+            case 2:                     /* LAMPU 3 */
+                lampu3(1);              // lampu 3 -> kuning
+                delay_ms(1000);         // delay 1 detik
+                lampu3(0);              // lampu 3 -> merah
             break;
-            case 3:
-                lampu4(1);
-                delay_ms(1000);
-                lampu4(0);
+            case 3:                     /* LAMPU 4 */
+                lampu4(1);              // lampu 4 -> kuning
+                delay_ms(1000);         // delay 1 detik
+                lampu4(0);              // lampu 4 -> merah
             break;
         }
     }   
@@ -252,120 +258,128 @@ void tutt(void) {
 }
 */
 
+
+        /****************/
+        /*  KODE UTAMA  */
+        /****************/
+
+
 void main(void) {
-    int mode = 0;
-    init();
+    int mode = 0;                   /* START MODE: OTOMATIS */
+    init();                         // jalanin kode inisialisasi 1x
     
-    while (1) {
-        if (mode == 0) {
-            otomatis();
+    while (1) {                     // looping utama
+        if (mode == 0) {            // cek mode lampu, jika 0
+            otomatis();             // jalanin mode otomatis
         }
-        else if (mode == 1) {
-            manual();
+        else if (mode == 1) {       // cek mode lampu, jika 1
+            manual();               // kalanin mode manual
         }
        
-        mode = (mode == 1) ? 0 : 1; 
-        
-    }    
+        mode = (mode == 1) ? 0 : 1; // cek, apakah mode isi nilainya 1... 
+                                    // jika iya isinya 1,   ganti 0
+    }                               // jika isinya bukan 1, ganti 1
 }
 
 void manual(void)
 {
-    PORTD.7 = 1;
+    PORTD.7 = 1;             // hidupin lampu mode manual   
     
-    lampu1(0);
+    lampu1(0);               // semua lampu bewarna merah
     lampu2(0);
     lampu3(0);
     lampu4(0);
-    while (1)
+    while (1)                // looping utama
           {
           // Place your code here
-          if ((PINA&0b00010000) == 0) {
+          if ((PINA&0b00010000) == 0) {     /* TOMBOL MODE */
             //tutt();
-            break;
+            break;                          // keluar dari looping while
             
           }
          
         
-           else if((PINA&0b00000001)== 0) { 
-            ganti();
-            delay_ms(1000);
-            lampu1(2);
+           else if((PINA&0b00000001)== 0) { /* TOMBOL 1 */ 
+            ganti();                        // ganti warna lampu sebelumnya
+            delay_ms(1000);                 // delay 1 detik
+            lampu1(2);                      // lampu 1 -> hijau
 
           }
           
-          else if((PINA&0b00000010)== 0) {
-            ganti();
-            delay_ms(1000);
-            lampu2(2);
+          else if((PINA&0b00000010)== 0) {  /* TOMBOL 2 */
+            ganti();                        // ganti warna lampu sebelumnya
+            delay_ms(1000);                 // delay 1 detik
+            lampu2(2);                      // lampu 2 -> hijau
           } 
           
-          else if((PINA&0b00000100)== 0) {
-            ganti();
-            delay_ms(1000);
-            lampu3(2);
+          else if((PINA&0b00000100)== 0) {  /* TOMBOL 3 */
+            ganti();                        // ganti warna lampu sebelumnya
+            delay_ms(1000);                 // delay 1 detik
+            lampu3(2);                      // lampu 3 -> hijau
           }
           
-          else if((PINA&0b00001000)== 0) {
-            ganti();
-            delay_ms(1000);
-            lampu4(2);
+          else if((PINA&0b00001000)== 0) {  /* TOMBOL 4 */
+            ganti();                        // ganti warna lampu sebelumnya
+            delay_ms(1000);                 // delay 1 detik
+            lampu4(2);                      // lampu 4 -> hijau
           }
-         /* else {
-            PORTC.0 = 0;
-          }*/ 
           
-    } //while
-    PORTD.7 = 0;
-    delay_ms(2000);
+    } //while 
+    
+    PORTD.7 = 0;             // Matikan lampu mode Manual
+    delay_ms(2000);          // delay 2 detik
 }// main
 
+        /*********************/
+        /*  FUNGSI OTOMATIS  */
+        /*********************/
+
 void otomatis(void) {
-    int bruh = 0;
-    PORTD.6 = 1;
+    int bruh = 0;               // :v tanya sendiri
+    PORTD.6 = 1;                // hidupin lampu mode
     
-    lampu1(0);
+    lampu1(0);                  // semua lampu merah
     lampu2(0);
     lampu3(0);
     lampu4(0);
-    while (1) {
-        if ((PINA&0b00010000) == 0) {
-            bruh = -1; 
-            //tutt();
-            break;
+    while (1) {                 // loop utama
+        if ((PINA&0b00010000) == 0) { /* TOMBOL MODE */
+            bruh = -1;                // rusak urutan nyala lampu, lalu
+            //tutt();                 // keluar dari loop harus nunggu 
+            break;                    // delay dibawahnya selesai
         }
-        else if (bruh == 0) {
-            delay_ms(1000);
-            lampu1(2);
-            delay_ms(3000);
-            lampu1(0);
-            bruh++;
+        else if (bruh == 0) {         /* URUTAN PERTAMA */
+            delay_ms(1000);           // delay 1 detik
+            lampu1(2);                // lampu 1 -> hijau
+            delay_ms(3000);           // delay 3 detik
+            lampu1(0);                // lampu 1 -> merah
+            bruh++;                   // urutan + 1
         }
-        else if (bruh == 1) {
-            delay_ms(1000);
-            lampu2(2);
-            delay_ms(3000);
-            lampu2(0);
-            bruh++;
+        else if (bruh == 1) {         /* URUTAN KEDUA */
+            delay_ms(1000);           // delay 1 deti
+            lampu2(2);                // lampu 2 -> hijau
+            delay_ms(3000);           // delay 3 detik
+            lampu2(0);                // lampu 2 -> merah
+            bruh++;                   // urutan + 1
         }
-        else if (bruh == 2) {
-            delay_ms(1000);
-            lampu3(2);
-            delay_ms(3000);
-            lampu3(0);
-            bruh++;
+        else if (bruh == 2) {         /* URUTAN KETIGA */
+            delay_ms(1000);           // delay 1 deti
+            lampu3(2);                // lampu 3 -> hijau
+            delay_ms(3000);           // delay 3 detik
+            lampu3(0);                // lampu 3 -> merah
+            bruh++;                   // urutan + 1
         }
-        else if (bruh == 3) {
-            delay_ms(1000);
-            lampu4(2);
-            delay_ms(3000);
-            lampu4(0);
-            bruh = 0;
+        else if (bruh == 3) {         /* URUTAN KEEMPAT */
+            delay_ms(1000);           // delay 1 deti
+            lampu4(2);                // lampu 4 -> hijau
+            delay_ms(3000);           // delay 3 detik
+            lampu4(0);                // lampu 4 -> merah
+            bruh = 0;                 // urutan reset mulai dari awal
         }
         
     }
     
-    PORTD.6 = 0;
-    delay_ms(2000);  
+    PORTD.6 = 0;             // matikan lampu mode Otomatis
+    delay_ms(2000);          // delay 2 detik 
              
 }

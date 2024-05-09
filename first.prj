@@ -119,8 +119,8 @@ WatchAVR8LAutoVariables=0
 UseEEPROMLocation0=1
 RebuildAll=0
 LinkageInformationPresent=1
-COFFileTimeStamp=1487513821
-Build=79
+COFFileTimeStamp=1487515286
+Build=80
 [DefinedSymbolsDebug]
 Count=0
 [Compiler]
@@ -222,7 +222,7 @@ UseEEPROMLocation0=1
 RebuildAll=1
 LinkageInformationPresent=0
 COFFileTimeStamp=-1
-Build=79
+Build=80
 [DefinedSymbols]
 Count=0
 [CompilerAdvanced]
@@ -322,8 +322,8 @@ L13=Enhanced function parameters passing: Yes
 L14=Automatic register allocation: Yes
 L15=Smart register allocation: Yes
 L16=
-L17=Build: 79
-L18=1081 line(s) compiled
+L17=Build: 80
+L18=1095 line(s) compiled
 L19=No errors
 L20=No warnings
 L21=
@@ -349,7 +349,7 @@ L38=60 words (120 bytes), 10,5% reduced by Code Compression
 L1=AVRASM: AVR macro assembler 2.1.30 (build 592 Nov  7 2008 12:38:17)
 L2=Copyright (C) 1995-2008 ATMEL Corporation
 L3=
-L4=E:\Kuliah\PT\Debug\List\first.asm(2098): No EEPROM data, deleting E:\Kuliah\PT\Debug\Exe\first.eep
+L4=E:\Kuliah\PT\Debug\List\first.asm(2112): No EEPROM data, deleting E:\Kuliah\PT\Debug\Exe\first.eep
 L5=
 L6=ATmega32 memory use summary [bytes]:
 L7=Segment   Begin    End      Code   Data   Used    Size   Use%

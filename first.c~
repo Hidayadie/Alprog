@@ -242,7 +242,7 @@ void ganti() {
         }
     }   
 }
-
+/*
 void tutt(void) {
     PORTC.7 = 0;
     delay_ms(500);
@@ -250,6 +250,7 @@ void tutt(void) {
     delay_ms(500);
     PORTC.7 = 0;
 }
+*/
 
 void main(void) {
     int mode = 0;
@@ -280,7 +281,7 @@ void manual(void)
           {
           // Place your code here
           if ((PINA&0b00010000) == 0) {
-            tutt();
+            //tutt();
             break;
             
           }
@@ -330,7 +331,7 @@ void otomatis(void) {
     while (1) {
         if ((PINA&0b00010000) == 0) {
             bruh = -1; 
-            tutt();
+            //tutt();
             break;
         }
         else if (bruh == 0) {
