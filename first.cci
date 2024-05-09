@@ -1,4 +1,4 @@
-VERSION:3 SOURCE_TIMESTAMP:58A9A04A
+VERSION:3 SOURCE_TIMESTAMP:58A9A8D7
 NODE:I LEVEL:0 LINE:1 "C:\cvavr\inc\mega32.h"
 NODE:I LEVEL:0 LINE:2 "C:\cvavr\inc\delay.h"
 NODE:C LEVEL:0 LINE:4 "JUMLAHLAMPU -> FLASH"
@@ -9,6 +9,6 @@ NODE:F LEVEL:0 LINE:139 "lampu2(int status)"
 NODE:F LEVEL:0 LINE:163 "lampu3(int status)"
 NODE:F LEVEL:0 LINE:187 "lampu4(int status)"
 NODE:F LEVEL:0 LINE:211 "ganti(void)"
-NODE:F LEVEL:0 LINE:245 "main(void)"
-NODE:F LEVEL:0 LINE:262 "manual(void)"
-NODE:F LEVEL:0 LINE:309 "otomatis(void)"
+NODE:F LEVEL:0 LINE:255 "main(void)"
+NODE:F LEVEL:0 LINE:272 "manual(void)"
+NODE:F LEVEL:0 LINE:323 "otomatis(void)"

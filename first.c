@@ -242,6 +242,16 @@ void ganti() {
         }
     }   
 }
+/*
+void tutt(void) {
+    PORTC.7 = 0;
+    delay_ms(500);
+    PORTC.7 = 1;
+    delay_ms(500);
+    PORTC.7 = 0;
+}
+*/
+
 void main(void) {
     int mode = 0;
     init();
@@ -262,7 +272,7 @@ void main(void) {
 void manual(void)
 {
     PORTD.7 = 1;
-    PORTD.6 = 0;
+    
     lampu1(0);
     lampu2(0);
     lampu3(0);
@@ -271,7 +281,9 @@ void manual(void)
           {
           // Place your code here
           if ((PINA&0b00010000) == 0) {
+            //tutt();
             break;
+            
           }
          
         
@@ -304,11 +316,12 @@ void manual(void)
           }*/ 
           
     } //while
+    PORTD.7 = 0;
+    delay_ms(2000);
 }// main
 
 void otomatis(void) {
     int bruh = 0;
-    PORTD.7 = 0;
     PORTD.6 = 1;
     
     lampu1(0);
@@ -317,7 +330,8 @@ void otomatis(void) {
     lampu4(0);
     while (1) {
         if ((PINA&0b00010000) == 0) {
-            bruh = -1;
+            bruh = -1; 
+            //tutt();
             break;
         }
         else if (bruh == 0) {
@@ -349,6 +363,9 @@ void otomatis(void) {
             bruh = 0;
         }
         
-    }  
+    }
+    
+    PORTD.6 = 0;
+    delay_ms(2000);  
              
 }

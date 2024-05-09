@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
+AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:06:55 2024
 
                  
                  
@@ -1344,7 +1344,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
                  _lampu1:
                  ; .FSTART _lampu1
                  ; 0000 0074      switch (status) {
-00006f d135      	RCALL SUBOPT_0x0
+00006f d13d      	RCALL SUBOPT_0x0
                  ;	status -> Y+0
                  ; 0000 0075         case 0:
 000070 f449      	BRNE _0x6
@@ -1405,7 +1405,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
                  _lampu2:
                  ; .FSTART _lampu2
                  ; 0000 008C     switch (status) {
-000090 d114      	RCALL SUBOPT_0x0
+000090 d11c      	RCALL SUBOPT_0x0
                  ;	status -> Y+0
                  ; 0000 008D         case 0:
 000091 f441      	BRNE _0x1E
@@ -1474,7 +1474,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
                  _lampu3:
                  ; .FSTART _lampu3
                  ; 0000 00A4     switch (status) {
-0000b0 d0f4      	RCALL SUBOPT_0x0
+0000b0 d0fc      	RCALL SUBOPT_0x0
                  ;	status -> Y+0
                  ; 0000 00A5         case 0:
 0000b1 f441      	BRNE _0x36
@@ -1543,7 +1543,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
                  _lampu4:
                  ; .FSTART _lampu4
                  ; 0000 00BC     switch (status) {
-0000d0 d0d4      	RCALL SUBOPT_0x0
+0000d0 d0dc      	RCALL SUBOPT_0x0
                  ;	status -> Y+0
                  ; 0000 00BD         case 0:
 0000d1 f441      	BRNE _0x4E
@@ -1615,7 +1615,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
                  ; .FSTART _ganti
                  ; 0000 00D4     int i, ketemu, ubah;
                  ; 0000 00D5     for (i = 0; i < JUMLAHLAMPU; i++) {
-0000f1 940e 01e7 	CALL __SAVELOCR6
+0000f1 940e 01ef 	CALL __SAVELOCR6
                  ;	i -> R16,R17
                  ;	ketemu -> R18,R19
                  ;	ubah -> R20,R21
@@ -1638,7 +1638,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
 0000fd 1fff      	ROL  R31
 0000fe 0fae      	ADD  R26,R30
 0000ff 1fbf      	ADC  R27,R31
-000100 940e 01e3 	CALL __GETW1P
+000100 940e 01eb 	CALL __GETW1P
 000102 30e1      	CPI  R30,LOW(0x1)
 000103 e0a0      	LDI  R26,HIGH(0x1)
 000104 07fa      	CPC  R31,R26
@@ -1677,7 +1677,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
 000116 e0b0      	LDI  R27,0
 000117 df57      	RCALL _lampu1
                  ; 0000 00E0                 delay_ms(1000);
-000118 d092      	RCALL SUBOPT_0x1
+000118 d09a      	RCALL SUBOPT_0x1
                  ; 0000 00E1                 lampu1(0);
 000119 df55      	RCALL _lampu1
                  ; 0000 00E2             break;
@@ -1693,7 +1693,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
 000120 e0b0      	LDI  R27,0
 000121 df6e      	RCALL _lampu2
                  ; 0000 00E5                 delay_ms(1000);
-000122 d088      	RCALL SUBOPT_0x1
+000122 d090      	RCALL SUBOPT_0x1
                  ; 0000 00E6                 lampu2(0);
 000123 df6c      	RCALL _lampu2
                  ; 0000 00E7             break;
@@ -1709,7 +1709,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
 00012a e0b0      	LDI  R27,0
 00012b df84      	RCALL _lampu3
                  ; 0000 00EA                 delay_ms(1000);
-00012c d07e      	RCALL SUBOPT_0x1
+00012c d086      	RCALL SUBOPT_0x1
                  ; 0000 00EB                 lampu3(0);
 00012d df82      	RCALL _lampu3
                  ; 0000 00EC             break;
@@ -1725,7 +1725,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
 000134 e0b0      	LDI  R27,0
 000135 df9a      	RCALL _lampu4
                  ; 0000 00EF                 delay_ms(1000);
-000136 d074      	RCALL SUBOPT_0x1
+000136 d07c      	RCALL SUBOPT_0x1
                  ; 0000 00F0                 lampu4(0);
 000137 df98      	RCALL _lampu4
                  ; 0000 00F1             break;
@@ -1734,45 +1734,55 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
                  ; 0000 00F3     }
                  ; 0000 00F4 }
                  _0x67:
-000138 940e 01ee 	CALL __LOADLOCR6
+000138 940e 01f6 	CALL __LOADLOCR6
 00013a 9626      	ADIW R28,6
 00013b 9508      	RET
                  ; .FEND
+                 ;/*
+                 ;void tutt(void) {
+                 ;    PORTC.7 = 0;
+                 ;    delay_ms(500);
+                 ;    PORTC.7 = 1;
+                 ;    delay_ms(500);
+                 ;    PORTC.7 = 0;
+                 ;}
+                 ;*/
+                 ;
                  ;void main(void) {
-                 ; 0000 00F5 void main(void) {
+                 ; 0000 00FF void main(void) {
                  _main:
                  ; .FSTART _main
-                 ; 0000 00F6     int mode = 0;
-                 ; 0000 00F7     init();
+                 ; 0000 0100     int mode = 0;
+                 ; 0000 0101     init();
                  ;	mode -> R16,R17
                 +
 00013c e000     +LDI R16 , LOW ( 0 )
 00013d e010     +LDI R17 , HIGH ( 0 )
                  	__GETWRN 16,17,0
 00013e df06      	RCALL _init
-                 ; 0000 00F8 
-                 ; 0000 00F9     while (1) {
+                 ; 0000 0102 
+                 ; 0000 0103     while (1) {
                  _0x6F:
-                 ; 0000 00FA         if (mode == 0) {
+                 ; 0000 0104         if (mode == 0) {
 00013f 2e00      	MOV  R0,R16
 000140 2a01      	OR   R0,R17
 000141 f411      	BRNE _0x72
-                 ; 0000 00FB             otomatis();
-000142 d028      	RCALL _otomatis
-                 ; 0000 00FC         }
-                 ; 0000 00FD         else if (mode == 1) {
+                 ; 0000 0105             otomatis();
+000142 d02c      	RCALL _otomatis
+                 ; 0000 0106         }
+                 ; 0000 0107         else if (mode == 1) {
 000143 c003      	RJMP _0x73
                  _0x72:
-000144 d06d      	RCALL SUBOPT_0x2
+000144 d075      	RCALL SUBOPT_0x2
 000145 f409      	BRNE _0x74
-                 ; 0000 00FE             manual();
+                 ; 0000 0108             manual();
 000146 d00a      	RCALL _manual
-                 ; 0000 00FF         }
-                 ; 0000 0100 
-                 ; 0000 0101         mode = (mode == 1) ? 0 : 1;
+                 ; 0000 0109         }
+                 ; 0000 010A 
+                 ; 0000 010B         mode = (mode == 1) ? 0 : 1;
                  _0x74:
                  _0x73:
-000147 d06a      	RCALL SUBOPT_0x2
+000147 d072      	RCALL SUBOPT_0x2
 000148 f419      	BRNE _0x75
 000149 e0e0      	LDI  R30,LOW(0)
 00014a e0f0      	LDI  R31,HIGH(0)
@@ -1782,229 +1792,242 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
 00014d e0f0      	LDI  R31,HIGH(1)
                  _0x76:
 00014e 018f      	MOVW R16,R30
-                 ; 0000 0102 
-                 ; 0000 0103     }
+                 ; 0000 010C 
+                 ; 0000 010D     }
 00014f cfef      	RJMP _0x6F
-                 ; 0000 0104 }
+                 ; 0000 010E }
                  _0x78:
 000150 cfff      	RJMP _0x78
                  ; .FEND
                  ;
                  ;void manual(void)
-                 ; 0000 0107 {
+                 ; 0000 0111 {
                  _manual:
                  ; .FSTART _manual
-                 ; 0000 0108     PORTD.7 = 1;
+                 ; 0000 0112     PORTD.7 = 1;
 000151 9a97      	SBI  0x12,7
-                 ; 0000 0109     PORTD.6 = 0;
-000152 9896      	CBI  0x12,6
-                 ; 0000 010A     lampu1(0);
-000153 d063      	RCALL SUBOPT_0x3
-                 ; 0000 010B     lampu2(0);
-                 ; 0000 010C     lampu3(0);
-                 ; 0000 010D     lampu4(0);
-                 ; 0000 010E     while (1)
-                 _0x7D:
-                 ; 0000 010F           {
-                 ; 0000 0110           // Place your code here
-                 ; 0000 0111           if ((PINA&0b00010000) == 0) {
-000154 9bcc      	SBIS 0x19,4
-                 ; 0000 0112             break;
-000155 c014      	RJMP _0x7F
-                 ; 0000 0113           }
-                 ; 0000 0114 
-                 ; 0000 0115 
-                 ; 0000 0116            else if((PINA&0b00000001)== 0) {
-000156 99c8      	SBIC 0x19,0
-000157 c003      	RJMP _0x82
-                 ; 0000 0117             ganti();
-000158 d06a      	RCALL SUBOPT_0x4
-                 ; 0000 0118             delay_ms(1000);
-                 ; 0000 0119             lampu1(2);
-000159 df15      	RCALL _lampu1
-                 ; 0000 011A 
-                 ; 0000 011B           }
-                 ; 0000 011C 
-                 ; 0000 011D           else if((PINA&0b00000010)== 0) {
-00015a c00e      	RJMP _0x83
-                 _0x82:
-00015b 99c9      	SBIC 0x19,1
-00015c c003      	RJMP _0x84
-                 ; 0000 011E             ganti();
-00015d d065      	RCALL SUBOPT_0x4
-                 ; 0000 011F             delay_ms(1000);
-                 ; 0000 0120             lampu2(2);
-00015e df31      	RCALL _lampu2
-                 ; 0000 0121           }
-                 ; 0000 0122 
-                 ; 0000 0123           else if((PINA&0b00000100)== 0) {
-00015f c009      	RJMP _0x85
-                 _0x84:
-000160 99ca      	SBIC 0x19,2
-000161 c003      	RJMP _0x86
-                 ; 0000 0124             ganti();
-000162 d060      	RCALL SUBOPT_0x4
-                 ; 0000 0125             delay_ms(1000);
-                 ; 0000 0126             lampu3(2);
-000163 df4c      	RCALL _lampu3
+                 ; 0000 0113 
+                 ; 0000 0114     lampu1(0);
+000152 d06c      	RCALL SUBOPT_0x3
+                 ; 0000 0115     lampu2(0);
+                 ; 0000 0116     lampu3(0);
+                 ; 0000 0117     lampu4(0);
+                 ; 0000 0118     while (1)
+                 _0x7B:
+                 ; 0000 0119           {
+                 ; 0000 011A           // Place your code here
+                 ; 0000 011B           if ((PINA&0b00010000) == 0) {
+000153 9bcc      	SBIS 0x19,4
+                 ; 0000 011C             //tutt();
+                 ; 0000 011D             break;
+000154 c014      	RJMP _0x7D
+                 ; 0000 011E 
+                 ; 0000 011F           }
+                 ; 0000 0120 
+                 ; 0000 0121 
+                 ; 0000 0122            else if((PINA&0b00000001)== 0) {
+000155 99c8      	SBIC 0x19,0
+000156 c003      	RJMP _0x80
+                 ; 0000 0123             ganti();
+000157 d073      	RCALL SUBOPT_0x4
+                 ; 0000 0124             delay_ms(1000);
+                 ; 0000 0125             lampu1(2);
+000158 df16      	RCALL _lampu1
+                 ; 0000 0126 
                  ; 0000 0127           }
                  ; 0000 0128 
-                 ; 0000 0129           else if((PINA&0b00001000)== 0) {
-000164 c004      	RJMP _0x87
-                 _0x86:
-000165 99cb      	SBIC 0x19,3
-000166 c002      	RJMP _0x88
+                 ; 0000 0129           else if((PINA&0b00000010)== 0) {
+000159 c00e      	RJMP _0x81
+                 _0x80:
+00015a 99c9      	SBIC 0x19,1
+00015b c003      	RJMP _0x82
                  ; 0000 012A             ganti();
-000167 d05b      	RCALL SUBOPT_0x4
+00015c d06e      	RCALL SUBOPT_0x4
                  ; 0000 012B             delay_ms(1000);
-                 ; 0000 012C             lampu4(2);
-000168 df67      	RCALL _lampu4
+                 ; 0000 012C             lampu2(2);
+00015d df32      	RCALL _lampu2
                  ; 0000 012D           }
-                 ; 0000 012E          /* else {
-                 ; 0000 012F             PORTC.0 = 0;
-                 ; 0000 0130           }*/
-                 ; 0000 0131 
-                 ; 0000 0132     } //while
-                 _0x88:
-                 _0x87:
+                 ; 0000 012E 
+                 ; 0000 012F           else if((PINA&0b00000100)== 0) {
+00015e c009      	RJMP _0x83
+                 _0x82:
+00015f 99ca      	SBIC 0x19,2
+000160 c003      	RJMP _0x84
+                 ; 0000 0130             ganti();
+000161 d069      	RCALL SUBOPT_0x4
+                 ; 0000 0131             delay_ms(1000);
+                 ; 0000 0132             lampu3(2);
+000162 df4d      	RCALL _lampu3
+                 ; 0000 0133           }
+                 ; 0000 0134 
+                 ; 0000 0135           else if((PINA&0b00001000)== 0) {
+000163 c004      	RJMP _0x85
+                 _0x84:
+000164 99cb      	SBIC 0x19,3
+000165 c002      	RJMP _0x86
+                 ; 0000 0136             ganti();
+000166 d064      	RCALL SUBOPT_0x4
+                 ; 0000 0137             delay_ms(1000);
+                 ; 0000 0138             lampu4(2);
+000167 df68      	RCALL _lampu4
+                 ; 0000 0139           }
+                 ; 0000 013A          /* else {
+                 ; 0000 013B             PORTC.0 = 0;
+                 ; 0000 013C           }*/
+                 ; 0000 013D 
+                 ; 0000 013E     } //while
+                 _0x86:
                  _0x85:
                  _0x83:
-000169 cfea      	RJMP _0x7D
-                 _0x7F:
-                 ; 0000 0133 }// main
-00016a 9508      	RET
+                 _0x81:
+000168 cfea      	RJMP _0x7B
+                 _0x7D:
+                 ; 0000 013F     PORTD.7 = 0;
+000169 9897      	CBI  0x12,7
+                 ; 0000 0140     delay_ms(2000);
+00016a eda0      	LDI  R26,LOW(2000)
+00016b e0b7      	LDI  R27,HIGH(2000)
+00016c 940e 01e1 	CALL _delay_ms
+                 ; 0000 0141 }// main
+00016e 9508      	RET
                  ; .FEND
                  ;
                  ;void otomatis(void) {
-                 ; 0000 0135 void otomatis(void) {
+                 ; 0000 0143 void otomatis(void) {
                  _otomatis:
                  ; .FSTART _otomatis
-                 ; 0000 0136     int bruh = 0;
-                 ; 0000 0137     PORTD.7 = 0;
-00016b 931a      	ST   -Y,R17
-00016c 930a      	ST   -Y,R16
+                 ; 0000 0144     int bruh = 0;
+                 ; 0000 0145     PORTD.6 = 1;
+00016f 931a      	ST   -Y,R17
+000170 930a      	ST   -Y,R16
                  ;	bruh -> R16,R17
                 +
-00016d e000     +LDI R16 , LOW ( 0 )
-00016e e010     +LDI R17 , HIGH ( 0 )
+000171 e000     +LDI R16 , LOW ( 0 )
+000172 e010     +LDI R17 , HIGH ( 0 )
                  	__GETWRN 16,17,0
-00016f 9897      	CBI  0x12,7
-                 ; 0000 0138     PORTD.6 = 1;
-000170 9a96      	SBI  0x12,6
-                 ; 0000 0139 
-                 ; 0000 013A     lampu1(0);
-000171 d045      	RCALL SUBOPT_0x3
-                 ; 0000 013B     lampu2(0);
-                 ; 0000 013C     lampu3(0);
-                 ; 0000 013D     lampu4(0);
-                 ; 0000 013E     while (1) {
-                 _0x8D:
-                 ; 0000 013F         if ((PINA&0b00010000) == 0) {
-000172 99cc      	SBIC 0x19,4
-000173 c003      	RJMP _0x90
-                 ; 0000 0140             bruh = -1;
+000173 9a96      	SBI  0x12,6
+                 ; 0000 0146 
+                 ; 0000 0147     lampu1(0);
+000174 d04a      	RCALL SUBOPT_0x3
+                 ; 0000 0148     lampu2(0);
+                 ; 0000 0149     lampu3(0);
+                 ; 0000 014A     lampu4(0);
+                 ; 0000 014B     while (1) {
+                 _0x8B:
+                 ; 0000 014C         if ((PINA&0b00010000) == 0) {
+000175 99cc      	SBIC 0x19,4
+000176 c003      	RJMP _0x8E
+                 ; 0000 014D             bruh = -1;
                 +
-000174 ef0f     +LDI R16 , LOW ( - 1 )
-000175 ef1f     +LDI R17 , HIGH ( - 1 )
+000177 ef0f     +LDI R16 , LOW ( - 1 )
+000178 ef1f     +LDI R17 , HIGH ( - 1 )
                  	__GETWRN 16,17,-1
-                 ; 0000 0141             break;
-000176 c02b      	RJMP _0x8F
-                 ; 0000 0142         }
-                 ; 0000 0143         else if (bruh == 0) {
-                 _0x90:
-000177 2e00      	MOV  R0,R16
-000178 2a01      	OR   R0,R17
-000179 f439      	BRNE _0x92
-                 ; 0000 0144             delay_ms(1000);
-00017a d050      	RCALL SUBOPT_0x5
-                 ; 0000 0145             lampu1(2);
-00017b def3      	RCALL _lampu1
-                 ; 0000 0146             delay_ms(3000);
-00017c d055      	RCALL SUBOPT_0x6
-                 ; 0000 0147             lampu1(0);
-00017d def1      	RCALL _lampu1
-                 ; 0000 0148             bruh++;
-                +
-00017e 5f0f     +SUBI R16 , LOW ( - 1 )
-00017f 4f1f     +SBCI R17 , HIGH ( - 1 )
-                 	__ADDWRN 16,17,1
-                 ; 0000 0149         }
-                 ; 0000 014A         else if (bruh == 1) {
-000180 c020      	RJMP _0x93
-                 _0x92:
-000181 d030      	RCALL SUBOPT_0x2
-000182 f439      	BRNE _0x94
-                 ; 0000 014B             delay_ms(1000);
-000183 d047      	RCALL SUBOPT_0x5
-                 ; 0000 014C             lampu2(2);
-000184 df0b      	RCALL _lampu2
-                 ; 0000 014D             delay_ms(3000);
-000185 d04c      	RCALL SUBOPT_0x6
-                 ; 0000 014E             lampu2(0);
-000186 df09      	RCALL _lampu2
-                 ; 0000 014F             bruh++;
-                +
-000187 5f0f     +SUBI R16 , LOW ( - 1 )
-000188 4f1f     +SBCI R17 , HIGH ( - 1 )
-                 	__ADDWRN 16,17,1
+                 ; 0000 014E             //tutt();
+                 ; 0000 014F             break;
+000179 c02b      	RJMP _0x8D
                  ; 0000 0150         }
-                 ; 0000 0151         else if (bruh == 2) {
-000189 c017      	RJMP _0x95
-                 _0x94:
-00018a e0e2      	LDI  R30,LOW(2)
-00018b e0f0      	LDI  R31,HIGH(2)
-00018c 17e0      	CP   R30,R16
-00018d 07f1      	CPC  R31,R17
-00018e f439      	BRNE _0x96
+                 ; 0000 0151         else if (bruh == 0) {
+                 _0x8E:
+00017a 2e00      	MOV  R0,R16
+00017b 2a01      	OR   R0,R17
+00017c f439      	BRNE _0x90
                  ; 0000 0152             delay_ms(1000);
-00018f d03b      	RCALL SUBOPT_0x5
-                 ; 0000 0153             lampu3(2);
-000190 df1f      	RCALL _lampu3
+00017d d055      	RCALL SUBOPT_0x5
+                 ; 0000 0153             lampu1(2);
+00017e def0      	RCALL _lampu1
                  ; 0000 0154             delay_ms(3000);
-000191 d040      	RCALL SUBOPT_0x6
-                 ; 0000 0155             lampu3(0);
-000192 df1d      	RCALL _lampu3
+00017f d05a      	RCALL SUBOPT_0x6
+                 ; 0000 0155             lampu1(0);
+000180 deee      	RCALL _lampu1
                  ; 0000 0156             bruh++;
                 +
-000193 5f0f     +SUBI R16 , LOW ( - 1 )
-000194 4f1f     +SBCI R17 , HIGH ( - 1 )
+000181 5f0f     +SUBI R16 , LOW ( - 1 )
+000182 4f1f     +SBCI R17 , HIGH ( - 1 )
                  	__ADDWRN 16,17,1
                  ; 0000 0157         }
-                 ; 0000 0158         else if (bruh == 3) {
-000195 c00b      	RJMP _0x97
-                 _0x96:
-000196 e0e3      	LDI  R30,LOW(3)
-000197 e0f0      	LDI  R31,HIGH(3)
-000198 17e0      	CP   R30,R16
-000199 07f1      	CPC  R31,R17
-00019a f431      	BRNE _0x98
+                 ; 0000 0158         else if (bruh == 1) {
+000183 c020      	RJMP _0x91
+                 _0x90:
+000184 d035      	RCALL SUBOPT_0x2
+000185 f439      	BRNE _0x92
                  ; 0000 0159             delay_ms(1000);
-00019b d02f      	RCALL SUBOPT_0x5
-                 ; 0000 015A             lampu4(2);
-00019c df33      	RCALL _lampu4
+000186 d04c      	RCALL SUBOPT_0x5
+                 ; 0000 015A             lampu2(2);
+000187 df08      	RCALL _lampu2
                  ; 0000 015B             delay_ms(3000);
-00019d d034      	RCALL SUBOPT_0x6
-                 ; 0000 015C             lampu4(0);
-00019e df31      	RCALL _lampu4
-                 ; 0000 015D             bruh = 0;
+000188 d051      	RCALL SUBOPT_0x6
+                 ; 0000 015C             lampu2(0);
+000189 df06      	RCALL _lampu2
+                 ; 0000 015D             bruh++;
                 +
-00019f e000     +LDI R16 , LOW ( 0 )
-0001a0 e010     +LDI R17 , HIGH ( 0 )
-                 	__GETWRN 16,17,0
+00018a 5f0f     +SUBI R16 , LOW ( - 1 )
+00018b 4f1f     +SBCI R17 , HIGH ( - 1 )
+                 	__ADDWRN 16,17,1
                  ; 0000 015E         }
-                 ; 0000 015F 
-                 ; 0000 0160     }
-                 _0x98:
-                 _0x97:
+                 ; 0000 015F         else if (bruh == 2) {
+00018c c017      	RJMP _0x93
+                 _0x92:
+00018d e0e2      	LDI  R30,LOW(2)
+00018e e0f0      	LDI  R31,HIGH(2)
+00018f 17e0      	CP   R30,R16
+000190 07f1      	CPC  R31,R17
+000191 f439      	BRNE _0x94
+                 ; 0000 0160             delay_ms(1000);
+000192 d040      	RCALL SUBOPT_0x5
+                 ; 0000 0161             lampu3(2);
+000193 df1c      	RCALL _lampu3
+                 ; 0000 0162             delay_ms(3000);
+000194 d045      	RCALL SUBOPT_0x6
+                 ; 0000 0163             lampu3(0);
+000195 df1a      	RCALL _lampu3
+                 ; 0000 0164             bruh++;
+                +
+000196 5f0f     +SUBI R16 , LOW ( - 1 )
+000197 4f1f     +SBCI R17 , HIGH ( - 1 )
+                 	__ADDWRN 16,17,1
+                 ; 0000 0165         }
+                 ; 0000 0166         else if (bruh == 3) {
+000198 c00b      	RJMP _0x95
+                 _0x94:
+000199 e0e3      	LDI  R30,LOW(3)
+00019a e0f0      	LDI  R31,HIGH(3)
+00019b 17e0      	CP   R30,R16
+00019c 07f1      	CPC  R31,R17
+00019d f431      	BRNE _0x96
+                 ; 0000 0167             delay_ms(1000);
+00019e d034      	RCALL SUBOPT_0x5
+                 ; 0000 0168             lampu4(2);
+00019f df30      	RCALL _lampu4
+                 ; 0000 0169             delay_ms(3000);
+0001a0 d039      	RCALL SUBOPT_0x6
+                 ; 0000 016A             lampu4(0);
+0001a1 df2e      	RCALL _lampu4
+                 ; 0000 016B             bruh = 0;
+                +
+0001a2 e000     +LDI R16 , LOW ( 0 )
+0001a3 e010     +LDI R17 , HIGH ( 0 )
+                 	__GETWRN 16,17,0
+                 ; 0000 016C         }
+                 ; 0000 016D 
+                 ; 0000 016E     }
+                 _0x96:
                  _0x95:
                  _0x93:
-0001a1 cfd0      	RJMP _0x8D
-                 _0x8F:
-                 ; 0000 0161 
-                 ; 0000 0162 }
-0001a2 9109      	LD   R16,Y+
-0001a3 9119      	LD   R17,Y+
-0001a4 9508      	RET
+                 _0x91:
+0001a4 cfd0      	RJMP _0x8B
+                 _0x8D:
+                 ; 0000 016F 
+                 ; 0000 0170     PORTD.6 = 0;
+0001a5 9896      	CBI  0x12,6
+                 ; 0000 0171     delay_ms(2000);
+0001a6 eda0      	LDI  R26,LOW(2000)
+0001a7 e0b7      	LDI  R27,HIGH(2000)
+0001a8 940e 01e1 	CALL _delay_ms
+                 ; 0000 0172 
+                 ; 0000 0173 }
+0001aa 9109      	LD   R16,Y+
+0001ab 9119      	LD   R17,Y+
+0001ac 9508      	RET
                  ; .FEND
                  
                  	.DSEG
@@ -2014,123 +2037,123 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 20:02:21 2024
                  	.CSEG
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:6 WORDS
                  SUBOPT_0x0:
-0001a5 93ba      	ST   -Y,R27
-0001a6 93aa      	ST   -Y,R26
-0001a7 81e8      	LD   R30,Y
-0001a8 81f9      	LDD  R31,Y+1
-0001a9 9730      	SBIW R30,0
-0001aa 9508      	RET
+0001ad 93ba      	ST   -Y,R27
+0001ae 93aa      	ST   -Y,R26
+0001af 81e8      	LD   R30,Y
+0001b0 81f9      	LDD  R31,Y+1
+0001b1 9730      	SBIW R30,0
+0001b2 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:9 WORDS
                  SUBOPT_0x1:
-0001ab eea8      	LDI  R26,LOW(1000)
-0001ac e0b3      	LDI  R27,HIGH(1000)
-0001ad 940e 01d9 	CALL _delay_ms
-0001af e0a0      	LDI  R26,LOW(0)
-0001b0 e0b0      	LDI  R27,0
-0001b1 9508      	RET
+0001b3 eea8      	LDI  R26,LOW(1000)
+0001b4 e0b3      	LDI  R27,HIGH(1000)
+0001b5 940e 01e1 	CALL _delay_ms
+0001b7 e0a0      	LDI  R26,LOW(0)
+0001b8 e0b0      	LDI  R27,0
+0001b9 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x2:
-0001b2 e0e1      	LDI  R30,LOW(1)
-0001b3 e0f0      	LDI  R31,HIGH(1)
-0001b4 17e0      	CP   R30,R16
-0001b5 07f1      	CPC  R31,R17
-0001b6 9508      	RET
+0001ba e0e1      	LDI  R30,LOW(1)
+0001bb e0f0      	LDI  R31,HIGH(1)
+0001bc 17e0      	CP   R30,R16
+0001bd 07f1      	CPC  R31,R17
+0001be 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:11 WORDS
                  SUBOPT_0x3:
-0001b7 e0a0      	LDI  R26,LOW(0)
-0001b8 e0b0      	LDI  R27,0
-0001b9 deb5      	RCALL _lampu1
-0001ba e0a0      	LDI  R26,LOW(0)
-0001bb e0b0      	LDI  R27,0
-0001bc ded3      	RCALL _lampu2
-0001bd e0a0      	LDI  R26,LOW(0)
-0001be e0b0      	LDI  R27,0
-0001bf def0      	RCALL _lampu3
-0001c0 e0a0      	LDI  R26,LOW(0)
-0001c1 e0b0      	LDI  R27,0
-0001c2 cf0d      	RJMP _lampu4
+0001bf e0a0      	LDI  R26,LOW(0)
+0001c0 e0b0      	LDI  R27,0
+0001c1 dead      	RCALL _lampu1
+0001c2 e0a0      	LDI  R26,LOW(0)
+0001c3 e0b0      	LDI  R27,0
+0001c4 decb      	RCALL _lampu2
+0001c5 e0a0      	LDI  R26,LOW(0)
+0001c6 e0b0      	LDI  R27,0
+0001c7 dee8      	RCALL _lampu3
+0001c8 e0a0      	LDI  R26,LOW(0)
+0001c9 e0b0      	LDI  R27,0
+0001ca cf05      	RJMP _lampu4
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:15 WORDS
                  SUBOPT_0x4:
-0001c3 df2d      	RCALL _ganti
-0001c4 eea8      	LDI  R26,LOW(1000)
-0001c5 e0b3      	LDI  R27,HIGH(1000)
-0001c6 940e 01d9 	CALL _delay_ms
-0001c8 e0a2      	LDI  R26,LOW(2)
-0001c9 e0b0      	LDI  R27,0
-0001ca 9508      	RET
+0001cb df25      	RCALL _ganti
+0001cc eea8      	LDI  R26,LOW(1000)
+0001cd e0b3      	LDI  R27,HIGH(1000)
+0001ce 940e 01e1 	CALL _delay_ms
+0001d0 e0a2      	LDI  R26,LOW(2)
+0001d1 e0b0      	LDI  R27,0
+0001d2 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:9 WORDS
                  SUBOPT_0x5:
-0001cb eea8      	LDI  R26,LOW(1000)
-0001cc e0b3      	LDI  R27,HIGH(1000)
-0001cd 940e 01d9 	CALL _delay_ms
-0001cf e0a2      	LDI  R26,LOW(2)
-0001d0 e0b0      	LDI  R27,0
-0001d1 9508      	RET
+0001d3 eea8      	LDI  R26,LOW(1000)
+0001d4 e0b3      	LDI  R27,HIGH(1000)
+0001d5 940e 01e1 	CALL _delay_ms
+0001d7 e0a2      	LDI  R26,LOW(2)
+0001d8 e0b0      	LDI  R27,0
+0001d9 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:9 WORDS
                  SUBOPT_0x6:
-0001d2 eba8      	LDI  R26,LOW(3000)
-0001d3 e0bb      	LDI  R27,HIGH(3000)
-0001d4 940e 01d9 	CALL _delay_ms
-0001d6 e0a0      	LDI  R26,LOW(0)
-0001d7 e0b0      	LDI  R27,0
-0001d8 9508      	RET
+0001da eba8      	LDI  R26,LOW(3000)
+0001db e0bb      	LDI  R27,HIGH(3000)
+0001dc 940e 01e1 	CALL _delay_ms
+0001de e0a0      	LDI  R26,LOW(0)
+0001df e0b0      	LDI  R27,0
+0001e0 9508      	RET
                  
                  
                  	.CSEG
                  _delay_ms:
-0001d9 9610      	adiw r26,0
-0001da f039      	breq __delay_ms1
+0001e1 9610      	adiw r26,0
+0001e2 f039      	breq __delay_ms1
                  __delay_ms0:
-0001db 95a8      	wdr
+0001e3 95a8      	wdr
                 +
-0001dc eb88     +LDI R24 , LOW ( 0xBB8 )
-0001dd e09b     +LDI R25 , HIGH ( 0xBB8 )
+0001e4 eb88     +LDI R24 , LOW ( 0xBB8 )
+0001e5 e09b     +LDI R25 , HIGH ( 0xBB8 )
                 +__DELAY_USW_LOOP :
-0001de 9701     +SBIW R24 , 1
-0001df f7f1     +BRNE __DELAY_USW_LOOP
+0001e6 9701     +SBIW R24 , 1
+0001e7 f7f1     +BRNE __DELAY_USW_LOOP
                  	__DELAY_USW 0xBB8
-0001e0 9711      	sbiw r26,1
-0001e1 f7c9      	brne __delay_ms0
+0001e8 9711      	sbiw r26,1
+0001e9 f7c9      	brne __delay_ms0
                  __delay_ms1:
-0001e2 9508      	ret
+0001ea 9508      	ret
                  
                  __GETW1P:
-0001e3 91ed      	LD   R30,X+
-0001e4 91fc      	LD   R31,X
-0001e5 9711      	SBIW R26,1
-0001e6 9508      	RET
+0001eb 91ed      	LD   R30,X+
+0001ec 91fc      	LD   R31,X
+0001ed 9711      	SBIW R26,1
+0001ee 9508      	RET
                  
                  __SAVELOCR6:
-0001e7 935a      	ST   -Y,R21
+0001ef 935a      	ST   -Y,R21
                  __SAVELOCR5:
-0001e8 934a      	ST   -Y,R20
+0001f0 934a      	ST   -Y,R20
                  __SAVELOCR4:
-0001e9 933a      	ST   -Y,R19
+0001f1 933a      	ST   -Y,R19
                  __SAVELOCR3:
-0001ea 932a      	ST   -Y,R18
+0001f2 932a      	ST   -Y,R18
                  __SAVELOCR2:
-0001eb 931a      	ST   -Y,R17
-0001ec 930a      	ST   -Y,R16
-0001ed 9508      	RET
+0001f3 931a      	ST   -Y,R17
+0001f4 930a      	ST   -Y,R16
+0001f5 9508      	RET
                  
                  __LOADLOCR6:
-0001ee 815d      	LDD  R21,Y+5
+0001f6 815d      	LDD  R21,Y+5
                  __LOADLOCR5:
-0001ef 814c      	LDD  R20,Y+4
+0001f7 814c      	LDD  R20,Y+4
                  __LOADLOCR4:
-0001f0 813b      	LDD  R19,Y+3
+0001f8 813b      	LDD  R19,Y+3
                  __LOADLOCR3:
-0001f1 812a      	LDD  R18,Y+2
+0001f9 812a      	LDD  R18,Y+2
                  __LOADLOCR2:
-0001f2 8119      	LDD  R17,Y+1
-0001f3 8108      	LD   R16,Y
-0001f4 9508      	RET
+0001fa 8119      	LDD  R17,Y+1
+0001fb 8108      	LD   R16,Y
+0001fc 9508      	RET
                  
                  ;END OF CODE MARKER
                  __END_OF_CODE:
@@ -2154,7 +2177,7 @@ ATmega32 register use summary:
 r0 :   4 r1 :   0 r2 :   0 r3 :   0 r4 :   0 r5 :   0 r6 :   0 r7 :   0 
 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 r13:   0 r14:   0 r15:   0 
 r16:  22 r17:  19 r18:   4 r19:   4 r20:   4 r21:   2 r22:   0 r23:   0 
-r24:   6 r25:   2 r26:  57 r27:  29 r28:   3 r29:   1 r30:  95 r31:  36 
+r24:   6 r25:   2 r26:  59 r27:  31 r28:   3 r29:   1 r30:  95 r31:  36 
 x  :   4 y  :  20 z  :   6 
 Registers used: 18 out of 35 (51.4%)
 
@@ -2164,12 +2187,12 @@ adiw  :   3 and   :   0 andi  :   0 asr   :   0 bclr  :   0 bld   :   0
 brbc  :   0 brbs  :   0 brcc  :   0 brcs  :   0 break :   0 breq  :   1 
 brge  :   1 brhc  :   0 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 
 brlt  :   0 brmi  :   0 brne  :  29 brpl  :   0 brsh  :   0 brtc  :   0 
-brts  :   0 brvc  :   0 brvs  :   0 bset  :   0 bst   :   0 call  :   7 
+brts  :   0 brvc  :   0 brvs  :   0 bset  :   0 bst   :   0 call  :   9 
 cbi   :  26 cbr   :   0 clc   :   0 clh   :   0 cli   :   1 cln   :   0 
 clr   :   2 cls   :   0 clt   :   0 clv   :   0 clz   :   0 com   :   0 
 cp    :   4 cpc   :  17 cpi   :  13 cpse  :   0 dec   :   1 des   :   0 
 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 
-in    :   0 inc   :   0 jmp   :  22 ld    :   6 ldd   :   6 ldi   : 117 
+in    :   0 inc   :   0 jmp   :  22 ld    :   6 ldd   :   6 ldi   : 121 
 lds   :   0 lpm   :   0 lsl   :   1 lsr   :   0 mov   :   2 movw  :   4 
 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 or    :   2 
 ori   :   0 out   :  40 pop   :   0 push  :   0 rcall :  52 ret   :  15 
@@ -2184,7 +2207,7 @@ Instructions used: 37 out of 116 (31.9%)
 ATmega32 memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0003ea   1002      0   1002   32768   3.1%
+[.cseg] 0x000000 0x0003fa   1018      0   1018   32768   3.1%
 [.dseg] 0x000060 0x000268      0      8      8    2048   0.4%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
