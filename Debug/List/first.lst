@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:52:42 2024
+AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Fri May 10 07:32:26 2024
 
                  
                  
@@ -1744,15 +1744,7 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:52:42 2024
 00013a 9626      	ADIW R28,6
 00013b 9508      	RET
                  ; .FEND
-                 ;/*
-                 ;void tutt(void) {
-                 ;    PORTC.7 = 0;
-                 ;    delay_ms(500);
-                 ;    PORTC.7 = 1;
-                 ;    delay_ms(500);
-                 ;    PORTC.7 = 0;
-                 ;}
-                 ;*/
+                 ;
                  ;
                  ;
                  ;        /****************/
@@ -1761,37 +1753,37 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:52:42 2024
                  ;
                  ;
                  ;void main(void) {
-                 ; 0000 010B void main(void) {
+                 ; 0000 0103 void main(void) {
                  _main:
                  ; .FSTART _main
-                 ; 0000 010C     int mode = 0;                   /* START MODE: OTOMATIS */
-                 ; 0000 010D     init();                         // jalanin kode inisialisasi 1x
+                 ; 0000 0104     int mode = 0;                   /* START MODE: OTOMATIS */
+                 ; 0000 0105     init();                         // jalanin kode inisialisasi 1x
                  ;	mode -> R16,R17
                 +
 00013c e000     +LDI R16 , LOW ( 0 )
 00013d e010     +LDI R17 , HIGH ( 0 )
                  	__GETWRN 16,17,0
 00013e df06      	RCALL _init
-                 ; 0000 010E 
-                 ; 0000 010F     while (1) {                     // looping utama
+                 ; 0000 0106 
+                 ; 0000 0107     while (1) {                     // looping utama
                  _0x6F:
-                 ; 0000 0110         if (mode == 0) {            // cek mode lampu, jika 0
+                 ; 0000 0108         if (mode == 0) {            // cek mode lampu, jika 0
 00013f 2e00      	MOV  R0,R16
 000140 2a01      	OR   R0,R17
 000141 f411      	BRNE _0x72
-                 ; 0000 0111             otomatis();             // jalanin mode otomatis
+                 ; 0000 0109             otomatis();             // jalanin mode otomatis
 000142 d02c      	RCALL _otomatis
-                 ; 0000 0112         }
-                 ; 0000 0113         else if (mode == 1) {       // cek mode lampu, jika 1
+                 ; 0000 010A         }
+                 ; 0000 010B         else if (mode == 1) {       // cek mode lampu, jika 1
 000143 c003      	RJMP _0x73
                  _0x72:
 000144 d075      	RCALL SUBOPT_0x2
 000145 f409      	BRNE _0x74
-                 ; 0000 0114             manual();               // kalanin mode manual
+                 ; 0000 010C             manual();               // kalanin mode manual
 000146 d00a      	RCALL _manual
-                 ; 0000 0115         }
-                 ; 0000 0116 
-                 ; 0000 0117         mode = (mode == 1) ? 0 : 1; // cek, apakah mode isi nilainya 1...
+                 ; 0000 010D         }
+                 ; 0000 010E 
+                 ; 0000 010F         mode = (mode == 1) ? 0 : 1; // cek, apakah mode isi nilainya 1...
                  _0x74:
                  _0x73:
 000147 d072      	RCALL SUBOPT_0x2
@@ -1804,101 +1796,101 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:52:42 2024
 00014d e0f0      	LDI  R31,HIGH(1)
                  _0x76:
 00014e 018f      	MOVW R16,R30
-                 ; 0000 0118                                     // jika iya isinya 1,   ganti 0
-                 ; 0000 0119     }                               // jika isinya bukan 1, ganti 1
+                 ; 0000 0110                                     // jika iya isinya 1,   ganti 0
+                 ; 0000 0111     }                               // jika isinya bukan 1, ganti 1
 00014f cfef      	RJMP _0x6F
-                 ; 0000 011A }
+                 ; 0000 0112 }
                  _0x78:
 000150 cfff      	RJMP _0x78
                  ; .FEND
                  ;
                  ;void manual(void)
-                 ; 0000 011D {
+                 ; 0000 0115 {
                  _manual:
                  ; .FSTART _manual
-                 ; 0000 011E     PORTD.7 = 1;             // hidupin lampu mode manual
+                 ; 0000 0116     PORTD.7 = 1;             // hidupin lampu mode manual
 000151 9a97      	SBI  0x12,7
-                 ; 0000 011F 
-                 ; 0000 0120     lampu1(0);               // semua lampu bewarna merah
+                 ; 0000 0117 
+                 ; 0000 0118     lampu1(0);               // semua lampu bewarna merah
 000152 d06c      	RCALL SUBOPT_0x3
-                 ; 0000 0121     lampu2(0);
-                 ; 0000 0122     lampu3(0);
-                 ; 0000 0123     lampu4(0);
-                 ; 0000 0124     while (1)                // looping utama
+                 ; 0000 0119     lampu2(0);
+                 ; 0000 011A     lampu3(0);
+                 ; 0000 011B     lampu4(0);
+                 ; 0000 011C     while (1)                // looping utama
                  _0x7B:
-                 ; 0000 0125           {
-                 ; 0000 0126           // Place your code here
-                 ; 0000 0127           if ((PINA&0b00010000) == 0) {     /* TOMBOL MODE */
+                 ; 0000 011D           {
+                 ; 0000 011E           // Place your code here
+                 ; 0000 011F           if ((PINA&0b00010000) == 0) {     /* TOMBOL MODE */
 000153 9bcc      	SBIS 0x19,4
-                 ; 0000 0128             //tutt();
-                 ; 0000 0129             break;                          // keluar dari looping while
+                 ; 0000 0120             //tutt();
+                 ; 0000 0121             break;                          // keluar dari looping while
 000154 c014      	RJMP _0x7D
+                 ; 0000 0122 
+                 ; 0000 0123           }
+                 ; 0000 0124 
+                 ; 0000 0125 
+                 ; 0000 0126            else if((PINA&0b00000001)== 0) { /* TOMBOL 1 */
+000155 99c8      	SBIC 0x19,0
+000156 c003      	RJMP _0x80
+                 ; 0000 0127             ganti();                        // ganti warna lampu sebelumnya
+000157 d073      	RCALL SUBOPT_0x4
+                 ; 0000 0128             delay_ms(1000);                 // delay 1 detik
+                 ; 0000 0129             lampu1(2);                      // lampu 1 -> hijau
+000158 df16      	RCALL _lampu1
                  ; 0000 012A 
                  ; 0000 012B           }
                  ; 0000 012C 
-                 ; 0000 012D 
-                 ; 0000 012E            else if((PINA&0b00000001)== 0) { /* TOMBOL 1 */
-000155 99c8      	SBIC 0x19,0
-000156 c003      	RJMP _0x80
-                 ; 0000 012F             ganti();                        // ganti warna lampu sebelumnya
-000157 d073      	RCALL SUBOPT_0x4
-                 ; 0000 0130             delay_ms(1000);                 // delay 1 detik
-                 ; 0000 0131             lampu1(2);                      // lampu 1 -> hijau
-000158 df16      	RCALL _lampu1
-                 ; 0000 0132 
-                 ; 0000 0133           }
-                 ; 0000 0134 
-                 ; 0000 0135           else if((PINA&0b00000010)== 0) {  /* TOMBOL 2 */
+                 ; 0000 012D           else if((PINA&0b00000010)== 0) {  /* TOMBOL 2 */
 000159 c00e      	RJMP _0x81
                  _0x80:
 00015a 99c9      	SBIC 0x19,1
 00015b c003      	RJMP _0x82
-                 ; 0000 0136             ganti();                        // ganti warna lampu sebelumnya
+                 ; 0000 012E             ganti();                        // ganti warna lampu sebelumnya
 00015c d06e      	RCALL SUBOPT_0x4
-                 ; 0000 0137             delay_ms(1000);                 // delay 1 detik
-                 ; 0000 0138             lampu2(2);                      // lampu 2 -> hijau
+                 ; 0000 012F             delay_ms(1000);                 // delay 1 detik
+                 ; 0000 0130             lampu2(2);                      // lampu 2 -> hijau
 00015d df32      	RCALL _lampu2
-                 ; 0000 0139           }
-                 ; 0000 013A 
-                 ; 0000 013B           else if((PINA&0b00000100)== 0) {  /* TOMBOL 3 */
+                 ; 0000 0131           }
+                 ; 0000 0132 
+                 ; 0000 0133           else if((PINA&0b00000100)== 0) {  /* TOMBOL 3 */
 00015e c009      	RJMP _0x83
                  _0x82:
 00015f 99ca      	SBIC 0x19,2
 000160 c003      	RJMP _0x84
-                 ; 0000 013C             ganti();                        // ganti warna lampu sebelumnya
+                 ; 0000 0134             ganti();                        // ganti warna lampu sebelumnya
 000161 d069      	RCALL SUBOPT_0x4
-                 ; 0000 013D             delay_ms(1000);                 // delay 1 detik
-                 ; 0000 013E             lampu3(2);                      // lampu 3 -> hijau
+                 ; 0000 0135             delay_ms(1000);                 // delay 1 detik
+                 ; 0000 0136             lampu3(2);                      // lampu 3 -> hijau
 000162 df4d      	RCALL _lampu3
-                 ; 0000 013F           }
-                 ; 0000 0140 
-                 ; 0000 0141           else if((PINA&0b00001000)== 0) {  /* TOMBOL 4 */
+                 ; 0000 0137           }
+                 ; 0000 0138 
+                 ; 0000 0139           else if((PINA&0b00001000)== 0) {  /* TOMBOL 4 */
 000163 c004      	RJMP _0x85
                  _0x84:
 000164 99cb      	SBIC 0x19,3
 000165 c002      	RJMP _0x86
-                 ; 0000 0142             ganti();                        // ganti warna lampu sebelumnya
+                 ; 0000 013A             ganti();                        // ganti warna lampu sebelumnya
 000166 d064      	RCALL SUBOPT_0x4
-                 ; 0000 0143             delay_ms(1000);                 // delay 1 detik
-                 ; 0000 0144             lampu4(2);                      // lampu 4 -> hijau
+                 ; 0000 013B             delay_ms(1000);                 // delay 1 detik
+                 ; 0000 013C             lampu4(2);                      // lampu 4 -> hijau
 000167 df68      	RCALL _lampu4
-                 ; 0000 0145           }
-                 ; 0000 0146 
-                 ; 0000 0147     } //while
+                 ; 0000 013D           }
+                 ; 0000 013E 
+                 ; 0000 013F     } //while
                  _0x86:
                  _0x85:
                  _0x83:
                  _0x81:
 000168 cfea      	RJMP _0x7B
                  _0x7D:
-                 ; 0000 0148 
-                 ; 0000 0149     PORTD.7 = 0;             // Matikan lampu mode Manual
+                 ; 0000 0140 
+                 ; 0000 0141     PORTD.7 = 0;             // Matikan lampu mode Manual
 000169 9897      	CBI  0x12,7
-                 ; 0000 014A     delay_ms(2000);          // delay 2 detik
+                 ; 0000 0142     delay_ms(2000);          // delay 2 detik
 00016a eda0      	LDI  R26,LOW(2000)
 00016b e0b7      	LDI  R27,HIGH(2000)
 00016c 940e 01e1 	CALL _delay_ms
-                 ; 0000 014B }// main
+                 ; 0000 0143 }// main
 00016e 9508      	RET
                  ; .FEND
                  ;
@@ -1907,11 +1899,11 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:52:42 2024
                  ;        /*********************/
                  ;
                  ;void otomatis(void) {
-                 ; 0000 0151 void otomatis(void) {
+                 ; 0000 0149 void otomatis(void) {
                  _otomatis:
                  ; .FSTART _otomatis
-                 ; 0000 0152     int bruh = 0;               // :v tanya sendiri
-                 ; 0000 0153     PORTD.6 = 1;                // hidupin lampu mode
+                 ; 0000 014A     int bruh = 0;               // :v tanya sendiri
+                 ; 0000 014B     PORTD.6 = 1;                // hidupin lampu mode
 00016f 931a      	ST   -Y,R17
 000170 930a      	ST   -Y,R16
                  ;	bruh -> R16,R17
@@ -1920,65 +1912,65 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:52:42 2024
 000172 e010     +LDI R17 , HIGH ( 0 )
                  	__GETWRN 16,17,0
 000173 9a96      	SBI  0x12,6
-                 ; 0000 0154 
-                 ; 0000 0155     lampu1(0);                  // semua lampu merah
+                 ; 0000 014C 
+                 ; 0000 014D     lampu1(0);                  // semua lampu merah
 000174 d04a      	RCALL SUBOPT_0x3
-                 ; 0000 0156     lampu2(0);
-                 ; 0000 0157     lampu3(0);
-                 ; 0000 0158     lampu4(0);
-                 ; 0000 0159     while (1) {                 // loop utama
+                 ; 0000 014E     lampu2(0);
+                 ; 0000 014F     lampu3(0);
+                 ; 0000 0150     lampu4(0);
+                 ; 0000 0151     while (1) {                 // loop utama
                  _0x8B:
-                 ; 0000 015A         if ((PINA&0b00010000) == 0) { /* TOMBOL MODE */
+                 ; 0000 0152         if ((PINA&0b00010000) == 0) { /* TOMBOL MODE */
 000175 99cc      	SBIC 0x19,4
 000176 c003      	RJMP _0x8E
-                 ; 0000 015B             bruh = -1;                // rusak urutan nyala lampu, lalu
+                 ; 0000 0153             bruh = -1;                // rusak urutan nyala lampu, lalu
                 +
 000177 ef0f     +LDI R16 , LOW ( - 1 )
 000178 ef1f     +LDI R17 , HIGH ( - 1 )
                  	__GETWRN 16,17,-1
-                 ; 0000 015C             //tutt();                 // keluar dari loop harus nunggu
-                 ; 0000 015D             break;                    // delay dibawahnya selesai
+                 ; 0000 0154             //tutt();                 // keluar dari loop harus nunggu
+                 ; 0000 0155             break;                    // delay dibawahnya selesai
 000179 c02b      	RJMP _0x8D
-                 ; 0000 015E         }
-                 ; 0000 015F         else if (bruh == 0) {         /* URUTAN PERTAMA */
+                 ; 0000 0156         }
+                 ; 0000 0157         else if (bruh == 0) {         /* URUTAN PERTAMA */
                  _0x8E:
 00017a 2e00      	MOV  R0,R16
 00017b 2a01      	OR   R0,R17
 00017c f439      	BRNE _0x90
-                 ; 0000 0160             delay_ms(1000);           // delay 1 detik
+                 ; 0000 0158             delay_ms(1000);           // delay 1 detik
 00017d d055      	RCALL SUBOPT_0x5
-                 ; 0000 0161             lampu1(2);                // lampu 1 -> hijau
+                 ; 0000 0159             lampu1(2);                // lampu 1 -> hijau
 00017e def0      	RCALL _lampu1
-                 ; 0000 0162             delay_ms(3000);           // delay 3 detik
+                 ; 0000 015A             delay_ms(3000);           // delay 3 detik
 00017f d05a      	RCALL SUBOPT_0x6
-                 ; 0000 0163             lampu1(0);                // lampu 1 -> merah
+                 ; 0000 015B             lampu1(0);                // lampu 1 -> merah
 000180 deee      	RCALL _lampu1
-                 ; 0000 0164             bruh++;                   // urutan + 1
+                 ; 0000 015C             bruh++;                   // urutan + 1
                 +
 000181 5f0f     +SUBI R16 , LOW ( - 1 )
 000182 4f1f     +SBCI R17 , HIGH ( - 1 )
                  	__ADDWRN 16,17,1
-                 ; 0000 0165         }
-                 ; 0000 0166         else if (bruh == 1) {         /* URUTAN KEDUA */
+                 ; 0000 015D         }
+                 ; 0000 015E         else if (bruh == 1) {         /* URUTAN KEDUA */
 000183 c020      	RJMP _0x91
                  _0x90:
 000184 d035      	RCALL SUBOPT_0x2
 000185 f439      	BRNE _0x92
-                 ; 0000 0167             delay_ms(1000);           // delay 1 deti
+                 ; 0000 015F             delay_ms(1000);           // delay 1 deti
 000186 d04c      	RCALL SUBOPT_0x5
-                 ; 0000 0168             lampu2(2);                // lampu 2 -> hijau
+                 ; 0000 0160             lampu2(2);                // lampu 2 -> hijau
 000187 df08      	RCALL _lampu2
-                 ; 0000 0169             delay_ms(3000);           // delay 3 detik
+                 ; 0000 0161             delay_ms(3000);           // delay 3 detik
 000188 d051      	RCALL SUBOPT_0x6
-                 ; 0000 016A             lampu2(0);                // lampu 2 -> merah
+                 ; 0000 0162             lampu2(0);                // lampu 2 -> merah
 000189 df06      	RCALL _lampu2
-                 ; 0000 016B             bruh++;                   // urutan + 1
+                 ; 0000 0163             bruh++;                   // urutan + 1
                 +
 00018a 5f0f     +SUBI R16 , LOW ( - 1 )
 00018b 4f1f     +SBCI R17 , HIGH ( - 1 )
                  	__ADDWRN 16,17,1
-                 ; 0000 016C         }
-                 ; 0000 016D         else if (bruh == 2) {         /* URUTAN KETIGA */
+                 ; 0000 0164         }
+                 ; 0000 0165         else if (bruh == 2) {         /* URUTAN KETIGA */
 00018c c017      	RJMP _0x93
                  _0x92:
 00018d e0e2      	LDI  R30,LOW(2)
@@ -1986,21 +1978,21 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:52:42 2024
 00018f 17e0      	CP   R30,R16
 000190 07f1      	CPC  R31,R17
 000191 f439      	BRNE _0x94
-                 ; 0000 016E             delay_ms(1000);           // delay 1 deti
+                 ; 0000 0166             delay_ms(1000);           // delay 1 deti
 000192 d040      	RCALL SUBOPT_0x5
-                 ; 0000 016F             lampu3(2);                // lampu 3 -> hijau
+                 ; 0000 0167             lampu3(2);                // lampu 3 -> hijau
 000193 df1c      	RCALL _lampu3
-                 ; 0000 0170             delay_ms(3000);           // delay 3 detik
+                 ; 0000 0168             delay_ms(3000);           // delay 3 detik
 000194 d045      	RCALL SUBOPT_0x6
-                 ; 0000 0171             lampu3(0);                // lampu 3 -> merah
+                 ; 0000 0169             lampu3(0);                // lampu 3 -> merah
 000195 df1a      	RCALL _lampu3
-                 ; 0000 0172             bruh++;                   // urutan + 1
+                 ; 0000 016A             bruh++;                   // urutan + 1
                 +
 000196 5f0f     +SUBI R16 , LOW ( - 1 )
 000197 4f1f     +SBCI R17 , HIGH ( - 1 )
                  	__ADDWRN 16,17,1
-                 ; 0000 0173         }
-                 ; 0000 0174         else if (bruh == 3) {         /* URUTAN KEEMPAT */
+                 ; 0000 016B         }
+                 ; 0000 016C         else if (bruh == 3) {         /* URUTAN KEEMPAT */
 000198 c00b      	RJMP _0x95
                  _0x94:
 000199 e0e3      	LDI  R30,LOW(3)
@@ -2008,37 +2000,37 @@ AVRASM ver. 2.1.30  E:\Kuliah\PT\Debug\List\first.asm Thu May 09 21:52:42 2024
 00019b 17e0      	CP   R30,R16
 00019c 07f1      	CPC  R31,R17
 00019d f431      	BRNE _0x96
-                 ; 0000 0175             delay_ms(1000);           // delay 1 deti
+                 ; 0000 016D             delay_ms(1000);           // delay 1 deti
 00019e d034      	RCALL SUBOPT_0x5
-                 ; 0000 0176             lampu4(2);                // lampu 4 -> hijau
+                 ; 0000 016E             lampu4(2);                // lampu 4 -> hijau
 00019f df30      	RCALL _lampu4
-                 ; 0000 0177             delay_ms(3000);           // delay 3 detik
+                 ; 0000 016F             delay_ms(3000);           // delay 3 detik
 0001a0 d039      	RCALL SUBOPT_0x6
-                 ; 0000 0178             lampu4(0);                // lampu 4 -> merah
+                 ; 0000 0170             lampu4(0);                // lampu 4 -> merah
 0001a1 df2e      	RCALL _lampu4
-                 ; 0000 0179             bruh = 0;                 // urutan reset mulai dari awal
+                 ; 0000 0171             bruh = 0;                 // urutan reset mulai dari awal
                 +
 0001a2 e000     +LDI R16 , LOW ( 0 )
 0001a3 e010     +LDI R17 , HIGH ( 0 )
                  	__GETWRN 16,17,0
-                 ; 0000 017A         }
-                 ; 0000 017B 
-                 ; 0000 017C     }
+                 ; 0000 0172         }
+                 ; 0000 0173 
+                 ; 0000 0174     }
                  _0x96:
                  _0x95:
                  _0x93:
                  _0x91:
 0001a4 cfd0      	RJMP _0x8B
                  _0x8D:
-                 ; 0000 017D 
-                 ; 0000 017E     PORTD.6 = 0;             // matikan lampu mode Otomatis
+                 ; 0000 0175 
+                 ; 0000 0176     PORTD.6 = 0;             // matikan lampu mode Otomatis
 0001a5 9896      	CBI  0x12,6
-                 ; 0000 017F     delay_ms(2000);          // delay 2 detik
+                 ; 0000 0177     delay_ms(2000);          // delay 2 detik
 0001a6 eda0      	LDI  R26,LOW(2000)
 0001a7 e0b7      	LDI  R27,HIGH(2000)
 0001a8 940e 01e1 	CALL _delay_ms
-                 ; 0000 0180 
-                 ; 0000 0181 }
+                 ; 0000 0178 
+                 ; 0000 0179 }
 0001aa 9109      	LD   R16,Y+
 0001ab 9119      	LD   R17,Y+
 0001ac 9508      	RET
