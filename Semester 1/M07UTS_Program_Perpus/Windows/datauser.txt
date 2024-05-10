@@ -1,0 +1,4 @@
+host,Hissats,777,true,The Girl with the Dragon Tattoo
+host,UyyebGanteng,666,false, 
+admin,admin,123,false, 
+member,member,123,false, 

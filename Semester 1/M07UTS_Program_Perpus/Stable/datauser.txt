@@ -1,0 +1,9 @@
+host,Hissats,777,true,The Girl with the Dragon Tattoo
+host,UyyebGanteng,666,false, 
+admin,admin,123,false, 
+member,member,123,false, 
+member,kapow,123,false,
+member,pokaw,121,false,
+member,kiwkiw,000,false,
+member,popow,111,false,
+member,opo,144,false,
