@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-05-10T14:19:26.477Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="ryB6uOCnKkb4wxyMFSfV" version="24.3.1" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-10T14:35:17.431Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="Otxe6fFz6NgFqLCkdOqT" version="24.3.1" type="github">
   <diagram name="Page-1" id="wlybUEzBC5uSpr5Kb3t2">
     <mxGraphModel dx="880" dy="454" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -16,8 +16,18 @@
         <mxCell id="sQZkt7OxbiWoOmY9Tt8w-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="sQZkt7OxbiWoOmY9Tt8w-3" target="sQZkt7OxbiWoOmY9Tt8w-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="sQZkt7OxbiWoOmY9Tt8w-18" value="&lt;b&gt;Ya&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sQZkt7OxbiWoOmY9Tt8w-12">
+          <mxGeometry x="-0.4889" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="sQZkt7OxbiWoOmY9Tt8w-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="sQZkt7OxbiWoOmY9Tt8w-3" target="sQZkt7OxbiWoOmY9Tt8w-6">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sQZkt7OxbiWoOmY9Tt8w-19" value="&lt;b&gt;Tidak&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sQZkt7OxbiWoOmY9Tt8w-13">
+          <mxGeometry x="-0.5222" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="sQZkt7OxbiWoOmY9Tt8w-3" value="&lt;div&gt;&lt;b&gt;Cek Kode&lt;/b&gt;&lt;/div&gt;&lt;div&gt;kode = 0?&lt;br&gt;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="350" y="270" width="100" height="100" as="geometry" />
