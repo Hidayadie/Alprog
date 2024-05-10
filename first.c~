@@ -248,15 +248,7 @@ void ganti() {
         }
     }   
 }
-/*
-void tutt(void) {
-    PORTC.7 = 0;
-    delay_ms(500);
-    PORTC.7 = 1;
-    delay_ms(500);
-    PORTC.7 = 0;
-}
-*/
+
 
 
         /****************/

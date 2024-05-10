@@ -1712,40 +1712,43 @@ _0x67:
 ;
 ;
 ;
+;
+;
+;
 ;        /****************/
 ;        /*  KODE UTAMA  */
 ;        /****************/
 ;
 ;
 ;void main(void) {
-; 0000 0103 void main(void) {
+; 0000 0106 void main(void) {
 _main:
 ; .FSTART _main
-; 0000 0104     int mode = 0;                   /* START MODE: OTOMATIS */
-; 0000 0105     init();                         // jalanin kode inisialisasi 1x
+; 0000 0107     int mode = 0;                   /* START MODE: OTOMATIS */
+; 0000 0108     init();                         // jalanin kode inisialisasi 1x
 ;	mode -> R16,R17
 	__GETWRN 16,17,0
 	RCALL _init
-; 0000 0106 
-; 0000 0107     while (1) {                     // looping utama
+; 0000 0109 
+; 0000 010A     while (1) {                     // looping utama
 _0x6F:
-; 0000 0108         if (mode == 0) {            // cek mode lampu, jika 0
+; 0000 010B         if (mode == 0) {            // cek mode lampu, jika 0
 	MOV  R0,R16
 	OR   R0,R17
 	BRNE _0x72
-; 0000 0109             otomatis();             // jalanin mode otomatis
+; 0000 010C             otomatis();             // jalanin mode otomatis
 	RCALL _otomatis
-; 0000 010A         }
-; 0000 010B         else if (mode == 1) {       // cek mode lampu, jika 1
+; 0000 010D         }
+; 0000 010E         else if (mode == 1) {       // cek mode lampu, jika 1
 	RJMP _0x73
 _0x72:
 	RCALL SUBOPT_0x2
 	BRNE _0x74
-; 0000 010C             manual();               // kalanin mode manual
+; 0000 010F             manual();               // kalanin mode manual
 	RCALL _manual
-; 0000 010D         }
-; 0000 010E 
-; 0000 010F         mode = (mode == 1) ? 0 : 1; // cek, apakah mode isi nilainya 1...
+; 0000 0110         }
+; 0000 0111 
+; 0000 0112         mode = (mode == 1) ? 0 : 1; // cek, apakah mode isi nilainya 1...
 _0x74:
 _0x73:
 	RCALL SUBOPT_0x2
@@ -1758,101 +1761,101 @@ _0x75:
 	LDI  R31,HIGH(1)
 _0x76:
 	MOVW R16,R30
-; 0000 0110                                     // jika iya isinya 1,   ganti 0
-; 0000 0111     }                               // jika isinya bukan 1, ganti 1
+; 0000 0113                                     // jika iya isinya 1,   ganti 0
+; 0000 0114     }                               // jika isinya bukan 1, ganti 1
 	RJMP _0x6F
-; 0000 0112 }
+; 0000 0115 }
 _0x78:
 	RJMP _0x78
 ; .FEND
 ;
 ;void manual(void)
-; 0000 0115 {
+; 0000 0118 {
 _manual:
 ; .FSTART _manual
-; 0000 0116     PORTD.7 = 1;             // hidupin lampu mode manual
+; 0000 0119     PORTD.7 = 1;             // hidupin lampu mode manual
 	SBI  0x12,7
-; 0000 0117 
-; 0000 0118     lampu1(0);               // semua lampu bewarna merah
+; 0000 011A 
+; 0000 011B     lampu1(0);               // semua lampu bewarna merah
 	RCALL SUBOPT_0x3
-; 0000 0119     lampu2(0);
-; 0000 011A     lampu3(0);
-; 0000 011B     lampu4(0);
-; 0000 011C     while (1)                // looping utama
+; 0000 011C     lampu2(0);
+; 0000 011D     lampu3(0);
+; 0000 011E     lampu4(0);
+; 0000 011F     while (1)                // looping utama
 _0x7B:
-; 0000 011D           {
-; 0000 011E           // Place your code here
-; 0000 011F           if ((PINA&0b00010000) == 0) {     /* TOMBOL MODE */
+; 0000 0120           {
+; 0000 0121           // Place your code here
+; 0000 0122           if ((PINA&0b00010000) == 0) {     /* TOMBOL MODE */
 	SBIS 0x19,4
-; 0000 0120             //tutt();
-; 0000 0121             break;                          // keluar dari looping while
+; 0000 0123             //tutt();
+; 0000 0124             break;                          // keluar dari looping while
 	RJMP _0x7D
-; 0000 0122 
-; 0000 0123           }
-; 0000 0124 
 ; 0000 0125 
-; 0000 0126            else if((PINA&0b00000001)== 0) { /* TOMBOL 1 */
+; 0000 0126           }
+; 0000 0127 
+; 0000 0128 
+; 0000 0129            else if((PINA&0b00000001)== 0) { /* TOMBOL 1 */
 	SBIC 0x19,0
 	RJMP _0x80
-; 0000 0127             ganti();                        // ganti warna lampu sebelumnya
+; 0000 012A             ganti();                        // ganti warna lampu sebelumnya
 	RCALL SUBOPT_0x4
-; 0000 0128             delay_ms(1000);                 // delay 1 detik
-; 0000 0129             lampu1(2);                      // lampu 1 -> hijau
+; 0000 012B             delay_ms(1000);                 // delay 1 detik
+; 0000 012C             lampu1(2);                      // lampu 1 -> hijau
 	RCALL _lampu1
-; 0000 012A 
-; 0000 012B           }
-; 0000 012C 
-; 0000 012D           else if((PINA&0b00000010)== 0) {  /* TOMBOL 2 */
+; 0000 012D 
+; 0000 012E           }
+; 0000 012F 
+; 0000 0130           else if((PINA&0b00000010)== 0) {  /* TOMBOL 2 */
 	RJMP _0x81
 _0x80:
 	SBIC 0x19,1
 	RJMP _0x82
-; 0000 012E             ganti();                        // ganti warna lampu sebelumnya
+; 0000 0131             ganti();                        // ganti warna lampu sebelumnya
 	RCALL SUBOPT_0x4
-; 0000 012F             delay_ms(1000);                 // delay 1 detik
-; 0000 0130             lampu2(2);                      // lampu 2 -> hijau
+; 0000 0132             delay_ms(1000);                 // delay 1 detik
+; 0000 0133             lampu2(2);                      // lampu 2 -> hijau
 	RCALL _lampu2
-; 0000 0131           }
-; 0000 0132 
-; 0000 0133           else if((PINA&0b00000100)== 0) {  /* TOMBOL 3 */
+; 0000 0134           }
+; 0000 0135 
+; 0000 0136           else if((PINA&0b00000100)== 0) {  /* TOMBOL 3 */
 	RJMP _0x83
 _0x82:
 	SBIC 0x19,2
 	RJMP _0x84
-; 0000 0134             ganti();                        // ganti warna lampu sebelumnya
+; 0000 0137             ganti();                        // ganti warna lampu sebelumnya
 	RCALL SUBOPT_0x4
-; 0000 0135             delay_ms(1000);                 // delay 1 detik
-; 0000 0136             lampu3(2);                      // lampu 3 -> hijau
+; 0000 0138             delay_ms(1000);                 // delay 1 detik
+; 0000 0139             lampu3(2);                      // lampu 3 -> hijau
 	RCALL _lampu3
-; 0000 0137           }
-; 0000 0138 
-; 0000 0139           else if((PINA&0b00001000)== 0) {  /* TOMBOL 4 */
+; 0000 013A           }
+; 0000 013B 
+; 0000 013C           else if((PINA&0b00001000)== 0) {  /* TOMBOL 4 */
 	RJMP _0x85
 _0x84:
 	SBIC 0x19,3
 	RJMP _0x86
-; 0000 013A             ganti();                        // ganti warna lampu sebelumnya
+; 0000 013D             ganti();                        // ganti warna lampu sebelumnya
 	RCALL SUBOPT_0x4
-; 0000 013B             delay_ms(1000);                 // delay 1 detik
-; 0000 013C             lampu4(2);                      // lampu 4 -> hijau
+; 0000 013E             delay_ms(1000);                 // delay 1 detik
+; 0000 013F             lampu4(2);                      // lampu 4 -> hijau
 	RCALL _lampu4
-; 0000 013D           }
-; 0000 013E 
-; 0000 013F     } //while
+; 0000 0140           }
+; 0000 0141 
+; 0000 0142     } //while
 _0x86:
 _0x85:
 _0x83:
 _0x81:
 	RJMP _0x7B
 _0x7D:
-; 0000 0140 
-; 0000 0141     PORTD.7 = 0;             // Matikan lampu mode Manual
+; 0000 0143 
+; 0000 0144     PORTD.7 = 0;             // Matikan lampu mode Manual
 	CBI  0x12,7
-; 0000 0142     delay_ms(2000);          // delay 2 detik
+; 0000 0145     delay_ms(2000);          // delay 2 detik
 	LDI  R26,LOW(2000)
 	LDI  R27,HIGH(2000)
 	CALL _delay_ms
-; 0000 0143 }// main
+; 0000 0146 }// main
 	RET
 ; .FEND
 ;
@@ -1861,66 +1864,66 @@ _0x7D:
 ;        /*********************/
 ;
 ;void otomatis(void) {
-; 0000 0149 void otomatis(void) {
+; 0000 014C void otomatis(void) {
 _otomatis:
 ; .FSTART _otomatis
-; 0000 014A     int bruh = 0;               // :v tanya sendiri
-; 0000 014B     PORTD.6 = 1;                // hidupin lampu mode
+; 0000 014D     int bruh = 0;               // :v tanya sendiri
+; 0000 014E     PORTD.6 = 1;                // hidupin lampu mode
 	ST   -Y,R17
 	ST   -Y,R16
 ;	bruh -> R16,R17
 	__GETWRN 16,17,0
 	SBI  0x12,6
-; 0000 014C 
-; 0000 014D     lampu1(0);                  // semua lampu merah
+; 0000 014F 
+; 0000 0150     lampu1(0);                  // semua lampu merah
 	RCALL SUBOPT_0x3
-; 0000 014E     lampu2(0);
-; 0000 014F     lampu3(0);
-; 0000 0150     lampu4(0);
-; 0000 0151     while (1) {                 // loop utama
+; 0000 0151     lampu2(0);
+; 0000 0152     lampu3(0);
+; 0000 0153     lampu4(0);
+; 0000 0154     while (1) {                 // loop utama
 _0x8B:
-; 0000 0152         if ((PINA&0b00010000) == 0) { /* TOMBOL MODE */
+; 0000 0155         if ((PINA&0b00010000) == 0) { /* TOMBOL MODE */
 	SBIC 0x19,4
 	RJMP _0x8E
-; 0000 0153             bruh = -1;                // rusak urutan nyala lampu, lalu
+; 0000 0156             bruh = -1;                // rusak urutan nyala lampu, lalu
 	__GETWRN 16,17,-1
-; 0000 0154             //tutt();                 // keluar dari loop harus nunggu
-; 0000 0155             break;                    // delay dibawahnya selesai
+; 0000 0157             //tutt();                 // keluar dari loop harus nunggu
+; 0000 0158             break;                    // delay dibawahnya selesai
 	RJMP _0x8D
-; 0000 0156         }
-; 0000 0157         else if (bruh == 0) {         /* URUTAN PERTAMA */
+; 0000 0159         }
+; 0000 015A         else if (bruh == 0) {         /* URUTAN PERTAMA */
 _0x8E:
 	MOV  R0,R16
 	OR   R0,R17
 	BRNE _0x90
-; 0000 0158             delay_ms(1000);           // delay 1 detik
+; 0000 015B             delay_ms(1000);           // delay 1 detik
 	RCALL SUBOPT_0x5
-; 0000 0159             lampu1(2);                // lampu 1 -> hijau
+; 0000 015C             lampu1(2);                // lampu 1 -> hijau
 	RCALL _lampu1
-; 0000 015A             delay_ms(3000);           // delay 3 detik
+; 0000 015D             delay_ms(3000);           // delay 3 detik
 	RCALL SUBOPT_0x6
-; 0000 015B             lampu1(0);                // lampu 1 -> merah
+; 0000 015E             lampu1(0);                // lampu 1 -> merah
 	RCALL _lampu1
-; 0000 015C             bruh++;                   // urutan + 1
+; 0000 015F             bruh++;                   // urutan + 1
 	__ADDWRN 16,17,1
-; 0000 015D         }
-; 0000 015E         else if (bruh == 1) {         /* URUTAN KEDUA */
+; 0000 0160         }
+; 0000 0161         else if (bruh == 1) {         /* URUTAN KEDUA */
 	RJMP _0x91
 _0x90:
 	RCALL SUBOPT_0x2
 	BRNE _0x92
-; 0000 015F             delay_ms(1000);           // delay 1 deti
+; 0000 0162             delay_ms(1000);           // delay 1 deti
 	RCALL SUBOPT_0x5
-; 0000 0160             lampu2(2);                // lampu 2 -> hijau
+; 0000 0163             lampu2(2);                // lampu 2 -> hijau
 	RCALL _lampu2
-; 0000 0161             delay_ms(3000);           // delay 3 detik
+; 0000 0164             delay_ms(3000);           // delay 3 detik
 	RCALL SUBOPT_0x6
-; 0000 0162             lampu2(0);                // lampu 2 -> merah
+; 0000 0165             lampu2(0);                // lampu 2 -> merah
 	RCALL _lampu2
-; 0000 0163             bruh++;                   // urutan + 1
+; 0000 0166             bruh++;                   // urutan + 1
 	__ADDWRN 16,17,1
-; 0000 0164         }
-; 0000 0165         else if (bruh == 2) {         /* URUTAN KETIGA */
+; 0000 0167         }
+; 0000 0168         else if (bruh == 2) {         /* URUTAN KETIGA */
 	RJMP _0x93
 _0x92:
 	LDI  R30,LOW(2)
@@ -1928,18 +1931,18 @@ _0x92:
 	CP   R30,R16
 	CPC  R31,R17
 	BRNE _0x94
-; 0000 0166             delay_ms(1000);           // delay 1 deti
+; 0000 0169             delay_ms(1000);           // delay 1 deti
 	RCALL SUBOPT_0x5
-; 0000 0167             lampu3(2);                // lampu 3 -> hijau
+; 0000 016A             lampu3(2);                // lampu 3 -> hijau
 	RCALL _lampu3
-; 0000 0168             delay_ms(3000);           // delay 3 detik
+; 0000 016B             delay_ms(3000);           // delay 3 detik
 	RCALL SUBOPT_0x6
-; 0000 0169             lampu3(0);                // lampu 3 -> merah
+; 0000 016C             lampu3(0);                // lampu 3 -> merah
 	RCALL _lampu3
-; 0000 016A             bruh++;                   // urutan + 1
+; 0000 016D             bruh++;                   // urutan + 1
 	__ADDWRN 16,17,1
-; 0000 016B         }
-; 0000 016C         else if (bruh == 3) {         /* URUTAN KEEMPAT */
+; 0000 016E         }
+; 0000 016F         else if (bruh == 3) {         /* URUTAN KEEMPAT */
 	RJMP _0x95
 _0x94:
 	LDI  R30,LOW(3)
@@ -1947,34 +1950,34 @@ _0x94:
 	CP   R30,R16
 	CPC  R31,R17
 	BRNE _0x96
-; 0000 016D             delay_ms(1000);           // delay 1 deti
+; 0000 0170             delay_ms(1000);           // delay 1 deti
 	RCALL SUBOPT_0x5
-; 0000 016E             lampu4(2);                // lampu 4 -> hijau
+; 0000 0171             lampu4(2);                // lampu 4 -> hijau
 	RCALL _lampu4
-; 0000 016F             delay_ms(3000);           // delay 3 detik
+; 0000 0172             delay_ms(3000);           // delay 3 detik
 	RCALL SUBOPT_0x6
-; 0000 0170             lampu4(0);                // lampu 4 -> merah
+; 0000 0173             lampu4(0);                // lampu 4 -> merah
 	RCALL _lampu4
-; 0000 0171             bruh = 0;                 // urutan reset mulai dari awal
+; 0000 0174             bruh = 0;                 // urutan reset mulai dari awal
 	__GETWRN 16,17,0
-; 0000 0172         }
-; 0000 0173 
-; 0000 0174     }
+; 0000 0175         }
+; 0000 0176 
+; 0000 0177     }
 _0x96:
 _0x95:
 _0x93:
 _0x91:
 	RJMP _0x8B
 _0x8D:
-; 0000 0175 
-; 0000 0176     PORTD.6 = 0;             // matikan lampu mode Otomatis
+; 0000 0178 
+; 0000 0179     PORTD.6 = 0;             // matikan lampu mode Otomatis
 	CBI  0x12,6
-; 0000 0177     delay_ms(2000);          // delay 2 detik
+; 0000 017A     delay_ms(2000);          // delay 2 detik
 	LDI  R26,LOW(2000)
 	LDI  R27,HIGH(2000)
 	CALL _delay_ms
-; 0000 0178 
-; 0000 0179 }
+; 0000 017B 
+; 0000 017C }
 	LD   R16,Y+
 	LD   R17,Y+
 	RET

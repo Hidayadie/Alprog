@@ -625,40 +625,43 @@
 ;
 ;
 ;
+;
+;
+;
 ;        /****************/
 ;        /*  KODE UTAMA  */
 ;        /****************/
 ;
 ;
 ;void main(void) {
-; 0000 0103 void main(void) {
+; 0000 0106 void main(void) {
 ;PCODE: $0000015C VOL: 0
-; 0000 0104     int mode = 0;                   /* START MODE: OTOMATIS */
-; 0000 0105     init();                         // jalanin kode inisialisasi 1x
+; 0000 0107     int mode = 0;                   /* START MODE: OTOMATIS */
+; 0000 0108     init();                         // jalanin kode inisialisasi 1x
 ;	mode -> R16,R17
 ;PCODE: $0000015D VOL: 0
 ;PCODE: $0000015E VOL: 0
 ;PCODE: $0000015F VOL: 0
-; 0000 0106 
-; 0000 0107     while (1) {                     // looping utama
+; 0000 0109 
+; 0000 010A     while (1) {                     // looping utama
 ;PCODE: $00000160 VOL: 0
-; 0000 0108         if (mode == 0) {            // cek mode lampu, jika 0
+; 0000 010B         if (mode == 0) {            // cek mode lampu, jika 0
 ;PCODE: $00000161 VOL: 0
 ;PCODE: $00000162 VOL: 0
-; 0000 0109             otomatis();             // jalanin mode otomatis
+; 0000 010C             otomatis();             // jalanin mode otomatis
 ;PCODE: $00000163 VOL: 0
-; 0000 010A         }
-; 0000 010B         else if (mode == 1) {       // cek mode lampu, jika 1
+; 0000 010D         }
+; 0000 010E         else if (mode == 1) {       // cek mode lampu, jika 1
 ;PCODE: $00000164 VOL: 0
 ;PCODE: $00000165 VOL: 0
 ;PCODE: $00000166 VOL: 0
 ;PCODE: $00000167 VOL: 0
 ;PCODE: $00000168 VOL: 0
-; 0000 010C             manual();               // kalanin mode manual
+; 0000 010F             manual();               // kalanin mode manual
 ;PCODE: $00000169 VOL: 0
-; 0000 010D         }
-; 0000 010E 
-; 0000 010F         mode = (mode == 1) ? 0 : 1; // cek, apakah mode isi nilainya 1...
+; 0000 0110         }
+; 0000 0111 
+; 0000 0112         mode = (mode == 1) ? 0 : 1; // cek, apakah mode isi nilainya 1...
 ;PCODE: $0000016A VOL: 0
 ;PCODE: $0000016B VOL: 0
 ;PCODE: $0000016C VOL: 0
@@ -671,124 +674,124 @@
 ;PCODE: $00000173 VOL: 0
 ;PCODE: $00000174 VOL: 0
 ;PCODE: $00000175 VOL: 0
-; 0000 0110                                     // jika iya isinya 1,   ganti 0
-; 0000 0111     }                               // jika isinya bukan 1, ganti 1
+; 0000 0113                                     // jika iya isinya 1,   ganti 0
+; 0000 0114     }                               // jika isinya bukan 1, ganti 1
 ;PCODE: $00000176 VOL: 0
 ;PCODE: $00000177 VOL: 0
-; 0000 0112 }
+; 0000 0115 }
 ;PCODE: $00000178 VOL: 0
 ;PCODE: $00000179 VOL: 0
 ;PCODE: $0000017A VOL: 0
 ;
 ;void manual(void)
-; 0000 0115 {
+; 0000 0118 {
 ;PCODE: $0000017B VOL: 0
 ;PCODE: $0000017C VOL: 0
-; 0000 0116     PORTD.7 = 1;             // hidupin lampu mode manual
+; 0000 0119     PORTD.7 = 1;             // hidupin lampu mode manual
 ;PCODE: $0000017D VOL: 0
 ;PCODE: $0000017E VOL: 0
-; 0000 0117 
-; 0000 0118     lampu1(0);               // semua lampu bewarna merah
+; 0000 011A 
+; 0000 011B     lampu1(0);               // semua lampu bewarna merah
 ;PCODE: $0000017F VOL: 0
 ;PCODE: $00000180 VOL: 0
 ;PCODE: $00000181 VOL: 0
-; 0000 0119     lampu2(0);
+; 0000 011C     lampu2(0);
 ;PCODE: $00000182 VOL: 0
 ;PCODE: $00000183 VOL: 0
 ;PCODE: $00000184 VOL: 0
-; 0000 011A     lampu3(0);
+; 0000 011D     lampu3(0);
 ;PCODE: $00000185 VOL: 0
 ;PCODE: $00000186 VOL: 0
 ;PCODE: $00000187 VOL: 0
-; 0000 011B     lampu4(0);
+; 0000 011E     lampu4(0);
 ;PCODE: $00000188 VOL: 0
 ;PCODE: $00000189 VOL: 0
 ;PCODE: $0000018A VOL: 0
-; 0000 011C     while (1)                // looping utama
+; 0000 011F     while (1)                // looping utama
 ;PCODE: $0000018B VOL: 0
-; 0000 011D           {
-; 0000 011E           // Place your code here
-; 0000 011F           if ((PINA&0b00010000) == 0) {     /* TOMBOL MODE */
+; 0000 0120           {
+; 0000 0121           // Place your code here
+; 0000 0122           if ((PINA&0b00010000) == 0) {     /* TOMBOL MODE */
 ;PCODE: $0000018C VOL: 0
 ;PCODE: $0000018D VOL: 0
 ;PCODE: $0000018E VOL: 0
-; 0000 0120             //tutt();
-; 0000 0121             break;                          // keluar dari looping while
+; 0000 0123             //tutt();
+; 0000 0124             break;                          // keluar dari looping while
 ;PCODE: $0000018F VOL: 0
-; 0000 0122 
-; 0000 0123           }
-; 0000 0124 
 ; 0000 0125 
-; 0000 0126            else if((PINA&0b00000001)== 0) { /* TOMBOL 1 */
+; 0000 0126           }
+; 0000 0127 
+; 0000 0128 
+; 0000 0129            else if((PINA&0b00000001)== 0) { /* TOMBOL 1 */
 ;PCODE: $00000190 VOL: 0
 ;PCODE: $00000191 VOL: 0
 ;PCODE: $00000192 VOL: 0
 ;PCODE: $00000193 VOL: 0
 ;PCODE: $00000194 VOL: 0
-; 0000 0127             ganti();                        // ganti warna lampu sebelumnya
+; 0000 012A             ganti();                        // ganti warna lampu sebelumnya
 ;PCODE: $00000195 VOL: 0
-; 0000 0128             delay_ms(1000);                 // delay 1 detik
+; 0000 012B             delay_ms(1000);                 // delay 1 detik
 ;PCODE: $00000196 VOL: 0
 ;PCODE: $00000197 VOL: 0
-; 0000 0129             lampu1(2);                      // lampu 1 -> hijau
+; 0000 012C             lampu1(2);                      // lampu 1 -> hijau
 ;PCODE: $00000198 VOL: 0
 ;PCODE: $00000199 VOL: 0
 ;PCODE: $0000019A VOL: 0
-; 0000 012A 
-; 0000 012B           }
-; 0000 012C 
-; 0000 012D           else if((PINA&0b00000010)== 0) {  /* TOMBOL 2 */
+; 0000 012D 
+; 0000 012E           }
+; 0000 012F 
+; 0000 0130           else if((PINA&0b00000010)== 0) {  /* TOMBOL 2 */
 ;PCODE: $0000019B VOL: 0
 ;PCODE: $0000019C VOL: 0
 ;PCODE: $0000019D VOL: 0
 ;PCODE: $0000019E VOL: 0
 ;PCODE: $0000019F VOL: 0
-; 0000 012E             ganti();                        // ganti warna lampu sebelumnya
+; 0000 0131             ganti();                        // ganti warna lampu sebelumnya
 ;PCODE: $000001A0 VOL: 0
-; 0000 012F             delay_ms(1000);                 // delay 1 detik
+; 0000 0132             delay_ms(1000);                 // delay 1 detik
 ;PCODE: $000001A1 VOL: 0
 ;PCODE: $000001A2 VOL: 0
-; 0000 0130             lampu2(2);                      // lampu 2 -> hijau
+; 0000 0133             lampu2(2);                      // lampu 2 -> hijau
 ;PCODE: $000001A3 VOL: 0
 ;PCODE: $000001A4 VOL: 0
 ;PCODE: $000001A5 VOL: 0
-; 0000 0131           }
-; 0000 0132 
-; 0000 0133           else if((PINA&0b00000100)== 0) {  /* TOMBOL 3 */
+; 0000 0134           }
+; 0000 0135 
+; 0000 0136           else if((PINA&0b00000100)== 0) {  /* TOMBOL 3 */
 ;PCODE: $000001A6 VOL: 0
 ;PCODE: $000001A7 VOL: 0
 ;PCODE: $000001A8 VOL: 0
 ;PCODE: $000001A9 VOL: 0
 ;PCODE: $000001AA VOL: 0
-; 0000 0134             ganti();                        // ganti warna lampu sebelumnya
+; 0000 0137             ganti();                        // ganti warna lampu sebelumnya
 ;PCODE: $000001AB VOL: 0
-; 0000 0135             delay_ms(1000);                 // delay 1 detik
+; 0000 0138             delay_ms(1000);                 // delay 1 detik
 ;PCODE: $000001AC VOL: 0
 ;PCODE: $000001AD VOL: 0
-; 0000 0136             lampu3(2);                      // lampu 3 -> hijau
+; 0000 0139             lampu3(2);                      // lampu 3 -> hijau
 ;PCODE: $000001AE VOL: 0
 ;PCODE: $000001AF VOL: 0
 ;PCODE: $000001B0 VOL: 0
-; 0000 0137           }
-; 0000 0138 
-; 0000 0139           else if((PINA&0b00001000)== 0) {  /* TOMBOL 4 */
+; 0000 013A           }
+; 0000 013B 
+; 0000 013C           else if((PINA&0b00001000)== 0) {  /* TOMBOL 4 */
 ;PCODE: $000001B1 VOL: 0
 ;PCODE: $000001B2 VOL: 0
 ;PCODE: $000001B3 VOL: 0
 ;PCODE: $000001B4 VOL: 0
 ;PCODE: $000001B5 VOL: 0
-; 0000 013A             ganti();                        // ganti warna lampu sebelumnya
+; 0000 013D             ganti();                        // ganti warna lampu sebelumnya
 ;PCODE: $000001B6 VOL: 0
-; 0000 013B             delay_ms(1000);                 // delay 1 detik
+; 0000 013E             delay_ms(1000);                 // delay 1 detik
 ;PCODE: $000001B7 VOL: 0
 ;PCODE: $000001B8 VOL: 0
-; 0000 013C             lampu4(2);                      // lampu 4 -> hijau
+; 0000 013F             lampu4(2);                      // lampu 4 -> hijau
 ;PCODE: $000001B9 VOL: 0
 ;PCODE: $000001BA VOL: 0
 ;PCODE: $000001BB VOL: 0
-; 0000 013D           }
-; 0000 013E 
-; 0000 013F     } //while
+; 0000 0140           }
+; 0000 0141 
+; 0000 0142     } //while
 ;PCODE: $000001BC VOL: 0
 ;PCODE: $000001BD VOL: 0
 ;PCODE: $000001BE VOL: 0
@@ -796,14 +799,14 @@
 ;PCODE: $000001C0 VOL: 0
 ;PCODE: $000001C1 VOL: 0
 ;PCODE: $000001C2 VOL: 0
-; 0000 0140 
-; 0000 0141     PORTD.7 = 0;             // Matikan lampu mode Manual
+; 0000 0143 
+; 0000 0144     PORTD.7 = 0;             // Matikan lampu mode Manual
 ;PCODE: $000001C3 VOL: 0
 ;PCODE: $000001C4 VOL: 0
-; 0000 0142     delay_ms(2000);          // delay 2 detik
+; 0000 0145     delay_ms(2000);          // delay 2 detik
 ;PCODE: $000001C5 VOL: 0
 ;PCODE: $000001C6 VOL: 0
-; 0000 0143 }// main
+; 0000 0146 }// main
 ;PCODE: $000001C7 VOL: 0
 ;PCODE: $000001C8 VOL: 0
 ;
@@ -812,11 +815,11 @@
 ;        /*********************/
 ;
 ;void otomatis(void) {
-; 0000 0149 void otomatis(void) {
+; 0000 014C void otomatis(void) {
 ;PCODE: $000001C9 VOL: 0
 ;PCODE: $000001CA VOL: 0
-; 0000 014A     int bruh = 0;               // :v tanya sendiri
-; 0000 014B     PORTD.6 = 1;                // hidupin lampu mode
+; 0000 014D     int bruh = 0;               // :v tanya sendiri
+; 0000 014E     PORTD.6 = 1;                // hidupin lampu mode
 ;PCODE: $000001CB VOL: 0
 ;PCODE: $000001CC VOL: 0
 ;	bruh -> R16,R17
@@ -824,133 +827,133 @@
 ;PCODE: $000001CE VOL: 0
 ;PCODE: $000001CF VOL: 0
 ;PCODE: $000001D0 VOL: 0
-; 0000 014C 
-; 0000 014D     lampu1(0);                  // semua lampu merah
+; 0000 014F 
+; 0000 0150     lampu1(0);                  // semua lampu merah
 ;PCODE: $000001D1 VOL: 0
 ;PCODE: $000001D2 VOL: 0
 ;PCODE: $000001D3 VOL: 0
-; 0000 014E     lampu2(0);
+; 0000 0151     lampu2(0);
 ;PCODE: $000001D4 VOL: 0
 ;PCODE: $000001D5 VOL: 0
 ;PCODE: $000001D6 VOL: 0
-; 0000 014F     lampu3(0);
+; 0000 0152     lampu3(0);
 ;PCODE: $000001D7 VOL: 0
 ;PCODE: $000001D8 VOL: 0
 ;PCODE: $000001D9 VOL: 0
-; 0000 0150     lampu4(0);
+; 0000 0153     lampu4(0);
 ;PCODE: $000001DA VOL: 0
 ;PCODE: $000001DB VOL: 0
 ;PCODE: $000001DC VOL: 0
-; 0000 0151     while (1) {                 // loop utama
+; 0000 0154     while (1) {                 // loop utama
 ;PCODE: $000001DD VOL: 0
-; 0000 0152         if ((PINA&0b00010000) == 0) { /* TOMBOL MODE */
+; 0000 0155         if ((PINA&0b00010000) == 0) { /* TOMBOL MODE */
 ;PCODE: $000001DE VOL: 0
 ;PCODE: $000001DF VOL: 0
 ;PCODE: $000001E0 VOL: 0
-; 0000 0153             bruh = -1;                // rusak urutan nyala lampu, lalu
+; 0000 0156             bruh = -1;                // rusak urutan nyala lampu, lalu
 ;PCODE: $000001E1 VOL: 0
 ;PCODE: $000001E2 VOL: 0
-; 0000 0154             //tutt();                 // keluar dari loop harus nunggu
-; 0000 0155             break;                    // delay dibawahnya selesai
+; 0000 0157             //tutt();                 // keluar dari loop harus nunggu
+; 0000 0158             break;                    // delay dibawahnya selesai
 ;PCODE: $000001E3 VOL: 0
-; 0000 0156         }
-; 0000 0157         else if (bruh == 0) {         /* URUTAN PERTAMA */
+; 0000 0159         }
+; 0000 015A         else if (bruh == 0) {         /* URUTAN PERTAMA */
 ;PCODE: $000001E4 VOL: 0
 ;PCODE: $000001E5 VOL: 0
 ;PCODE: $000001E6 VOL: 0
 ;PCODE: $000001E7 VOL: 0
-; 0000 0158             delay_ms(1000);           // delay 1 detik
+; 0000 015B             delay_ms(1000);           // delay 1 detik
 ;PCODE: $000001E8 VOL: 0
 ;PCODE: $000001E9 VOL: 0
-; 0000 0159             lampu1(2);                // lampu 1 -> hijau
+; 0000 015C             lampu1(2);                // lampu 1 -> hijau
 ;PCODE: $000001EA VOL: 0
 ;PCODE: $000001EB VOL: 0
 ;PCODE: $000001EC VOL: 0
-; 0000 015A             delay_ms(3000);           // delay 3 detik
+; 0000 015D             delay_ms(3000);           // delay 3 detik
 ;PCODE: $000001ED VOL: 0
 ;PCODE: $000001EE VOL: 0
-; 0000 015B             lampu1(0);                // lampu 1 -> merah
+; 0000 015E             lampu1(0);                // lampu 1 -> merah
 ;PCODE: $000001EF VOL: 0
 ;PCODE: $000001F0 VOL: 0
 ;PCODE: $000001F1 VOL: 0
-; 0000 015C             bruh++;                   // urutan + 1
+; 0000 015F             bruh++;                   // urutan + 1
 ;PCODE: $000001F2 VOL: 0
 ;PCODE: $000001F3 VOL: 0
-; 0000 015D         }
-; 0000 015E         else if (bruh == 1) {         /* URUTAN KEDUA */
+; 0000 0160         }
+; 0000 0161         else if (bruh == 1) {         /* URUTAN KEDUA */
 ;PCODE: $000001F4 VOL: 0
 ;PCODE: $000001F5 VOL: 0
 ;PCODE: $000001F6 VOL: 0
 ;PCODE: $000001F7 VOL: 0
 ;PCODE: $000001F8 VOL: 0
-; 0000 015F             delay_ms(1000);           // delay 1 deti
+; 0000 0162             delay_ms(1000);           // delay 1 deti
 ;PCODE: $000001F9 VOL: 0
 ;PCODE: $000001FA VOL: 0
-; 0000 0160             lampu2(2);                // lampu 2 -> hijau
+; 0000 0163             lampu2(2);                // lampu 2 -> hijau
 ;PCODE: $000001FB VOL: 0
 ;PCODE: $000001FC VOL: 0
 ;PCODE: $000001FD VOL: 0
-; 0000 0161             delay_ms(3000);           // delay 3 detik
+; 0000 0164             delay_ms(3000);           // delay 3 detik
 ;PCODE: $000001FE VOL: 0
 ;PCODE: $000001FF VOL: 0
-; 0000 0162             lampu2(0);                // lampu 2 -> merah
+; 0000 0165             lampu2(0);                // lampu 2 -> merah
 ;PCODE: $00000200 VOL: 0
 ;PCODE: $00000201 VOL: 0
 ;PCODE: $00000202 VOL: 0
-; 0000 0163             bruh++;                   // urutan + 1
+; 0000 0166             bruh++;                   // urutan + 1
 ;PCODE: $00000203 VOL: 0
 ;PCODE: $00000204 VOL: 0
-; 0000 0164         }
-; 0000 0165         else if (bruh == 2) {         /* URUTAN KETIGA */
+; 0000 0167         }
+; 0000 0168         else if (bruh == 2) {         /* URUTAN KETIGA */
 ;PCODE: $00000205 VOL: 0
 ;PCODE: $00000206 VOL: 0
 ;PCODE: $00000207 VOL: 0
 ;PCODE: $00000208 VOL: 0
 ;PCODE: $00000209 VOL: 0
-; 0000 0166             delay_ms(1000);           // delay 1 deti
+; 0000 0169             delay_ms(1000);           // delay 1 deti
 ;PCODE: $0000020A VOL: 0
 ;PCODE: $0000020B VOL: 0
-; 0000 0167             lampu3(2);                // lampu 3 -> hijau
+; 0000 016A             lampu3(2);                // lampu 3 -> hijau
 ;PCODE: $0000020C VOL: 0
 ;PCODE: $0000020D VOL: 0
 ;PCODE: $0000020E VOL: 0
-; 0000 0168             delay_ms(3000);           // delay 3 detik
+; 0000 016B             delay_ms(3000);           // delay 3 detik
 ;PCODE: $0000020F VOL: 0
 ;PCODE: $00000210 VOL: 0
-; 0000 0169             lampu3(0);                // lampu 3 -> merah
+; 0000 016C             lampu3(0);                // lampu 3 -> merah
 ;PCODE: $00000211 VOL: 0
 ;PCODE: $00000212 VOL: 0
 ;PCODE: $00000213 VOL: 0
-; 0000 016A             bruh++;                   // urutan + 1
+; 0000 016D             bruh++;                   // urutan + 1
 ;PCODE: $00000214 VOL: 0
 ;PCODE: $00000215 VOL: 0
-; 0000 016B         }
-; 0000 016C         else if (bruh == 3) {         /* URUTAN KEEMPAT */
+; 0000 016E         }
+; 0000 016F         else if (bruh == 3) {         /* URUTAN KEEMPAT */
 ;PCODE: $00000216 VOL: 0
 ;PCODE: $00000217 VOL: 0
 ;PCODE: $00000218 VOL: 0
 ;PCODE: $00000219 VOL: 0
 ;PCODE: $0000021A VOL: 0
-; 0000 016D             delay_ms(1000);           // delay 1 deti
+; 0000 0170             delay_ms(1000);           // delay 1 deti
 ;PCODE: $0000021B VOL: 0
 ;PCODE: $0000021C VOL: 0
-; 0000 016E             lampu4(2);                // lampu 4 -> hijau
+; 0000 0171             lampu4(2);                // lampu 4 -> hijau
 ;PCODE: $0000021D VOL: 0
 ;PCODE: $0000021E VOL: 0
 ;PCODE: $0000021F VOL: 0
-; 0000 016F             delay_ms(3000);           // delay 3 detik
+; 0000 0172             delay_ms(3000);           // delay 3 detik
 ;PCODE: $00000220 VOL: 0
 ;PCODE: $00000221 VOL: 0
-; 0000 0170             lampu4(0);                // lampu 4 -> merah
+; 0000 0173             lampu4(0);                // lampu 4 -> merah
 ;PCODE: $00000222 VOL: 0
 ;PCODE: $00000223 VOL: 0
 ;PCODE: $00000224 VOL: 0
-; 0000 0171             bruh = 0;                 // urutan reset mulai dari awal
+; 0000 0174             bruh = 0;                 // urutan reset mulai dari awal
 ;PCODE: $00000225 VOL: 0
 ;PCODE: $00000226 VOL: 0
-; 0000 0172         }
-; 0000 0173 
-; 0000 0174     }
+; 0000 0175         }
+; 0000 0176 
+; 0000 0177     }
 ;PCODE: $00000227 VOL: 0
 ;PCODE: $00000228 VOL: 0
 ;PCODE: $00000229 VOL: 0
@@ -958,15 +961,15 @@
 ;PCODE: $0000022B VOL: 0
 ;PCODE: $0000022C VOL: 0
 ;PCODE: $0000022D VOL: 0
-; 0000 0175 
-; 0000 0176     PORTD.6 = 0;             // matikan lampu mode Otomatis
+; 0000 0178 
+; 0000 0179     PORTD.6 = 0;             // matikan lampu mode Otomatis
 ;PCODE: $0000022E VOL: 0
 ;PCODE: $0000022F VOL: 0
-; 0000 0177     delay_ms(2000);          // delay 2 detik
+; 0000 017A     delay_ms(2000);          // delay 2 detik
 ;PCODE: $00000230 VOL: 0
 ;PCODE: $00000231 VOL: 0
-; 0000 0178 
-; 0000 0179 }
+; 0000 017B 
+; 0000 017C }
 ;PCODE: $00000232 VOL: 0
 ;PCODE: $00000233 VOL: 0
 ;PCODE: $00000234 VOL: 0
