@@ -169,7 +169,8 @@ int main () {
             case 6:
                 return 0;
             default:
-                cout << "Pilihan tidak valid!" << endl;
+                cout << Kuning << "Pilihan tidak valid!";
+                getchar();
         }
     }
 
