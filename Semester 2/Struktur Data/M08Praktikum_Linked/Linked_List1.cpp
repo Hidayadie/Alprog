@@ -8,10 +8,7 @@
 using namespace std;
 
 bool isEmpty();
-void insertNode(int data);
-void deleteFromFront();
-void deleteFromEnd();
-void deleteAll();
+void insertNode(int data), deleteFromFront(), deleteFromEnd(), deleteAll();
 
 struct Node {
 	string data;
@@ -20,101 +17,114 @@ struct Node {
 
 Node *headNode = NULL;
 Node *currentNode = NULL;
+int jumlahNode = 0;
 
 bool isEmpty() {
 	return (headNode == NULL);
 }
 
 void insertNode(string data) {
-	// deklarasi pointer newNode;
 	Node *newNode = NULL;
-	// mengalokasikan memory untuk pointer
 	newNode = new Node;
-	// isikan data ke node yang
 	newNode->data = data;
 	if (isEmpty()) {
-		// node baru otomatis menjadi head
 		headNode = newNode;
 	}
-	else // sudah ada node
-	{
-		// hubungkan pointer next node aktif (current node)
-		// ke node yg baru
-		currentNode->next =
-		newNode;
+	else {
+		currentNode->next = newNode;
 	}
-	// set node baru sebagai node aktif
+
 	currentNode = newNode;
-	// set pointer next node terakhir menjadi NULL
 	currentNode->next = NULL;
+	jumlahNode++;
 }
 
 void deleteFromFront()
 {
 	if (!isEmpty())
 	{
-		// deklarasi var bantu untuk menampung
+
 		Node *hapusNode = headNode;
-		// pindahkan headNode ke node
 		headNode = headNode->next;
-		// hapus headNode yang
 		delete hapusNode;
-		cout << Hijau << "Node berhasil dihapus" << Hitam << endl;
-		getchar();
+		cout << Hijau << "Node berhasil dihapus" << Hitam;
+		jumlahNode--;
+
 	}
+	else {
+        cout << Merah << "Node masih Kosong" << Hitam;
+	}
+	getchar();
 }
 
 void deleteFromEnd()
 {
-	// jika node tinggal satu
-	if (headNode == currentNode)
-	{
-		headNode = NULL;
-		currentNode = NULL;
-		return;
-	}
-	// deklarasi pointer bantu untuk menampung head
-	Node *bantu = headNode;
-	// deklarasi pointer hapus untuk menampung current
-	Node *hapusNode = currentNode;
-	// lakukan perulangan sebelum mencapai akhir node
-	while (bantu->next != currentNode)
-	{
-		bantu = bantu->next;
-	}
-	currentNode = bantu;
-	currentNode->next = NULL;
-	delete hapusNode;
+    if (!isEmpty()) {
+
+        if (headNode == currentNode)
+        {
+            headNode = NULL;
+            currentNode = NULL;
+            jumlahNode--;
+            return;
+        }
+        Node *bantu = headNode;
+        Node *hapusNode = currentNode;
+        while (bantu->next != currentNode)
+        {
+            bantu = bantu->next;
+        }
+        currentNode = bantu;
+        currentNode->next = NULL;
+        delete hapusNode;
+        cout << Hijau << "Node berhasil dihapus" << Hitam;
+        jumlahNode--;
+    }
+    else {
+        cout << Merah << "Node masih Kosong" << Hitam;
+    }
+    getchar();
 }
 
 void deleteAll()
 {
-	Node *hapusNode;
-    while (headNode != NULL)
-    {
-        hapusNode = headNode;
-        headNode = headNode->next;
-        delete hapusNode;
-    }
+    if (!isEmpty()) {
+        Node *hapusNode;
+        while (headNode != NULL)
+        {
+            hapusNode = headNode;
+            headNode = headNode->next;
+            delete hapusNode;
+        }
 
-    currentNode = NULL;
-    cout << "Semua node berhasil dihapuskan" << endl << endl;
+        currentNode = NULL;
+        jumlahNode = 0;
+        cout << Hijau << "Semua node berhasil dihapuskan";
+
+    }
+    else {
+        cout << Merah << "Node masih Kosong" << Hitam;
+    }
     getchar();
 
 }
 
 void printNode()
 {
-	// deklarasi pointer awal node untuk menampung head
-	Node *awalNode = headNode;
-	int i = 1;
-	while (awalNode != NULL)
-	{
-		cout << "Data pada node #" << i << " = " << awalNode->data<< endl;
-		awalNode = awalNode->next;
-		i++;
+	if (!isEmpty()) {
+        Node *awalNode = headNode;
+        int i = 1;
+        while (awalNode != NULL)
+        {
+            cout << "Data pada node #" << i << " = " << awalNode->data<< endl;
+            awalNode = awalNode->next;
+            i++;
+        }
 	}
-	getchar();
+	else {
+        cout << Merah << "Node masih Kosong" << Hitam;
+    }
+    getchar();
 }
 
 int main () {
@@ -125,20 +135,17 @@ int main () {
     while (true)
     {
     	cout << "\033[2J" << "\033[1;1H";
-        cout << Merah << "\t>>> PILIHAN MENU SINGLY LINKED LIST <<<" << Hitam
-			 << "\n"
+        cout << Biru << "\t>>> PILIHAN MENU SINGLY LINKED LIST <<<" << Hitam << "\n\n"
+             << "\tJumlah node: " << ((jumlahNode == 0) ? Merah : Hijau) << jumlahNode << Hitam << "\n"
         	 << "\t1. Menambah Node\n"
-        	 << "\t2. Menghapus Node dari depan\n"
+        	 << ((jumlahNode == 0) ? Merah : Hitam) <<"\t2. Menghapus Node dari depan\n"
         	 << "\t3. Menghapus Node dari Belakang\n"
        		 << "\t4. Mengosongkan Node\n"
-       		 << "\t5. Menampilkan Semua Node\n"
-             << "\t6. Keluar\n";
-
-        cout << endl;
-
+       		 << "\t5. Menampilkan Semua Node\n" << Hitam
+             << "\t6. Keluar\n\n";
         cout << "Masukkan Pilihan anda: "; cin >> pilihan;
-
         cin.ignore();
+
         switch (pilihan)
         {
             case 1:
