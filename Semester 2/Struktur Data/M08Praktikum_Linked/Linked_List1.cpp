@@ -66,6 +66,8 @@ void deleteFromEnd()
             headNode = NULL;
             currentNode = NULL;
             jumlahNode--;
+            cout << Hijau << "Node berhasil dihapus" << Hitam;
+            getchar();
             return;
         }
         Node *bantu = headNode;
