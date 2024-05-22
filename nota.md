@@ -1,6 +1,7 @@
 ## Kursor ##
-- Hilangin = "\e[?25l"
-- Munculin = "\e[?25h"
+- Hilangin "\e[?25l"
+- Munculin "\e[?25h"
+- Reset pos "\033[1;1H"
 
 ## Warna ##
 - Hitam "\e[0;30m"
@@ -16,3 +17,6 @@
 - reset "\e[0m"
 - CRESET "\e[0m"
 - COLOR_RESET "\e[0m"
+
+## Clear ##
+- Clear "\033[2J"
