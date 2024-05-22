@@ -1,5 +1,5 @@
 #include <iostream>
-#include <conio.h>
+//#include <conio.h>
 #define Merah "\033[31m"
 #define Hitam "\033[0m"
 #define Hijau "\033[32m"
@@ -21,7 +21,7 @@ int main () {
 	init();
 	int pil;
 	do {
-		system("cls");
+		system("clear");
 		cout << Hitam;
 		cout << ">>> PILIHAN MENU <<<\n"
 			 << "1. Tambah\n"
@@ -32,7 +32,7 @@ int main () {
 		cout << "Sisa size: " << (queue.belakang + 1 == Max ? Merah : Hijau) << queue.belakang + 1 << "/" << Max <<"\n";
 		cout << (queue.belakang + 1 == Max ? Merah : Hijau) << (queue.belakang + 1 == Max ? "Queue Sudah Penuh!!!" : "Queue masih tersedia...");
 		cout << Hitam << "\n -> "; cin >> pil;
-		
+        cin.ignore();
 		switch (pil) {
 			case 1:
 				enque();
@@ -50,10 +50,11 @@ int main () {
 				continue;
 				break;
 			default:
+
 				cout << Merah << "\n\npilihan g ad... \n"<< Hitam <<"Enter untuk kembali";
-				getch();
+				getchar();
 		}
-	} while (pil != 5); 
+	} while (pil != 5);
 }
 
 void init() {
@@ -63,18 +64,18 @@ void init() {
 void enque() {
 	if (!isFull()) {
 		int data;
-		cout << "Data yang ingin ditambah = "; cin >> data;
+		cout << "Data yang ingin ditambah = "; cin >> data; cin.ignore();
 		queue.depan = 0;
 		queue.belakang++;
 		queue.data[queue.belakang] = data;
 		cout << "Data ok.\n\n";
-		
+
 	}
 	else {
 		cout << Merah << "Queue Penuh!\n" << Hitam;
 	}
 	cout << Biru << "Ketuk enter untuk kembali..." << Hitam;
-	getch();
+	getchar();
 }
 
 void deque() {
@@ -84,14 +85,14 @@ void deque() {
 	}
 	queue.belakang--;
 	cout << Biru << "Ketuk enter untuk kembali..." << Hitam;
-	getch();
+	getchar();
 }
 
 void clear() {
 	queue.depan = queue.belakang = -1;
 	cout << "Kosong\n\n";
 	cout << Biru << "Ketuk enter untuk kembali..." << Hitam;
-	getch();
+	getchar();
 }
 
 void print() {
@@ -101,7 +102,7 @@ void print() {
 	}
 	cout << "\n\n";
 	cout << Biru << "Ketuk enter untuk kembali..." << Hitam;
-	getch();
+	getchar();
 }
 
 bool isEmpty() {

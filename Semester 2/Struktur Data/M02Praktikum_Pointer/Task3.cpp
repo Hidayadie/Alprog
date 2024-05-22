@@ -18,9 +18,6 @@ bool cari(int *data, int ukuran, int target) {
     }
     return false;
 }
-
-
-
 int main() {
     int ukuran;
     cout << "Masukkan ukuran aray: "; cin >> ukuran;
@@ -51,6 +48,4 @@ int main() {
     } else {
         cout << "\nNilai " << target << " tidak ditemukan dalam array.\n";
     }
-
-    return 0;
 }

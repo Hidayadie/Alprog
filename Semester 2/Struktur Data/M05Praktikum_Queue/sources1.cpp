@@ -16,7 +16,7 @@ int main () {
 	init();
 	int pil;
 	do {
-		system("cls");
+		system("clear");
 		cout << ">>> PILIHAN MENU <<<\n"
 			 << "1. Tambah\n"
 			 << "2. Hapus\n"
@@ -24,7 +24,7 @@ int main () {
 			 << "4. Kosongkan\n"
 			 << "5. Keluar\n"
 			 << "\n -> "; cin >> pil;
-		
+        cin.ignore();
 		switch (pil) {
 			case 1:
 				enque();
@@ -44,7 +44,7 @@ int main () {
 			default:
 				cout << "pilihan g ad... ketuk enter untuk kembali";
 		}
-	} while (pil != 5); 
+	} while (pil != 5);
 }
 
 void init() {
@@ -54,11 +54,12 @@ void init() {
 void enque() {
 	int data;
 	cout << "Data yang ingin ditambah = "; cin >> data;
+	cin.ignore();
 	queue.depan = 0;
 	queue.belakang++;
 	queue.data[queue.belakang] = data;
 	cout << "Data ok.\n\n";
-	system("pause");
+	getchar();
 }
 
 void deque() {
@@ -67,13 +68,13 @@ void deque() {
 		queue.data[i] = queue.data[i + 1];
 	}
 	queue.belakang--;
-	system("pause");
+	getchar();
 }
 
 void clear() {
 	queue.depan = queue.belakang = -1;
 	cout << "Kosong\n\n";
-	system("pause");
+	getchar();
 }
 
 void print() {
@@ -82,5 +83,5 @@ void print() {
 		cout << queue.data[i] << " ";
 	}
 	cout << "\n\n";
-	system("pause");
+	getchar();
 }
