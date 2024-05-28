@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1716903576 source:/home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/Komponen/Layar.cpp
+	"Layar.h"
+
+1716903576 /home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/Komponen/Layar.h
+	"Mesin.h"
+	<ncurses.h>
+
+1716903576 /home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/Komponen/Mesin.h
+	<ncurses.h>
+
+1716903576 source:/home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/Komponen/Mesin.cpp
+	"Mesin.h"
+
+1716903747 source:/home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/main.cpp
+	"Komponen/Menu.h"
+	"Komponen/Mesin.h"
+
+1716903820 /home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/Komponen/Menu.h
+	"Mesin.h"
+	<ncurses.h>
+
+1716903813 source:/home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/Komponen/Menu.cpp
+	"Menu.h"
+
+1716903954 source:/home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/Menu/Utama.cpp
+	"Utama.h"
+
+1716903983 /home/hidayadie/Github/Repos/Alprog-LibraBook/Project/LibraBook/sumber/Menu/Utama.h
+	"Menu.h"
+
