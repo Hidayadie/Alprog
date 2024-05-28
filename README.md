@@ -34,6 +34,8 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau m
 - [M04 - Stack](<Semester 2/Struktur Data/M04Praktikum_Stack>)
 - [M05 - Queue](<Semester 2/Struktur Data/M05Praktikum_Queue>)
 - [M06 - Sort](<Semester 2/Struktur Data/M06Praktikum_Sort>)
+- [M07 - Search](<Semester 2/Struktur Data/M07Praktikum_Search>)
+- [M08 - Linked 1](<Semester 2/Struktur Data/M08Praktikum_Linked>)
 </details>
 <details>
     <summary>Pemrograman</summary>
