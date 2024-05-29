@@ -1,6 +1,4 @@
 #include <iostream>
-
-#include <iostream>
 #include <string>
 #define Merah "\033[31m"
 #define Kuning "\033[33m"
@@ -24,39 +22,39 @@ void deleteFromFront();
 void printNode();
 
 int main () {
-	
+
 	int pilihan;
 	int data;
-    
+
     while (true)
     {
-    	system("cls");
+    	cout << "\033[2J" << "\033[1;1H";
         cout << Merah << ">>> PILIHAN MENU DOUBLE LINKED LIST <<<" << Hitam
 			 << "\n"
-        	 << "1. Menambah Node dari Depan\n" 
-        	 << "2. Menambah Node dari Belak\n" 
+        	 << "1. Menambah Node dari Depan\n"
+        	 << "2. Menambah Node dari Belak\n"
         	 << "3. Menghapus dari depan\n"
-        	 << "4. Menampilkan\n" 
-       		 << "5. Selesai";
-        
-        cout << std::endl;
-        
-        cout << "Masukkan Pilihan anda: "; std::cin >> pilihan;
-       
-        std::cin.ignore();
+        	 << "4. Menampilkan\n"
+       		 << "5. Selesai\n";
+
+
+
+        cout << "Masukkan Pilihan anda: "; cin >> pilihan;
+
+        cin.ignore();
         switch (pilihan)
         {
             case 1:
-                cout << "Masukkan data: "; std::cin >> data;
+                cout << "Masukkan data: "; cin >> data;
                 insertNode(data);
                 break;
             case 2:
-                cout << "Masukkan data: "; std::cin >> data;
+                cout << "Masukkan data: "; cin >> data;
             	insertNode2(data);
                 break;
             case 3:
                 deleteFromFront();
-                
+
 				break;
             case 4:
                 printNode();
@@ -65,18 +63,18 @@ int main () {
             	return 0;
             	break;
             default:
-                cout << "Pilihan tidak valid!" << std::endl;
+                cout << "Pilihan tidak valid!" << endl;
                 break;
         }
     }
-    
+
     return 0;
 }
 
 bool isEmpty() {
-	
+
 	return (head == NULL && tail == NULL);
-	
+
 }
 
 void insertNode(int data) {
@@ -84,7 +82,7 @@ void insertNode(int data) {
 	newNode->data = data;
 	newNode->next	= NULL;
 	newNode->prev	= NULL;
-	
+
 	if (isEmpty()) {
 		head	= newNode;
 		head->next	= NULL;
@@ -106,7 +104,7 @@ void insertNode2(int data) {
 	newNode->data = data;
 	newNode->next = NULL;
 	newNode->prev = NULL;
-	
+
 	if (isEmpty()) {
 		head	= newNode;
 		head->next	= NULL;
