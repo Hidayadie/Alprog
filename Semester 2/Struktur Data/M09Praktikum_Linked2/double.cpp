@@ -19,6 +19,7 @@ Node *head, *tail, *print, *del, *newNode;
 
 bool isEmpty();
 void insertNode(int data);
+void insertNode2(int data);
 void deleteFromFront();
 void printNode();
 
@@ -58,6 +59,9 @@ int main () {
             case 4:
                 return 0;
                 break;
+            case 5:
+            	cout << "Masukkan data: "; std::cin >> data;
+            	insertNode2(data);
             default:
                 cout << "Pilihan tidak valid!" << std::endl;
         }
@@ -67,8 +71,9 @@ int main () {
 }
 
 bool isEmpty() {
-	head = NULL;
-	tail = NULL;
+	
+	return (head == NULL && tail == NULL);
+	
 }
 
 void insertNode(int data) {
@@ -84,16 +89,33 @@ void insertNode(int data) {
 		tail		= head;
 	}
 	else {
-		tail->next	= newNode;
-		newNode->prev	= tail;
-		tail 			= newNode;
+		newNode->next	= head;
+		head->prev		= newNode;
+		head 			= newNode;
 	}
 	//getchar();
 	cin.ignore();
 	cout << "200 ok";
 	getchar();
 }
-
+void insertNode2(int data) {
+	newNode = new Node;
+	newNode->data = data;
+	newNode->next = NULL;
+	newNode->prev = NULL;
+	
+	if (isEmpty()) {
+		head	= newNode;
+		head->next	= NULL;
+		head->prev	= NULL;
+		tail		= head;
+	}
+	else {
+		tail->next = newNode;
+		newNode->prev = tail;
+		tail = newNode;
+	}
+}
 void deleteFromFront() {
 	int simpan;
 	if (head != NULL) {
