@@ -33,10 +33,11 @@ int main () {
     	system("cls");
         cout << Merah << ">>> PILIHAN MENU DOUBLE LINKED LIST <<<" << Hitam
 			 << "\n"
-        	 << "1. Menambah Node\n" 
-        	 << "2. Menghapus Node dari depan\n" 
-        	 << "3. Menampilkan\n" 
-       		 << "4. Selesai";
+        	 << "1. Menambah Node dari Depan\n" 
+        	 << "2. Menambah Node dari Belak\n" 
+        	 << "3. Menghapus dari depan\n"
+        	 << "4. Menampilkan\n" 
+       		 << "5. Selesai";
         
         cout << std::endl;
         
@@ -50,20 +51,22 @@ int main () {
                 insertNode(data);
                 break;
             case 2:
-                deleteFromFront();
+                cout << "Masukkan data: "; std::cin >> data;
+            	insertNode2(data);
                 break;
             case 3:
-                //deleteFromFront();
-                printNode();
+                deleteFromFront();
+                
 				break;
             case 4:
-                return 0;
+                printNode();
                 break;
             case 5:
-            	cout << "Masukkan data: "; std::cin >> data;
-            	insertNode2(data);
+            	return 0;
+            	break;
             default:
                 cout << "Pilihan tidak valid!" << std::endl;
+                break;
         }
     }
     
