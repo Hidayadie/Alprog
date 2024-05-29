@@ -26,7 +26,8 @@ bool Mesin::CekWarna() {
 
 void Mesin::BuatWarna() {
     start_color();
-
+    //init_color(acak, 896, 100, 100);
+    //init_pair(7, acak, COLOR_GREEN);
     if (COLORS > 8) {
         init_color(COLOR_BLUE, 27, 212, 259);
         init_color(COLOR_MAGENTA,478, 556, 545);

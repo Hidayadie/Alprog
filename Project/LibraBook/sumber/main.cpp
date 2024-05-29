@@ -1,6 +1,6 @@
-#include "Komponen/Menu.h"
-#include "Komponen/Mesin.h"
-#include "Menu/Utama.h"
+#include "Menu.h"
+#include "Mesin.h"
+#include "Utama.h"
 
 
 int main() {
@@ -14,6 +14,9 @@ int main() {
     printw("Terminal anda Support %d Warna", COLORS);
     Mesin::BuatWarna();
     MenuUtama apcb;
+    //attron(COLOR_PAIR(7));
+    //mvprintw(8, 8, "tesss");
+    //refresh();
     refresh();
     getch();
 

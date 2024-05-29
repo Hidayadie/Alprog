@@ -7,6 +7,8 @@ MenuUtama::MenuUtama()
     wrefresh(Utama);
     warnaiBackGround(Utama, 101);
 
+
+
     wgetch(Utama);
 
 }
