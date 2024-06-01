@@ -1,9 +1,18 @@
-<mxfile host="app.diagrams.net" modified="2024-06-01T11:43:28.859Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0" version="24.4.0" etag="KeM28r0MlsUo5Zlrou7u" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-01T12:30:18.695Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0" etag="Hh3AgwCR9ivKIp2b9w7g" version="24.4.0" type="github">
   <diagram name="Page-1" id="sTOd59y1kINPp5zqmkih">
-    <mxGraphModel>
+    <mxGraphModel dx="880" dy="454" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="YnSsqgs5OmXJdIPonqid-1" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="200" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YnSsqgs5OmXJdIPonqid-2" value="start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="350" y="100" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YnSsqgs5OmXJdIPonqid-3" value="&lt;div&gt;init library&lt;/div&gt;&lt;div&gt;init warna&lt;/div&gt;&lt;div&gt;init bg&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="195" width="100" height="70" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
