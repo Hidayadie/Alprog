@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Tugas
 {
-    internal interface InterfacePrinter
+    public interface InterfacePrinter
     {
+        void Print();
+        void show();
+       
     }
 }
