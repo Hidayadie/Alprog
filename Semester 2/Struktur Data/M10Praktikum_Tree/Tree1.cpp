@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 struct node {
@@ -52,6 +52,8 @@ void postorder (node *root)
 		}
 }
 
+
+
 int main () {
 	char isi;
 	cout << "\n\tPosisi Awal Binary Tree\n"
@@ -69,4 +71,5 @@ int main () {
 		 << "Inorder\t\t: "; 	inorder(root);
 	cout << "\n"
 		 << "PostOrder\t: ";	postorder(root);
+ 
 }
