@@ -41,13 +41,32 @@ void postorder (node *root) {
 int main () {
 	char isi;
 	cout << "\n\tPosisi Awal Binary Tree\n"
-		 << "----------------------------------\n";
+		 << "----------------------------------\n"
+		 << "                  A\n"
+		 << "                 / \\\n"
+		 << "                M    I\n"
+		 << "               /    / \\\n"
+		 << "              K    J   Z\n"
+		 << "             / \\\n"
+		 << "            O   M\n"
+		 << "           / \\\n"
+		 << "          Y   K\n\n";
+
 	addNode(&root, isi = 'A');
+
 	addNode(&root->left, isi = 'M');
 	addNode(&root->right, isi = 'I');
+
 	addNode(&root->left->left, isi = 'K');
 	addNode(&root->right->right, isi = 'Z');
-	addNode(&root->right->right->left, isi = 'J');
+	addNode(&root->right->left, isi = 'J');
+
+	addNode(&root->left->left->left, 'O');
+	addNode(&root->left->left->right, 'M');
+
+	addNode(&root->left->left->left->left, 'Y');
+	addNode(&root->left->left->left->right, 'K');
+
 	cout << "Preorder\t: "; 	preorder(root);
 	cout << "\n"
 		 << "Inorder\t\t: "; 	inorder(root);
