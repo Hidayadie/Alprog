@@ -13,6 +13,12 @@
 - Biru Muda "\e[0;36m"
 - Putih "\e[0;37m"
 
+<details>
+    <summary>Code</summary>
+
+
+</details>
+
 ### Reset ###
 - reset "\e[0m"
 - CRESET "\e[0m"
