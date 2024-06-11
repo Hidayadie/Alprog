@@ -10,15 +10,31 @@ using System.IO;
 using System.Xml.Serialization;
 
 
-namespace M10Interface
+namespace Source
 {
 
-    
+    public class Mahasiswa
+    {
+        public string npm;
+        public string nama;
+        public string email;
+        public Mahasiswa(string npm, string nama, string email)
+        {
+            this.npm = npm;
+            this.nama = nama;
+            this.email = email;
+        }
+    }
 
 
+
+    public abstract class IConvertObject
+    {
+        public abstract void Convert(Mahasiswa mhs);
+    }
     public class ConvertToJson : IConvertObject
     {
-        public void Convert(Mahasiswa mhs)
+        public override void Convert(Mahasiswa mhs)
         {
             string json = JsonConvert.SerializeObject(mhs);
 
@@ -28,7 +44,7 @@ namespace M10Interface
 
     public class ConvertToXml : IConvertObject
     {
-        public void Convert(Mahasiswa mhs) 
+        public override void Convert(Mahasiswa mhs)
         {
             using (StringWriter writer = new StringWriter())
             {
@@ -39,13 +55,13 @@ namespace M10Interface
                 string xml = writer.ToString();
 
                 Console.WriteLine("Hasil xml: {xml}");
-             }
+            }
         }
     }
 
     public class ConvertToCsv : IConvertObject
     {
-        public void Convert(Mahasiswa mhs)
+        public override void Convert(Mahasiswa mhs)
         {
             string csv = string.Format("{0},{1},{2}", mhs.npm, mhs.nama, mhs.email);
             Console.WriteLine("Hasil konversi Csv: {csv}");
