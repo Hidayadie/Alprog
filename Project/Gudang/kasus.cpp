@@ -43,20 +43,66 @@ void _struct_dan_stack() {
     // jumlah stok sepatu yang tersedia
     //
     struct Stock {
-        int jumlah;
+        int jumlah = 0;
+        string kondisi[20];
+
+
+        Stock(int x = 0) : jumlah(x){};
+
+        void tambah() {
+            jumlah++;
+        }
+
+        void tambah(int berapa) {
+            if (berapa > 0) {
+                jumlah += berapa;
+            } else {
+                cout << "Gunakan kurang() untuk mengurangi stok";
+            }
+        }
+
+        void kurang() {
+            if (jumlah > 0) {
+                jumlah--;
+            } else {
+                cout << "Stok sudah kosong";
+            }
+        }
+
+        void kurang(int berapa) {
+            if (jumlah > 0) {
+                jumlah -= berapa;
+            } else {
+                cout << "Stok sudah kosong";
+            }
+        }
+
+        void cekStok() {
+            cout << jumlah;
+        }
     };
 
 
     // Sedangkan untuk struct sepatu akan
     // direpresentasikan dengan id array
-    // (gapunya ide sih aku enaknya make apa, tapi ini ga disaranin banget)
     // untuk setiap data sepatu ada data
     // nama,jenis,merek,harga, dan stok yang
     // dipake buat ngatur apakah ada atau enggak
 
+    // (gapunya ide sih aku enaknya make apa, tapi ini ga disaranin banget)
+    // make array buat sizenya, harusnya make vector
+    // vector lebih fleksibel, bisa ditambah tambah
+    // kalo array harus konstant, gabisa diubah ubah
+
+
     // conto: Sepatu sepatu[100]
-    // untuk tiap nomor index itu id nya
-    // conto id 0: Adiboss, Swift kasual, Sneakers, 250.000, 7
+    // conto: sepatu array 0 datanya;
+    //
+    //       merek  : Adiboss
+    //       nama   : Swift kasual
+    //       jenis  : Sneakers
+    //       harga  : 250.000
+    //       stok   : 7
     /*
        sepatu[0].Merek__________= "Adiboss"
        sepatu[0].Nama___________= "Swift Kasual"
