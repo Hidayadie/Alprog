@@ -1,62 +1,51 @@
 #include <iostream>
-#include <string>
 
 using std::cout;
 using std::cin;
 
-void print();
-
-bool kosong();
-
 /*******************************/
 
 
-void isi(int matrix[5][5]) {
-	
-}
-
 int main() {
 
-	int ukuran	,
-		edge	,
-		sumber	,
-		tujuan	;
-	
-	
-		
-	bool kosong	,
-		 trigger;
-		 	
-		 	
+	int ukuran	,	// jumlah vertexnya
+		edge	,	// jumlah garisnya
+		sumber	,	// titik asal
+		tujuan	;	// titik tujuan
+					 	
 	cout << "Jumlah Vertex	= "; cin >> ukuran;
 	cout << "Jumlah Edge	= "; cin >> edge;
 	
-	cin.ignore();
 	
 	// INISIALISASI GRAPH
-	int matrix[ukuran][ukuran] = {0};
-	char nama[ukuran];
-	int jarak[ukuran];
+	int matrix[ukuran][ukuran] = {0}	;	// graph nya 
+	char nama[ukuran]					; 	// nama graph
+	int jarak[ukuran]					;	// jarak/weight graphnya	
+	
 	
 	// FUNGSI PENAMAAN
 	
 	for (int i = 0; i < ukuran; i++) {
-		cout << "Nama Vertex ke - " << i+ 1 << " : "; cin >> nama[i];
+		cout << "Nama Vertex ke - " << i+ 1 << " : "; 
+		cin >> nama[i];
 	}
+	
 	
 	// FUNGSI ISI
 	
 	for (int i = 0; i < edge; i++) {
 		cout << "\nEdge " << i +1;
-		cout << "\nVertex Sumber\t= "; cin >> sumber;
-		cout << "Vertex Tujuan\t= "; cin >> tujuan;
-		cout << "Panjang simpul\t= "; cin >> jarak[i];
-		matrix[sumber-1][tujuan-1] = 1;
+		cout << "\nVertex Sumber\t= "; 	cin >> sumber;		// titik asal
+		cout << "Vertex Tujuan\t= "; 	cin >> tujuan;		// titik tujuan
+		cout << "Panjang simpul\t= "; 	cin >> jarak[i];	// weight edge
+		
+		// DIRECTED GRAPH
+		matrix[sumber-1][tujuan-1] = 1; 
 	}
 
 
 	// FUNGSI CARI KEKOSONGAN
-
+	/*
 	for (int i = 0; i < ukuran; i++) {
 		for (int j = 0; j < ukuran; j++) {
 			((matrix[i][j] == 1) ? trigger = true : trigger = false);
@@ -66,13 +55,11 @@ int main() {
 			}
 		}
 	}
-	
+	*/
 	
 	
 	cout << "\nGraph Berhasil dibuat\n";
-	cout << ((!kosong) ? "Semua Graph Terhubung" : "");
 	cout << "\nSimpul yang terbentuk:\n";
-	
 	
 	
 	// FUNGSI CEK GARIS
@@ -83,7 +70,7 @@ int main() {
 				cout << " - "
 					 << nama[i] << nama[j] << " dengan panjang " << jarak[i] 
 					 << "\n";
-				total += jarak[i];
+				total += jarak[i]; // cek panjang simpulnya trus ditambah
 				
 			}
 		}

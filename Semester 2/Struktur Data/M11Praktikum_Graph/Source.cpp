@@ -23,7 +23,7 @@ int main() {
 		}
 	}
 	
-	for (i = 1; i <= ukuran; i++) {
+	for (i = 1; i <= edge; i++) {
 		cout << "Sumber: "; cin >> sumber;
 		cout << "Tujuan: "; cin >> tujuan;
 		
