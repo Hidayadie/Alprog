@@ -36,6 +36,7 @@ int main() {
 	// INISIALISASI GRAPH
 	int matrix[ukuran][ukuran] = {0};
 	char nama[ukuran];
+	int jarak[ukuran];
 	
 	// FUNGSI PENAMAAN
 	
@@ -47,9 +48,10 @@ int main() {
 	
 	for (int i = 0; i < edge; i++) {
 		cout << "\nEdge " << i +1;
-		cout << "\nVertex Sumber	= "; cin >> sumber;
-		cout << "Vertex Tujuan 	= "; cin >> tujuan;
-		matrix[sumber-1][tujuan-1] = matrix[tujuan-1][sumber-1] = 1;
+		cout << "\nVertex Sumber\t= "; cin >> sumber;
+		cout << "Vertex Tujuan\t= "; cin >> tujuan;
+		cout << "Panjang simpul\t= "; cin >> jarak[i];
+		matrix[sumber-1][tujuan-1] = 1;
 	}
 
 
@@ -64,17 +66,29 @@ int main() {
 			}
 		}
 	}
-	cout << "Graph Berhasil dibuat\n";
-	cout << ((!kosong) ? "Semua Graph Terhubung" : " ");
-	cout << "\n";
-	// FUNGSI CEK GARIS
 	
+	
+	
+	cout << "\nGraph Berhasil dibuat\n";
+	cout << ((!kosong) ? "Semua Graph Terhubung" : "");
+	cout << "\nSimpul yang terbentuk:\n";
+	
+	
+	
+	// FUNGSI CEK GARIS
+	int total = 0;
 	for (int i = 0; i < ukuran; i++) {
 		for (int j = 0; j < ukuran; j++) {
 			if (matrix[i][j] == 1) {
-				cout << nama[i] << nama[j] << ", ";
+				cout << " - "
+					 << nama[i] << nama[j] << " dengan panjang " << jarak[i] 
+					 << "\n";
+				total += jarak[i];
+				
 			}
 		}
 	}
+	
+	cout << "\nTotal panjang: " << total;
 	
 }
