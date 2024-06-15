@@ -51,7 +51,7 @@ void _struct_dan_stack() {
 
 
         // Constructor untuk struct, mirip seperti class
-        Stock(int x = -1) : jumlah(x){};
+        Stock() : jumlah(-1){};
 
 
         // fungsi dibawah pada make overload, jadinya bisa dilakuin
@@ -157,16 +157,37 @@ void _queue() {
     // preorder. Untuk preorder memiliki batasan
     // Antrian. Siapa cepat dia dapat.
 
-    const int MAX_ANTRIAN    = 25;   // jumlah stock yang tersedia
+    const int MAX = 25;   // jumlah stock yang tersedia
 
     struct Queue {
-        int antrian                 ,   // Antrian adalah jumlah orang yang ngantri
-            orderan[MAX_ANTRIAN]    ;   // Orderan itu implementasian queuenya sendiri
-                                        // jadinya tiap orang memiliki jumlah orderan
-                                        // barangnya sendiri"
+        int antrian             ;   // Antrian adalah jumlah orang yang ngantri
+        string orderan[MAX]     ;   // Orderan itu implementasian queuenya sendiri
+                                    // jadinya tiap antrian memiliki nama orang
+
+
+        // Konstruktor struct queue
+        Queue() : antrian(-1){}
 
         void enque() {
+            if (antrian < MAX) {
+                antrian++;
+                cout << "Masukkan nama anda: ";
+                getline(cin, orderan[antrian]);
+            }
+            else {
+                cout << "Maaf, antrian sudah penuh";
+            }
+        }
 
+        void deque() {
+            if (antrian == -1) {
+                cout << "Antrian kosong";
+            } else {
+                for (int i = 0; i <= antrian; i++) {
+                    orderan[i] = orderan[i+1];
+                }
+                antrian--;
+            }
         }
     };
 
@@ -176,6 +197,18 @@ void _sort() {
     // fungsi sort dapat digunakan sebagai
     // pengurutan baik secara abjad ataupun
     // urutan nomor seri
+
+    // demo sort secara abjad:
+
+
+    // muales cik, kerjain sapa lah gitu
+    // tinggal kopas kopas trus buat menunya nih
+    // usahakan ngodingnya didalem fungsi _sort
+    // aja yah, jangan edit" yang diluar dari ini
+
+    // source code:
+    // https://github.com/Hidayadie/Alprog/blob/main/Semester%202/Struktur%20Data/M06Praktikum_Sort/Tugas.cpp
+
 }
 
 void _search() {
@@ -183,6 +216,11 @@ void _search() {
     // nama, merek, ataupun bisa digabungkan
     // dengan sort untuk mencari filter harga
     // dengan range x - y
+
+    // sama lah, kerjain sapa kek...
+
+    // source code
+    // https://github.com/Hidayadie/Alprog/blob/main/Semester%202/Struktur%20Data/M07Praktikum_Search/Task_Search.cpp
 }
 
 void _linked() {
