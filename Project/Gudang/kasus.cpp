@@ -43,7 +43,7 @@ void _struct_dan_stack() {
     // jumlah stok sepatu yang tersedia
     //
     struct Stock {
-        int jumlah = 0      ; // jumlah sepatu itu sendiri
+        int jumlah          ; // jumlah sepatu itu sendiri
         string kondisi[100] ; // Implementasian stack berada pada
                               // string kondisi yang dimana setiap
                               // satuan sepatu memiliki kondisinya
@@ -51,23 +51,31 @@ void _struct_dan_stack() {
 
 
         // Constructor untuk struct, mirip seperti class
-        Stock(int x = 0) : jumlah(x){};
+        Stock(int x = -1) : jumlah(x){};
 
 
         // fungsi dibawah pada make overload, jadinya bisa dilakuin
         // manual kayak .tambah() atau kalo mau 5 sekaligus .tambah(5)
         // yang kurang juga mirip, bisa 1 per 1 atau make .kurang(5)
 
-
+        // fungsi tambah mirip seperti push
+        // sedagkan untuk kurang adalah pop
         /*****************************************/
         //              fungsi tambah
-        void tambah() {
+        void tambah(string _kondisi) {
             jumlah++;
+            kondisi[jumlah] = _kondisi;
         }
 
         void tambah(int berapa) {
+            string _kondisi;
             if (berapa > 0) {
-                jumlah += berapa;
+                for (int i = 0; i < berapa; i++) {
+                    jumlah++;
+                    cout << "Kondisi barang "<<i<<" : ";
+                    getline(cin, _kondisi);
+                    kondisi[jumlah] = _kondisi;
+                }
             } else {
                 cout << "Gunakan kurang() untuk mengurangi stok";
             }
@@ -86,7 +94,7 @@ void _struct_dan_stack() {
         void kurang(int berapa) {
             if (jumlah > 0) {
                 jumlah -= berapa;
-                jumlah = (jumlah < 0) ? 0 : jumlah;
+                jumlah = (jumlah < 0) ? -1 : jumlah;
             } else {
                 cout << "Stok sudah kosong";
             }
@@ -131,13 +139,15 @@ void _struct_dan_stack() {
 
     */
     struct Sepatu {
-        std::string Merek       ,   // Merek dari sepatu
-                    kategori    ,   // Kategori sepatu
-                    Nama        ,   // Nama sepatunya
-                    Jenis       ;   // Jenis (Sneakers, sport, dsb)
-        int         Harga       ;   // Harga sepatunya
-        Stock       stok        ;   // Stack buat jumlah stok
+        string Merek       ,   // Merek dari sepatu
+               kategori    ,   // Kategori sepatu
+               Nama        ,   // Nama sepatunya
+               Jenis       ;   // Jenis (Sneakers, sport, dsb)
+        int    Harga       ;   // Harga sepatunya
+        Stock  stok        ;   // Stack buat jumlah stok
     };
+
+    // cek nama =   sepatu[0].Nama
 }
 
 
@@ -145,18 +155,19 @@ void _struct_dan_stack() {
 void _queue() {
     // fungsi queue digunakan sebagai antrian
     // preorder. Untuk preorder memiliki batasan
-    // stok. Siapa cepat dia dapat, dan jika
-    // stok sudah habis maka sisa queue tidak men-
-    // dapatkan jatah dan dibuang
+    // Antrian. Siapa cepat dia dapat.
 
-    const int stock     = 25;   // jumlah stock yang tersedia
+    const int MAX_ANTRIAN    = 25;   // jumlah stock yang tersedia
 
     struct Queue {
-        int depan       ,       // sebenernya ya.. depan tu ga guna
-            belakang    ,       // belakang, jumlah yang ada di antrian
-            data[stock] ;       // sama aja ga guna, masih kopas aku
-                                // karna cuman ngitung perorangan udah bisa
-                                // make belakang
+        int antrian                 ,   // Antrian adalah jumlah orang yang ngantri
+            orderan[MAX_ANTRIAN]    ;   // Orderan itu implementasian queuenya sendiri
+                                        // jadinya tiap orang memiliki jumlah orderan
+                                        // barangnya sendiri"
+
+        void enque() {
+
+        }
     };
 
 }
