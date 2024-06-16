@@ -14,111 +14,132 @@
 using std::cout;
 using std::cin;
 
-int  pilihan        ;
-void tokoSepatu()   ,
-     Dashboard()    ,
-     Katalog()      ,
-     Keranjang()    ,
-     Profil()       ,
-     Hub()          ,
-     Costumer()     ;
+int  pilihan;
+void tokoSepatu(),
+Dashboard(),
+Katalog(),
+Keranjang(),
+Profil(),
+Pencarian(),
+Costumer();
 
 void Dashboard() {
     cout << bersih
-         << "\tSELAMAT DATANG               \n"
-         << "Silahkan masukkan pilihan Anda \n"
-         << "1. Katalog Barang              \n"
-         << "2. Keranjang                   \n"
-         << "3. Profil                      \n"
-         << "4. Pengaturan preferensi       \n"
-         << "5. Keluar                      \n"
-         << "Pilihan Anda: ";
+        << "+-------------------------------+\n"
+        << "|         SELAMAT DATANG        |\n"
+        << "+-------------------------------+\n"
+        << "|Silahkan masukkan pilihan Anda |\n"
+        << "+-------------------------------+\n"
+        << "|1. Profil                      |\n"
+        << "|2. Katalog Barang              |\n"
+        << "|3. Pencarian                   |\n"
+        << "|4. Keranjang                   |\n"
+        << "|5. Keluar                      |\n"
+        << "+-------------------------------+\n"
+        << "Pilihan Anda: ";
 }
 
 void Katalog() {
     cout << bersih
-         << "\tKATALOG\n"
-         << "Disini anda dapat mencari\n"
-         << "Sepatu yang Anda inginkan\n\n"
-         << "Pastikan ejaan nama sepatu, Merek, ataupun jenisnya benar...\n"
-         << "cari: ";
+        << "+-------------------------------------+\n"
+        << "|                KATALOG              |\n"
+        << "+-------------------------------------+\n"
+        << "| Selamat datang di katalog, terdapat |\n"
+        << "| Banyak pilihan sepatu disini...     |\n"
+        << "+-------------------------------------+\n"
+        << "| 1. Sepatu Dewasa lk                 |\n"
+        << "| 2. Sepatu Dewasa pr                 |\n"
+        << "| 3. Sepatu Dewasa bebas              |\n"
+        << "| 4. Sepatu Anak lk                   |\n"
+        << "| 5. Sepatu Anak pr                   |\n"
+        << "| 6. Sepatu Anak bebas                |\n"
+        << "+-------------------------------------+\n"
+        << "cari: ";
 
-    getchar();
-    cout << bersih
-         << "Hasil Pencarian untuk\n"
-         << "\"Adiboss\"\n"
-         << "1. Adiboss Gaskann, Sneakers, Rp 350.000\n"
-         << "2. Adiboss Sporty, Sport, Rp 450.000\n"
-         << "3. Adiboss Swift, Sneakers, Rp 217.750\n"
-         << "4. Adiboss Champ, Football, Rp 615.500";
     getchar();
 }
 
 void Keranjang() {
     cout << bersih
-         << "\tKERANJANG\n"
-         << "isi Keranjang Anda,\n\n"
-         << "1. Naiki Casual, Sneakers, Rp 215.000\n"
-         << "2. Konvera Entera, Loafers, RP 314.000";
+        << "+--------------------------------------------+\n"
+        << "|                   KERANJANG                |\n"
+        << "+--+-----------------+----------+------------+\n"
+        << "|no|    Nama         |  Jenis   |    Harga   |\n"
+        << "+--+-----------------+----------+------------+\n"
+        << "|1 | Naiki Casual    | Sneakers | Rp 215.000 |\n"
+        << "|2 | Konvera Entera  | Loafers  | RP 314.000 |\n"
+        << "+--+-----------------+----------+------------+\n"
+        << "|                       Total:    Rp 529.000 |\n"
+        << "+--------------------------------------------+";
     getchar();
 }
 
 void Profil() {
     cout << bersih
-         << "\tPROFIL\n"
-         << "Nama: Adolf Churchill Roosevelt\n"
-         << "Domisili: Kayangan\n\n"
-         << "Alamat: Jl. Nusa Keren, no.123, kec Amomo, kab Yahelu, Kayangan";
+        << "+---------------------------------------------------------------+\n"
+        << "|                         Tentang Kami                          |\n"
+        << "+---------------------------------------------------------------+\n"
+        << "| Trex Shoes CLI, adalah toko sepatu berbasis TUI yang kami     |\n"
+        << "| Kembangkan sepenuh hati untuk anda yang ingin berbelanja      |\n"
+        << "| Sepatu secara minimalis melalui Terminal.                     |\n"
+        << "+---------------------------------------------------------------+\n"
+        << "|                          ---=+=---                            |\n"
+        << "| Keluhan dan saran silahkan menghubungi kontak kami dibawah    |\n"
+        << "| Telp  +62 8123456789                                          |\n"
+        << "| Email sepatu_t-rex@rawrrr.co.id                               |\n"
+        << "| Jl. Nusa Keren, no.123, kec Amomo, kab Yahelu, Kayangan       |\n"
+        << "+---------------------------------------------------------------+";
+
 
     getchar();
 }
 
-void Hub() {
+void Pencarian() {
     cout << bersih
-         << "\tTENTANG KAMI"
-         << "Jika Anda memiliki pertanyaan atau pengajuan\n"
-         << "Silahkan menghubungi kontak yang ada dibawah ini\n"
-         << "telp: 09123456789\n"
-         << "email: sepatumu@sepatu.co.id";
-
+        << "+--------------------------------------------+\n"
+        << "|    Hasil Pencarian untuk \"Adiboss\"         |\n"
+        << "+--+-----------------+----------+------------+\n"
+        << "|no|    Nama         |  Jenis   |    Harga   |\n"
+        << "+--+-----------------+----------+------------+\n"
+        << "|1 | Adiboss Gaskann | Sneakers | Rp 350.000 |\n"
+        << "|2 | Adiboss Sporty  | Sport    | Rp 450.000 |\n"
+        << "|3 | Adiboss Swift   | Sneakers | Rp 217.750 |\n"
+        << "|4 | Adiboss Champ   | Football | Rp 615.500 |\n"
+        << "+--------------------------------------------+";
     getchar();
 }
+
 void tokoSepatu() {
     do {
         Dashboard();
         cin >> pilihan;
         cin.ignore();
         switch (pilihan) {
-            case 1:
-                Katalog();
+        case 1:
+            Profil();
             break;
-            case 2:
-                Keranjang();
+        case 2:
+            Katalog();
             break;
-            case 3:
-                Profil();
+        case 3:
+            Pencarian();
             break;
-            case 4:
-                Hub();
+        case 4:
+            Keranjang();
             break;
-            case 5:
-                return;
+        case 5:
+            return;
             break;
-            default:
-                cout << "Pilihan tidak valid";
-                getchar();
+        default:
+            cout << "Pilihan tidak valid";
+            getchar();
 
             break;
         }
     } while (pilihan != 5);
 }
 
-int main () {
-    cout << "Program toko sepatu sederhana...\n"
-         << "kalau semisal disuruh ngetik apa\n"
-         << "Tekan enter aja";
-
-    getchar();
+int main() {
     tokoSepatu();
 
 }
