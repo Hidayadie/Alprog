@@ -198,6 +198,18 @@ void _sort() {
     // pengurutan baik secara abjad ataupun
     // urutan nomor seri
 
+
+    struct Sepatu {
+        string Nama;
+    };
+
+    Sepatu sepatu[5];
+    sepatu[0].Nama = "Lorem";
+    sepatu[1].Nama = "Apa";
+    sepatu[2].Nama = "Apa";
+    sepatu[3].Nama = "Apa";
+    sepatu[4].Nama = "Apa";
+
     // demo sort secara abjad:
 
 
@@ -217,6 +229,10 @@ void _search() {
     // dengan sort untuk mencari filter harga
     // dengan range x - y
 
+    struct Sepatu {
+        string Nama;
+    };
+
     // sama lah, kerjain sapa kek...
 
     // source code
@@ -228,8 +244,48 @@ void _linked() {
     // kemungkinan yang bakal dipake double
     // linked list supaya mudah pengecekan
     // antara first dengan last
+
+    struct Sepatu {
+        string Nama;
+    };
+
+    // Linked list double list
+    // Node bernama keranjang dan
+    // setiap node menyimpang data yang
+    // berupa sepatu
+
+    struct keranjang {
+        Sepatu      data    ;   // Data yang disimpan untuk setiap node
+        keranjang   *next   ,   // Node next/selanjutnya
+                    *prev   ;   // Node previous/sebelumnya
+    };
+
+    keranjang *kepala   ,   // Node paling awal
+              *ekor     ,   // Node paling belakang
+              *baru     ,   // Dipakai untuk membuat node baru
+              *hapus    ;   // Dipakai untuk menghapus node
+
+    /*
+    void tambah_belakang(Sepatu dataBaru) {
+        baru        = new keranjang;
+        baru->data  = dataBaru;
+        baru->next  = NULL;
+        baru->prev  = NULL;
+
+        if (kepala == NULL && ekor == NULL) {
+            kepala          = baru;
+            kepala->next    = NULL;
+            kepala->prev    = NULL;
+            ekor            = kepala;
+        } else {
+            ekor->next      = baru;
+            baru->prev      = ekor;
+            ekor            = baru;
+        }
+    }
+    */
 }
 
 int main() {
-
+    std::cerr << "tes";
 }
