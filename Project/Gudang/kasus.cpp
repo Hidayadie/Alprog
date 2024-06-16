@@ -16,16 +16,49 @@ using std::cout;
 using std::cin;
 using std::string;
 
+/************************************************/
+//              GLOBAL VARIABLE
 
+struct Stock {
+        int jumlah          ; // jumlah sepatu itu sendiri
+        string kondisi[100] ; // Implementasian stack berada pada
+                              // string kondisi yang dimana setiap
+                              // satuan sepatu memiliki kondisinya
+                              // masing masing
+};
+struct Sepatu {
+        string Merek       ,   // Merek dari sepatu
+               kategori    ,   // Kategori sepatu
+               Nama        ,   // Nama sepatunya
+               Jenis       ;   // Jenis (Sneakers, sport, dsb)
+        int    Harga       ;   // Harga sepatunya
+        Stock  stok        ;   // Stack buat jumlah stok
+    };
 
+/************************************************/
+//              GLOBAL FUNCTION
 
 void _pointer()             ,   // fungsi pointer
      _struct_dan_stack()    ,   // dipake buat data sepatu
      _queue()               ,   // antrian preorder
      _sort()                ,   // pengurutan abjad/angka
      _search()              ,   // fungsi cari
-     _linked()              ;   // dipake buat item keranjang
+     _linked__tambah()      ,   // dipake buat nambah item keranjang
+     _linked__kurang()      ,   // hapus node keranjang
+     _linked__print()       ;   // print keranjang
 
+
+
+
+/************************************************/
+//                 STUDI KASUS
+
+
+/**********************************************/
+/*                                            */
+/*                 POINTER                    */
+/*                                            */
+/**********************************************/
 
 void _pointer() {
     // fungsi pointer sendiri dipake
@@ -38,6 +71,12 @@ void _pointer() {
 
 void _struct_dan_stack() {
 
+
+/**********************************************/
+/*                                            */
+/*                  STACK                     */
+/*                                            */
+/**********************************************/
 
     // Fungsi stack digunakan sebagai
     // jumlah stok sepatu yang tersedia
@@ -107,6 +146,11 @@ void _struct_dan_stack() {
         }
     };
 
+/**********************************************/
+/*                                            */
+/*                  STRUCT                    */
+/*                                            */
+/**********************************************/
 
     // Sedangkan untuk struct sepatu akan
     // direpresentasikan dengan id array
@@ -152,6 +196,12 @@ void _struct_dan_stack() {
 
 
 
+/**********************************************/
+/*                                            */
+/*                  QUEUE                     */
+/*                                            */
+/**********************************************/
+
 void _queue() {
     // fungsi queue digunakan sebagai antrian
     // preorder. Untuk preorder memiliki batasan
@@ -193,15 +243,20 @@ void _queue() {
 
 }
 
+
+/**********************************************/
+/*                                            */
+/*                   SORT                     */
+/*                                            */
+/**********************************************/
+
 void _sort() {
     // fungsi sort dapat digunakan sebagai
     // pengurutan baik secara abjad ataupun
     // urutan nomor seri
 
 
-    struct Sepatu {
-        string Nama;
-    };
+
 
     Sepatu sepatu[5];
     sepatu[0].Nama = "Lorem";
@@ -223,15 +278,20 @@ void _sort() {
 
 }
 
+
+
+/**********************************************/
+/*                                            */
+/*                  SEARCH                    */
+/*                                            */
+/**********************************************/
 void _search() {
     // fungsi search dipake buat mencari baik
     // nama, merek, ataupun bisa digabungkan
     // dengan sort untuk mencari filter harga
     // dengan range x - y
 
-    struct Sepatu {
-        string Nama;
-    };
+
 
     // sama lah, kerjain sapa kek...
 
@@ -239,52 +299,56 @@ void _search() {
     // https://github.com/Hidayadie/Alprog/blob/main/Semester%202/Struktur%20Data/M07Praktikum_Search/Task_Search.cpp
 }
 
-void _linked() {
+
+/********************************************************************/
+
+
+/**********************************************/
+/*                                            */
+/*              LINKED LIST                   */
+/*                                            */
+/**********************************************/
+
     // linked dipake untuk keranjang belanja
     // kemungkinan yang bakal dipake double
     // linked list supaya mudah pengecekan
     // antara first dengan last
-
-    struct Sepatu {
-        string Nama;
-    };
 
     // Linked list double list
     // Node bernama keranjang dan
     // setiap node menyimpang data yang
     // berupa sepatu
 
-    struct keranjang {
-        Sepatu      data    ;   // Data yang disimpan untuk setiap node
-        keranjang   *next   ,   // Node next/selanjutnya
-                    *prev   ;   // Node previous/sebelumnya
-    };
+struct keranjang {
+    Sepatu      data    ;   // Data yang disimpan untuk setiap node
+    keranjang   *next   ,   // Node next/selanjutnya
+                *prev   ;   // Node previous/sebelumnya
+};
 
-    keranjang *kepala   ,   // Node paling awal
-              *ekor     ,   // Node paling belakang
-              *baru     ,   // Dipakai untuk membuat node baru
-              *hapus    ;   // Dipakai untuk menghapus node
+keranjang *kepala   ,   // Node paling awal
+          *ekor     ,   // Node paling belakang
+          *baru     ,   // Dipakai untuk membuat node baru
+          *hapus    ;   // Dipakai untuk menghapus node
 
-    /*
-    void tambah_belakang(Sepatu dataBaru) {
-        baru        = new keranjang;
-        baru->data  = dataBaru;
-        baru->next  = NULL;
-        baru->prev  = NULL;
 
-        if (kepala == NULL && ekor == NULL) {
-            kepala          = baru;
-            kepala->next    = NULL;
-            kepala->prev    = NULL;
-            ekor            = kepala;
-        } else {
-            ekor->next      = baru;
-            baru->prev      = ekor;
-            ekor            = baru;
-        }
+void _linked__tambah(Sepatu dataBaru) {
+    baru        = new keranjang;
+    baru->data  = dataBaru;
+    baru->next  = NULL;
+    baru->prev  = NULL;
+    if (kepala == NULL && ekor == NULL) {
+        kepala          = baru;
+        kepala->next    = NULL;
+        kepala->prev    = NULL;
+        ekor            = kepala;
+    } else {
+        ekor->next      = baru;
+        baru->prev      = ekor;
+        ekor            = baru;
     }
-    */
 }
+
+
 
 int main() {
     std::cerr << "tes";
