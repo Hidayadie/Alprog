@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <iomanip>
 #include <fstream>
 
 #define bersih "\033[2J \033[1;1H"
@@ -45,24 +45,21 @@ void database() {
 
 
         string temp;
-        while (getline(fileSepatu, _ID, ',')) {
-               getline(fileSepatu, _Merek, ',');
-               getline(fileSepatu, _kategori, ',');
-               getline(fileSepatu, _Nama, ',');
-               getline(fileSepatu, _Jenis, ',');
-               getline(fileSepatu, temp, ',');
-               _Harga = stoi(temp);
-               getline(fileSepatu, temp, ',');
-               _stok = stoi(temp);
+        while (getline(fileSepatu, _ID      ,   ',')) {
+               getline(fileSepatu, _Merek   ,   ',');
+               getline(fileSepatu, _kategori,   ',');
+               getline(fileSepatu, _Nama    ,   ',');
+               getline(fileSepatu, _Jenis   ,   ',');
+               getline(fileSepatu, temp     ,   ','); _Harga = stoi(temp);
+               getline(fileSepatu, temp            ); _stok  = stoi(temp);
 
-
-               sepatu[jumlahSepatu].ID = _ID;
-               sepatu[jumlahSepatu].Merek = _Merek;
-               sepatu[jumlahSepatu].kategori = _kategori;
-               sepatu[jumlahSepatu].Nama = _Nama;
-               sepatu[jumlahSepatu].Jenis = _Jenis;
-               sepatu[jumlahSepatu].Harga = _Harga;
-               sepatu[jumlahSepatu].stok.jumlah = _stok;
+               sepatu[jumlahSepatu].ID          =   _ID      ;
+               sepatu[jumlahSepatu].Merek       =   _Merek   ;
+               sepatu[jumlahSepatu].kategori    =   _kategori;
+               sepatu[jumlahSepatu].Nama        =   _Nama    ;
+               sepatu[jumlahSepatu].Jenis       =   _Jenis   ;
+               sepatu[jumlahSepatu].Harga       =   _Harga   ;
+               sepatu[jumlahSepatu].stok.jumlah =   _stok    ;
                jumlahSepatu++;
         }
 
@@ -136,7 +133,9 @@ void Katalog() {
         << "| 5. Sepatu Anak pr                   |\n"
         << "| 6. Sepatu Anak bebas                |\n"
         << "+-------------------------------------+\n"
-        << "pilih (0 kembali): "; cin >> pil;
+        << "pilih (0 kembali): ";
+        cin >> pil;
+        cin.ignore();
         switch (pil) {
             case 0:
                 return;
@@ -144,14 +143,23 @@ void Katalog() {
             case 1:
                 _Katalog_Cetak(1);
             break;
+            case 2:
+                _Katalog_Cetak(2);
+            break;
+            case 3:
+                _Katalog_Cetak(3);
+            break;
+            case 4:
+
+            break;
         }
 }
 
 void _Katalog_Cetak(int pilihan) {
-    string pencarian;
+    string pencarian, target;
     switch (pilihan) {
         case 1:
-            pencarian = "Dewasa Laki-Laki";
+            pencarian = "Dewasa Laki-laki";
         break;
         case 2:
             pencarian = "Dewasa Perempuan";
@@ -161,12 +169,37 @@ void _Katalog_Cetak(int pilihan) {
         break;
     }
 
+
+    // cetak tabel
+
+    cout << bersih
+         << "+--------------------------------------------------------------+\n"
+         << "|" <<setw(17)<< "Menampilkan " <<left<<setw(20) << pencarian <<right<< setw(27) << "|\n"
+         << "+----+-----------+--------------------+------------+-----------+\n"
+         << "| ID | Merek     | Nama               | Jenis      | Harga     |\n"
+         << "+----+-----------+--------------------+------------+-----------+\n"
+         << left;
     // cari sepatu yang sama
-    for (int i = 0; i < MAX_ISI; i++) {
-        if (sepatu[i].kategori == pencarian) {
+    for (int i = 0; i < jumlahSepatu; i++) {
+        if (pencarian == "Dewasa") {
+            if (sepatu[i].kategori == "Dewasa Perempuan" || sepatu[i].kategori == "Dewasa Laki-laki" ){
+            cout << "| "
+                 << setw(3) << sepatu[i].ID     << "| "
+                 << setw(10) << sepatu[i].Merek  << "| "
+                 << setw(19)<< sepatu[i].Nama   << "| "
+                 << setw(11)<< sepatu[i].Jenis  << "| "
+                 << setw(10) << sepatu[i].Harga  << "|\n";
+            }
+        } else if (sepatu[i].kategori == pencarian) {
+            cout << "|"
+                 << setw(4) << sepatu[i].ID     << "| "
+                 << setw(10) << sepatu[i].Merek  << "| "
+                 << setw(19)<< sepatu[i].Nama   << "| "
+                 << setw(11)<< sepatu[i].Jenis  << "| "
+                 << setw(10) << sepatu[i].Harga  << "|\n";
 
         }
     }
-
-
+    cout << "+----+-----------+--------------------+------------+-----------+";
+    getchar();
 }
