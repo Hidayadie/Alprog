@@ -1,13 +1,9 @@
 #ifndef PENCARIAN_H
 #define PENCARIAN_H
 #include "database.h"
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <algorithm>
-#include <cctype>
-#include <iomanip>
+
 using namespace std;
+/*
 std::string toLowerCase(const std::string& str) {
     std::string lowerStr = str;
     std::transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), ::tolower);
@@ -40,5 +36,5 @@ void Pencarian(const Sepatu sepatuList[], int jumlahSepatu, const std::string& k
 
 
 
-
+*/
 #endif // PENCARIAN_H

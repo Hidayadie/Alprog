@@ -7,11 +7,11 @@
 
 void Program()          ,
      database()         ,
-     Katalog()          ,
-     _Katalog_Cetak(int pilihan)   ,
+     __KATALOG()          ,
+     __Katalog_Cetak(int pilihan)   ,
      //Pencarian(const Sepatu sepatuList[], int jumlahSepatu, const std::string& kategoriPencarian),
-     Keranjang()        ,
-     Preorder()         ;
+     __KERANJANG()        ,
+     __Preorder()         ;
 
 
 using namespace std;

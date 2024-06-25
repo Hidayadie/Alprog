@@ -23,6 +23,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Katalog.h" />
+		<Unit filename="Keranjang.cpp" />
+		<Unit filename="Keranjang.h" />
 		<Unit filename="Pencarian.h" />
 		<Unit filename="database/database.h" />
 		<Unit filename="main.cpp" />

@@ -1,9 +1,11 @@
-#include "database.h"
-
 #ifndef KATALOG_H
 #define KATALOG_H
 
-void Katalog() {
+#include "database.h"
+#include "Preorder.h"
+#include "Keranjang.h"
+
+void __KATALOG() {
     cout << bersih
         << "+-------------------------------------+\n"
         << "|                KATALOG              |\n"
@@ -26,24 +28,24 @@ void Katalog() {
                 return;
             break;
             case 1:
-                _Katalog_Cetak(1);
+                __Katalog_Cetak(1);
             break;
             case 2:
-                _Katalog_Cetak(2);
+                __Katalog_Cetak(2);
             break;
             case 3:
-                _Katalog_Cetak(3);
+                __Katalog_Cetak(3);
             break;
             case 4:
 
             break;
             case 5:
-                Preorder();
+                __Preorder();
             break;
         }
 }
 
-void _Katalog_Cetak(int pilihan) {
+void __Katalog_Cetak(int pilihan) {
 
     char beli;
 
@@ -98,34 +100,17 @@ void _Katalog_Cetak(int pilihan) {
     if (beli == 'y' || beli == 'Y') {
         cout << "Masukkan \"ID\" Sepatu yang ingin anda beli...";
         cout << " -> "; getline(cin, IDBeli);
+        for (int i = 0; i < jumlahSepatu; i++) {
+            if (IDBeli == sepatu[i].ID) {
+                TambahKeranjang(sepatu[i]);
+            }
+        }
         cout << "Barang berhasil dimasukkan kedalam keranjang";
+        getchar();
     }
     //getchar();
 }
-void Preorder() {
-    char beli;
-    cout << bersih
-         << "+--------------------------------------------------------------+\n"
-         << "|" <<setw(17)<< "Menampilkan " <<left<<setw(20) << "Sepatu preorder" <<right<< setw(27) << "|\n"
-         << "+----+-----------+--------------------+------------+-----------+\n"
-         << "| ID | Merek     | Nama               | Jenis      | Harga     |\n"
-         << "+----+-----------+--------------------+------------+-----------+\n"
-         << left;
-    for (int i = 0; i < 3; i++) {
-        cout << "| "
-             << setw(3) << Spesial[i].ID     << "| "
-             << setw(10) << Spesial[i].Merek  << "| "
-             << setw(19)<< Spesial[i].Nama   << "| "
-             << setw(11)<< Spesial[i].Jenis  << "| "
-             << setw(10) << Spesial[i].Harga  << "|\n";
-    }
-    cout << "+----+-----------+--------------------+------------+-----------+\n"
-         << "| Apakah anda ingin melakukan preorder dari satu diatas? (y/n) |\n"
-         << "+--------------------------------------------------------------+\n";
-    cout << " -> "; cin >> beli;
-    cin.ignore();
 
-}
 
 
 #endif // KATALOG_H

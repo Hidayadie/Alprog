@@ -1,6 +1,7 @@
 #include "database.h"
 #include "Katalog.h"
 #include "Pencarian.h"
+#include "Keranjang.h"
 
 #define bersih "\033[2J \033[1;1H"
 using namespace std;
@@ -34,10 +35,13 @@ void Program() {
             case 1:
 
             case 2:
-                Katalog();
+                __KATALOG();
             break;
             case 3:
-                Pencarian(sepatu, jumlahSepatu, "Air");
+                //encarian(sepatu, jumlahSepatu, "Air");
+            break;
+            case 4:
+                __KERANJANG();
             break;
             case 5:
                 return;
