@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1719329758 source:/home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/main.cpp
+	"database.h"
+	"Katalog.h"
+	"Pencarian.h"
+
+1719329734 /home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/database//database.h
+	<vector>
+	<iostream>
+	<iomanip>
+	<fstream>
+
+1719327106 /home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/Katalog.h
+	"database.h"
+
+1719329871 /home/hidayadie/Github/Repos/Alprog/Project/Gudang/TokoSepatu/T-Rex Shoes/Pencarian.h
+	"database.h"
+	<iostream>
+	<fstream>
+	<string>
+	<algorithm>
+	<cctype>
+	<iomanip>
+
