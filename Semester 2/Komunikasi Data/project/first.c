@@ -344,30 +344,38 @@ void otomatis(void) {
             break;                    // delay dibawahnya selesai
         }
         else if (bruh == 0) {         /* URUTAN PERTAMA */
-            delay_ms(1000);           // delay 1 detik
+            delay_ms(500);           // delay 1 detik
             lampu1(2);                // lampu 1 -> hijau
-            delay_ms(3000);           // delay 3 detik
+            delay_ms(1500);           // delay 3 detik   
+            lampu1(1);
+            delay_ms(500);
             lampu1(0);                // lampu 1 -> merah
             bruh++;                   // urutan + 1
         }
         else if (bruh == 1) {         /* URUTAN KEDUA */
-            delay_ms(1000);           // delay 1 deti
+            delay_ms(500);           // delay 1 deti
             lampu2(2);                // lampu 2 -> hijau
-            delay_ms(3000);           // delay 3 detik
+            delay_ms(1500);           // delay 3 detik  
+            lampu2(1);
+            delay_ms(500);
             lampu2(0);                // lampu 2 -> merah
             bruh++;                   // urutan + 1
         }
         else if (bruh == 2) {         /* URUTAN KETIGA */
-            delay_ms(1000);           // delay 1 deti
+            delay_ms(500);           // delay 1 deti
             lampu3(2);                // lampu 3 -> hijau
-            delay_ms(3000);           // delay 3 detik
+            delay_ms(1500);           // delay 3 detik
+            lampu3(1);
+            delay_ms(500);
             lampu3(0);                // lampu 3 -> merah
             bruh++;                   // urutan + 1
         }
         else if (bruh == 3) {         /* URUTAN KEEMPAT */
-            delay_ms(1000);           // delay 1 deti
+            delay_ms(500);           // delay 1 deti
             lampu4(2);                // lampu 4 -> hijau
-            delay_ms(3000);           // delay 3 detik
+            delay_ms(1500);           // delay 3 detik
+            lampu4(1);
+            delay_ms(500);
             lampu4(0);                // lampu 4 -> merah
             bruh = 0;                 // urutan reset mulai dari awal
         }
