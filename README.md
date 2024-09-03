@@ -1,5 +1,4 @@
 # <P align=center>ALGORITMA DAN PEMROGRAMAN</P> #
-$${\color{red}Welcome \space \color{lightblue}To \space \color{green}my \space repo}$$
 <b>Kelas: 23 IF 07</b> <br>
 <p style="text-align: justify">Github ini digunakan sebagai gudang atau tempat untuk tugas kampus. Setiap
 tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau minggu pertemuannya.</p>
