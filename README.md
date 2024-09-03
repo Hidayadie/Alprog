@@ -7,8 +7,7 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau m
 ## Kumpulan link tugas ##
 ### Semester 1 ###
 <details>
-    <summary>Algoritma dan Pemrograman</summary> 
-    
+    <summary>Algoritma dan Pemrograman</summary>     
 - [M2 - tugas lab   : Sisi miring segitiga](<Semester 1/M02Lab_Segitiga>)
 - [M3 - tugas kelas : Notasi algoritma](<Semester 1/M3Kelas_Notasi>)
 - [M3 - tugas lab   : Tabel menggunakan setw()](<Semester 1/M3Lab_Tabel>)
