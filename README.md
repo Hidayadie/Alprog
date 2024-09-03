@@ -20,7 +20,6 @@ tugas atau perkembangan akan dimasukkan kedalam folder sesuai dengan nama atau m
 - [M8 - tugas lab   : Palindrome](<Semester 1/M8Lab_Palindrome>)
 - [M9 - tugas lab   : Putar Kalimat](<Semester 1/M9Lab_PutarKalimat>)
 - [M10 - tugas lab  : Fungsi](<Semester 1/M10Lab_Fungsi>)
-
 </details>
 
 ### Semester 2 ###
